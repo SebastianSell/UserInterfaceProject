@@ -22,7 +22,7 @@ public class Person {
     private StringProperty phone;
     private StringProperty address;
 
-
+    // Constructor
     public Person(String name, String dob, String email, String phone, String address) {
         this.name = new SimpleStringProperty(name);
         this.dob = new SimpleStringProperty(dob);
