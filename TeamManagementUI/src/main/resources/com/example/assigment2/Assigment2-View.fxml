@@ -17,7 +17,10 @@
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
-          <TableColumn fx:id="ageColumn" prefWidth="75.0" text="Age" />
+          <TableColumn fx:id="dobColumn" prefWidth="75.0" text="DOB" />
+            <TableColumn fx:id="emailColumn" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="Phone" />
+            <TableColumn fx:id="addressColumn" prefWidth="75.0" text="Address" />
         </columns>
       </TableView>
    </center>
@@ -61,7 +64,6 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                 <Button fx:id="createButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleCreate" text="Create" />
-                  <Button fx:id="readButton" mnemonicParsing="false" onAction="#handleRead" text="Read" />
                   <Button fx:id="updateButton" mnemonicParsing="false" onAction="#handleUpdate" text="Update" />
                   <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
                </children>

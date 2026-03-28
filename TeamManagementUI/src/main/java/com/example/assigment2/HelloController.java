@@ -53,9 +53,6 @@ public class HelloController {
     private Button createButton;
 
     @FXML
-    private Button readButton;
-
-    @FXML
     private Button updateButton;
 
     @FXML
@@ -81,9 +78,6 @@ public class HelloController {
                 tableView.getSelectionModel().selectedItemProperty().isNull());
 
         deleteButton.disableProperty().bind(
-                tableView.getSelectionModel().selectedItemProperty().isNull());
-
-        readButton.disableProperty().bind(
                 tableView.getSelectionModel().selectedItemProperty().isNull());
     }
 
