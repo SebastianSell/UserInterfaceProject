@@ -44,4 +44,11 @@ public class AddUserController {
         Stage stage = (Stage) nameField.getScene().getWindow();
         stage.close();
     }
+
+    @FXML
+    private void handleCancel() {
+
+        Stage stage = (Stage) nameField.getScene().getWindow();
+        stage.close();
+    }
 }

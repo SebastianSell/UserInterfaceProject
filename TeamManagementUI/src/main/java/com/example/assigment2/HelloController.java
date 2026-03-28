@@ -146,7 +146,7 @@ public class HelloController {
             Parent root = loader.load();
 
             EditUserController controller = loader.getController();
-            controller.setMainController(this);
+            //controller.setMainController(this);
             controller.setPerson(selected);
 
             Stage stage = new Stage();
@@ -158,13 +158,6 @@ public class HelloController {
             e.printStackTrace();
         }
 
-
-
-        if (selected != null) {
-            selected.setName(nameField.getText());
-            selected.setDob(dobField.getText());
-            tableView.refresh();
-        }
     }
 
     @FXML
@@ -203,6 +196,9 @@ public class HelloController {
         alert.showAndWait();
     }
 
+    public void addPerson(Person p){
+        data.add(p);
+    }
 
 
 

@@ -6,26 +6,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
 
 
-    <VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.assigment2.AddUserController">
 
-        <Label text="Add User" style="-fx-font-size:20px;"/>
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.assigment2.AddUserController">
 
-        <TextField fx:id="nameField" promptText="Name"/>
-        <TextField fx:id="dobField" promptText="Date of Birth"/>
-        <TextField fx:id="emailField" promptText="Email"/>
-        <TextField fx:id="phoneField" promptText="Phone"/>
-        <TextField fx:id="addressField" promptText="Address"/>
+    <Label text="Add User" style="-fx-font-size:20px;"/>
 
-        <Button text="Save" onAction="#handleSave"/>
-        <Button text="Cancel" onAction="#handleCancel"/>
+    <TextField fx:id="nameField" promptText="Name"/>
+    <TextField fx:id="dobField" promptText="Date of Birth"/>
+    <TextField fx:id="emailField" promptText="Email"/>
+    <TextField fx:id="phoneField" promptText="Phone"/>
+    <TextField fx:id="addressField" promptText="Address"/>
 
-    </VBox>
+    <Button text="Save" onAction="#handleSave"/>
+    <Button text="Cancel" onAction="#handleCancel"/>
 
-</AnchorPane>
+</VBox>
+
+
