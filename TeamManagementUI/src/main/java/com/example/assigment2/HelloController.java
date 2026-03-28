@@ -5,8 +5,10 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.collections.ObservableList;
+import javafx.stage.Stage;
 
 /**
  * Name: Sebastian Sell, Luca Beumer, Bennet Ireland
