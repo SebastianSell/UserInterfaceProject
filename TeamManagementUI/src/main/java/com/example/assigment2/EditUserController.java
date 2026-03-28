@@ -48,7 +48,7 @@ public class EditUserController {
     }
 
     @FXML
-    private void handleCancel() {
+    private void handleCancel(){
 
         Stage stage = (Stage) nameField.getScene().getWindow();
         stage.close();

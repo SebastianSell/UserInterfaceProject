@@ -1,21 +1,11 @@
 package com.example.assigment2;
 
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.collections.ObservableList;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-/**
- * Name: Sebastian Sell, Luca Beumer, Bennet Ireland
- * Student number: 041147547
- * course code: cst8412
- * assignment name: FinalProject
- * */
 
 public class HelloController {
 
@@ -23,38 +13,19 @@ public class HelloController {
     private TableView<Person> tableView;
 
     @FXML
-    private TableColumn<Person, String> nameColumn;
+    private TableColumn<Person,String> nameColumn;
 
     @FXML
-    private TableColumn<Person, String> dobColumn;
+    private TableColumn<Person,String> dobColumn;
 
     @FXML
-    private TableColumn<Person, String> emailColumn;
+    private TableColumn<Person,String> emailColumn;
 
     @FXML
-    private TableColumn<Person, String> phoneColumn;
+    private TableColumn<Person,String> phoneColumn;
 
     @FXML
-    private TableColumn<Person, String> addressColumn;
-
-
-    @FXML
-    private TextField nameField;
-
-    @FXML
-    private TextField dobField;
-
-    @FXML
-    private TextField emailField;
-
-    @FXML
-    private TextField phoneField;
-
-    @FXML
-    private TextField addressField;
-
-    @FXML
-    private Button createButton;
+    private TableColumn<Person,String> addressColumn;
 
     @FXML
     private Button updateButton;
@@ -64,20 +35,17 @@ public class HelloController {
 
     private ObservableList<Person> data = FXCollections.observableArrayList();
 
-
     @FXML
-    /**Initialize the program*/
     public void initialize() {
 
-        nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        dobColumn.setCellValueFactory(cellData -> cellData.getValue().dobProperty());
-        emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
-        phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
-        addressColumn.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
+        nameColumn.setCellValueFactory(c -> c.getValue().nameProperty());
+        dobColumn.setCellValueFactory(c -> c.getValue().dobProperty());
+        emailColumn.setCellValueFactory(c -> c.getValue().emailProperty());
+        phoneColumn.setCellValueFactory(c -> c.getValue().phoneProperty());
+        addressColumn.setCellValueFactory(c -> c.getValue().addressProperty());
 
         tableView.setItems(data);
 
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         updateButton.disableProperty().bind(
                 tableView.getSelectionModel().selectedItemProperty().isNull());
 
@@ -85,13 +53,19 @@ public class HelloController {
                 tableView.getSelectionModel().selectedItemProperty().isNull());
     }
 
+    public void addPerson(Person p){
+        data.add(p);
+    }
+
     @FXML
-    /**Creates a new record and places it on the table view*/
-    private void handleCreate() {
+    private void handleCreate(){
 
-        try {
+        try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("add-user.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                    HelloApplication.class.getResource("add-user.fxml")
+            );
+
             Parent root = loader.load();
 
             AddUserController controller = loader.getController();
@@ -102,51 +76,29 @@ public class HelloController {
             stage.setScene(new Scene(root));
             stage.show();
 
-        } catch(Exception e){
+        }catch(Exception e){
             e.printStackTrace();
         }
-
-        /*String name = nameField.getText();
-        String dob = dobField.getText();
-        String email = nameField.getText();
-        String phone = dobField.getText();
-        String address = nameField.getText();
-
-        if (!name.isEmpty() && !dob.isEmpty()) {
-            data.add(new Person(name, dob, email, phone, address));
-        }
-
-        nameField.clear();
-        dobField.clear();*/
-    }
-
-
-    @FXML
-    /** Puts the values of a selected record from the table onto the two text fields*/
-    private void handleRead() {
-
-        Person selected = tableView.getSelectionModel().getSelectedItem();
-
-        if (selected != null) {
-            nameField.setText(selected.getName());
-            dobField.setText(selected.getDob());
-        }
     }
 
     @FXML
-    /**Updates a record on the table*/
-    private void handleUpdate() {
+    private void handleUpdate(){
 
         Person selected = tableView.getSelectionModel().getSelectedItem();
 
+        if(selected == null){
+            return;
+        }
 
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("edit-user.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                    HelloApplication.class.getResource("edit-user.fxml")
+            );
+
             Parent root = loader.load();
 
             EditUserController controller = loader.getController();
-            //controller.setMainController(this);
             controller.setPerson(selected);
 
             Stage stage = new Stage();
@@ -154,15 +106,13 @@ public class HelloController {
             stage.setScene(new Scene(root));
             stage.show();
 
-        } catch(Exception e){
+        }catch(Exception e){
             e.printStackTrace();
         }
-
     }
 
     @FXML
-    /**Deletes a record from the table*/
-    private void handleDelete() {
+    private void handleDelete(){
 
         Person selected = tableView.getSelectionModel().getSelectedItem();
 
@@ -175,33 +125,4 @@ public class HelloController {
             data.remove(selected);
         }
     }
-
-    @FXML
-    /**Lets the user close the window*/
-    private void handleExit() {
-        System.exit(0);
-    }
-
-
-    @FXML
-    /**Provides a pop-up window explaining what the GUI is*/
-    private void handleAbout() {
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-        alert.setTitle("About");
-        alert.setHeaderText("JavaFX CRUD Application");
-        alert.setContentText("Example application for CST assignment.");
-
-        alert.showAndWait();
-    }
-
-    public void addPerson(Person p){
-        data.add(p);
-    }
-
-
-
-
-
 }
