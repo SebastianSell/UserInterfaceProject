@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Loads the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Assigment2-View.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("CRUD Table Example");
         stage.setScene(scene);

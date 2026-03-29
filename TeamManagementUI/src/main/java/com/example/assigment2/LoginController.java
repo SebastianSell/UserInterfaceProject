@@ -29,7 +29,7 @@ public class LoginController {
             try{
 
                 FXMLLoader loader = new FXMLLoader(
-                        HelloApplication.class.getResource("hello-view.fxml")
+                        HelloApplication.class.getResource("Assigment2-View.fxml")
                 );
 
                 Parent root = loader.load();

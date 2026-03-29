@@ -2,12 +2,14 @@ package com.example.assigment2;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.*;
-import javafx.scene.*;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class HelloController {
+public class TaskController {
 
     @FXML
     private TableView<Person> tableView;

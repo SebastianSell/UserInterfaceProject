@@ -19,6 +19,9 @@
             <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="Phone" />
             <TableColumn fx:id="addressColumn" prefWidth="75.0" text="Address" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </center>
    <top>
