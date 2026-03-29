@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane prefHeight="222.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assigment2.HelloController">
+<BorderPane prefHeight="222.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assigment2.TaskController">
    <center>
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
@@ -19,7 +19,7 @@
             <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Task Status" />
             <TableColumn fx:id="dueDateColumn" prefWidth="75.0" text="Due Date" />
             <TableColumn fx:id="createdDateColumn" prefWidth="75.0" text="Created Date" />
-            <TableColumn fx:id="noteColumn" prefWidth="75.0" text="Notes" />
+            <TableColumn fx:id="notesColumn" prefWidth="75.0" text="Notes" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -44,10 +44,8 @@
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Unspecified Menu">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
+            <Menu text="Pages">
+                <MenuItem text="View Users" onAction="#handleViewUsers"/>
             </Menu>
         </menus>
       </MenuBar>

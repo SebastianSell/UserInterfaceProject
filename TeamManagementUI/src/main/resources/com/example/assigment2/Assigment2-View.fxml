@@ -42,10 +42,10 @@
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Unspecified Menu">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
+            <Menu text="Pages">
+
+                <MenuItem text="View Tasks" onAction="#handleViewTasks"/>
+
             </Menu>
         </menus>
       </MenuBar>

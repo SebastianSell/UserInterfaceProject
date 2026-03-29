@@ -167,4 +167,26 @@ public class HelloController {
 
         alert.showAndWait();
     }
+
+    @FXML
+    private void handleViewTasks(){
+
+        try{
+
+            FXMLLoader loader = new FXMLLoader(
+                    HelloApplication.class.getResource("task-view.fxml")
+            );
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) tableView.getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Task Manager");
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
 }

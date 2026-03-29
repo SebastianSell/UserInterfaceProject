@@ -78,7 +78,7 @@ public class TaskController {
 
             Parent root = loader.load();
 
-            AddUserController controller = loader.getController();
+            AddTaskController controller = loader.getController();
             //controller.setMainController(this);
 
             Stage stage = new Stage();
@@ -103,16 +103,16 @@ public class TaskController {
         try{
 
             FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("edit-user.fxml")
+                    HelloApplication.class.getResource("edit-task.fxml")
             );
 
             Parent root = loader.load();
 
-            EditUserController controller = loader.getController();
+            EditTaskController controller = loader.getController();
             //controller.setTask(selected);
 
             Stage stage = new Stage();
-            stage.setTitle("Edit User");
+            stage.setTitle("Edit Task");
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -127,7 +127,7 @@ public class TaskController {
         Task selected = tableView.getSelectionModel().getSelectedItem();
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete User");
+        alert.setTitle("Delete Task");
         alert.setHeaderText("Are you sure?");
         alert.setContentText("This record will be permanently deleted.");
 
@@ -176,5 +176,27 @@ public class TaskController {
         );
 
         alert.showAndWait();
+    }
+
+    @FXML
+    private void handleViewUsers(){
+
+        try{
+
+            FXMLLoader loader = new FXMLLoader(
+                    HelloApplication.class.getResource("Assigment2-View.fxml")
+            );
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) tableView.getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("User Manager");
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

@@ -20,7 +20,7 @@
     <TextField fx:id="phoneField" promptText="Phone"/>
     <TextField fx:id="addressField" promptText="Address"/>
 
-    <Button text="Save" onAction="#handleSave"/>
+    <Button text="Create" onAction="#handleSave"/>
     <Button text="Cancel" onAction="#handleCancel"/>
 
 </VBox>
