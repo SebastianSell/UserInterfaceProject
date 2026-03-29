@@ -51,7 +51,7 @@ public class TaskController {
         memberAssignedColumn.setCellValueFactory(c -> c.getValue().memberAssignedProperty());
         statusColumn.setCellValueFactory(c -> c.getValue().statusProperty());
         dueDateColumn.setCellValueFactory(c -> c.getValue().dueDateProperty());
-        statusColumn.setCellValueFactory(c -> c.getValue().createdDateProperty());
+        createdDateColumn.setCellValueFactory(c -> c.getValue().createdDateProperty());
         notesColumn.setCellValueFactory(c -> c.getValue().taskNotesProperty());
 
         tableView.setItems(data);
@@ -79,7 +79,7 @@ public class TaskController {
             Parent root = loader.load();
 
             AddTaskController controller = loader.getController();
-            //controller.setMainController(this);
+            controller.setMainController(this);
 
             Stage stage = new Stage();
             stage.setTitle("Add Task");
@@ -109,7 +109,7 @@ public class TaskController {
             Parent root = loader.load();
 
             EditTaskController controller = loader.getController();
-            //controller.setTask(selected);
+            controller.setTask(selected);
 
             Stage stage = new Stage();
             stage.setTitle("Edit Task");

@@ -16,7 +16,7 @@ public class Task {
     private StringProperty taskName;
     private StringProperty taskDifficulty;
     private StringProperty memberAssigned;
-    private StringProperty Status;
+    private StringProperty status;
     private StringProperty dueDate;
     private StringProperty createdDate;
     private StringProperty taskNotes;
@@ -25,7 +25,7 @@ public class Task {
         this.taskName = taskName;
         this.taskDifficulty = taskDifficulty;
         this.memberAssigned = memberAssigned;
-        Status = status;
+        this.status = status;
         this.dueDate = dueDate;
         this.createdDate = createdDate;
         this.taskNotes = taskNotes;
@@ -69,15 +69,15 @@ public class Task {
     }
 
     public String getStatus() {
-        return Status.get();
+        return status.get();
     }
 
     public StringProperty statusProperty() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        this.Status.set(status);
+        this.status.set(status);
     }
 
     public String getDueDate() {
