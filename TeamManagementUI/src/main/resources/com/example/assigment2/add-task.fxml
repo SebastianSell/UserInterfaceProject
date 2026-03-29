@@ -17,13 +17,13 @@
 
     <TextField fx:id="taskNameField" promptText="Task Title"/>
 
-    <TextField fx:id="difficultyField" promptText="Task Difficulty"/>
+    <ComboBox fx:id="difficultyBox" prefWidth="200" promptText="Task Difficulty"/>
 
     <TextField fx:id="memberField" promptText="Which Member Is Assigned This Task"/>
 
-    <TextField fx:id="statusField" promptText="Current Status of the Task"/>
+    <ComboBox fx:id="statusBox" prefWidth="200" promptText="Current Status of the Task"/>
 
-    <TextField fx:id="dueDateField" promptText="Due Date"/>
+    <DatePicker fx:id="dueDatePicker" prefWidth="200" promptText="Due Date"/>
 
     <TextField fx:id="notesField" promptText="Notes"/>
 

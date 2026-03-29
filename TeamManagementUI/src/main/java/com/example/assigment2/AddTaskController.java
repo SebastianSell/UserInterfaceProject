@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 
 public class AddTaskController {
 
@@ -14,16 +16,16 @@ public class AddTaskController {
     private TextField taskNameField;
 
     @FXML
-    private TextField difficultyField;
+    private ComboBox<String> difficultyBox;
 
     @FXML
     private TextField memberField;
 
     @FXML
-    private TextField statusField;
+    private ComboBox<String> statusBox;
 
     @FXML
-    private TextField dueDateField;
+    private DatePicker dueDatePicker;
 
     @FXML
     private TextField createdDateField;
@@ -38,6 +40,22 @@ public class AddTaskController {
     }
 
     @FXML
+    public void initialize(){
+
+        difficultyBox.getItems().addAll(
+                "Easy",
+                "Medium",
+                "Hard"
+        );
+
+        statusBox.getItems().addAll(
+                "Not Started",
+                "In Progress",
+                "Completed"
+        );
+    }
+
+    @FXML
     private void handleSave(){
 
         DateTimeFormatter formatter =
@@ -48,10 +66,10 @@ public class AddTaskController {
 
         Task task = new Task(
                 new SimpleStringProperty(taskNameField.getText()),
-                new SimpleStringProperty(difficultyField.getText()),
+                new SimpleStringProperty(difficultyBox.getValue()),
                 new SimpleStringProperty(memberField.getText()),
-                new SimpleStringProperty(statusField.getText()),
-                new SimpleStringProperty(dueDateField.getText()),
+                new SimpleStringProperty(statusBox.getValue()),
+                new SimpleStringProperty(dueDatePicker.getValue().toString()),
                 new SimpleStringProperty(createdDate),
                 new SimpleStringProperty(notesField.getText())
         );

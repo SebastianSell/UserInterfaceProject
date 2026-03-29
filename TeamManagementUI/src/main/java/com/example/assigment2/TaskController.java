@@ -54,6 +54,8 @@ public class TaskController {
         createdDateColumn.setCellValueFactory(c -> c.getValue().createdDateProperty());
         notesColumn.setCellValueFactory(c -> c.getValue().taskNotesProperty());
 
+
+
         tableView.setItems(data);
 
         updateButton.disableProperty().bind(
