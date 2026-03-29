@@ -12,22 +12,28 @@ import javafx.stage.Stage;
 public class TaskController {
 
     @FXML
-    private TableView<Person> tableView;
+    private TableView<Task> tableView;
 
     @FXML
-    private TableColumn<Person,String> nameColumn;
+    private TableColumn<Task,String> taskNameColumn;
 
     @FXML
-    private TableColumn<Person,String> dobColumn;
+    private TableColumn<Task,String> taskDifficultyColumn;
 
     @FXML
-    private TableColumn<Person,String> emailColumn;
+    private TableColumn<Task,String> memberAssignedColumn;
 
     @FXML
-    private TableColumn<Person,String> phoneColumn;
+    private TableColumn<Task,String> statusColumn;
 
     @FXML
-    private TableColumn<Person,String> addressColumn;
+    private TableColumn<Task,String> dueDateColumn;
+
+    @FXML
+    private TableColumn<Task,String> createdDateColumn;
+
+    @FXML
+    private TableColumn<Task,String> notesColumn;
 
     @FXML
     private Button updateButton;
@@ -35,16 +41,18 @@ public class TaskController {
     @FXML
     private Button deleteButton;
 
-    private ObservableList<Person> data = FXCollections.observableArrayList();
+    private ObservableList<Task> data = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
 
-        nameColumn.setCellValueFactory(c -> c.getValue().nameProperty());
-        dobColumn.setCellValueFactory(c -> c.getValue().dobProperty());
-        emailColumn.setCellValueFactory(c -> c.getValue().emailProperty());
-        phoneColumn.setCellValueFactory(c -> c.getValue().phoneProperty());
-        addressColumn.setCellValueFactory(c -> c.getValue().addressProperty());
+        taskNameColumn.setCellValueFactory(c -> c.getValue().taskNameProperty());
+        taskDifficultyColumn.setCellValueFactory(c -> c.getValue().taskDifficultyProperty());
+        memberAssignedColumn.setCellValueFactory(c -> c.getValue().memberAssignedProperty());
+        statusColumn.setCellValueFactory(c -> c.getValue().statusProperty());
+        dueDateColumn.setCellValueFactory(c -> c.getValue().dueDateProperty());
+        statusColumn.setCellValueFactory(c -> c.getValue().createdDateProperty());
+        notesColumn.setCellValueFactory(c -> c.getValue().taskNotesProperty());
 
         tableView.setItems(data);
 
@@ -55,8 +63,8 @@ public class TaskController {
                 tableView.getSelectionModel().selectedItemProperty().isNull());
     }
 
-    public void addPerson(Person p){
-        data.add(p);
+    public void addTask(Task t){
+        data.add(t);
     }
 
     @FXML
@@ -65,16 +73,16 @@ public class TaskController {
         try{
 
             FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("add-user.fxml")
+                    HelloApplication.class.getResource("add-task.fxml")
             );
 
             Parent root = loader.load();
 
             AddUserController controller = loader.getController();
-            controller.setMainController(this);
+            //controller.setMainController(this);
 
             Stage stage = new Stage();
-            stage.setTitle("Add User");
+            stage.setTitle("Add Task");
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -86,7 +94,7 @@ public class TaskController {
     @FXML
     private void handleUpdate(){
 
-        Person selected = tableView.getSelectionModel().getSelectedItem();
+        Task selected = tableView.getSelectionModel().getSelectedItem();
 
         if(selected == null){
             return;
@@ -101,7 +109,7 @@ public class TaskController {
             Parent root = loader.load();
 
             EditUserController controller = loader.getController();
-            controller.setPerson(selected);
+            //controller.setTask(selected);
 
             Stage stage = new Stage();
             stage.setTitle("Edit User");
@@ -116,7 +124,7 @@ public class TaskController {
     @FXML
     private void handleDelete(){
 
-        Person selected = tableView.getSelectionModel().getSelectedItem();
+        Task selected = tableView.getSelectionModel().getSelectedItem();
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete User");
