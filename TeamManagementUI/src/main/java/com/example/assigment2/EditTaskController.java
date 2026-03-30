@@ -1,8 +1,12 @@
 package com.example.assigment2;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.time.LocalDate;
 
 public class EditTaskController {
 
@@ -10,16 +14,16 @@ public class EditTaskController {
     private TextField taskNameField;
 
     @FXML
-    private TextField difficultyField;
+    private ComboBox<String> difficultyBox;
 
     @FXML
     private TextField memberField;
 
     @FXML
-    private TextField statusField;
+    private ComboBox<String> statusBox;
 
     @FXML
-    private TextField dueDateField;
+    private DatePicker dueDatePicker;
 
     @FXML
     private TextField createdDateField;
@@ -34,11 +38,11 @@ public class EditTaskController {
         this.task = task;
 
         taskNameField.setText(task.getTaskName());
-        difficultyField.setText(task.getTaskDifficulty());
+        difficultyBox.setValue(task.getTaskDifficulty());
         memberField.setText(task.getMemberAssigned());
-        statusField.setText(task.getStatus());
-        dueDateField.setText(task.getDueDate());
-        createdDateField.setText(task.getCreatedDate());
+        statusBox.setValue(task.getStatus());
+        dueDatePicker.setValue(LocalDate.parse(task.getDueDate()));
+        //createdDateField.setText(task.getCreatedDate());
         notesField.setText(task.getTaskNotes());
     }
 
@@ -46,11 +50,11 @@ public class EditTaskController {
     private void handleSave(){
 
         task.setTaskName(taskNameField.getText());
-        task.setTaskDifficulty(difficultyField.getText());
+        task.setTaskDifficulty(difficultyBox.getValue());
         task.setMemberAssigned(memberField.getText());
-        task.setStatus(statusField.getText());
-        task.setDueDate(dueDateField.getText());
-        task.setCreatedDate(createdDateField.getText());
+        task.setStatus(statusBox.getValue());
+        task.setDueDate(dueDatePicker.getValue().toString());
+        //task.setCreatedDate(createdDateField.getText());
         task.setTaskNotes(notesField.getText());
 
         Stage stage = (Stage) taskNameField.getScene().getWindow();

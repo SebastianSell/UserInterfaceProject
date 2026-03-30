@@ -12,11 +12,17 @@
 
     <Label text="Edit Task" style="-fx-font-size:20"/>
 
-    <TextField fx:id="titleField"/>
+    <TextField fx:id="taskNameField" promptText="Task Title"/>
 
-    <TextField fx:id="descriptionField"/>
+    <ComboBox fx:id="difficultyBox" prefWidth="200" promptText="Task Difficulty"/>
 
-    <TextField fx:id="dueDateField"/>
+    <TextField fx:id="memberField" promptText="Which Member Is Assigned This Task"/>
+
+    <ComboBox fx:id="statusBox" prefWidth="200" promptText="Current Status of the Task"/>
+
+    <DatePicker fx:id="dueDatePicker" prefWidth="200" promptText="Due Date"/>
+
+    <TextField fx:id="notesField" promptText="Notes"/>
 
     <HBox spacing="10" alignment="CENTER">
         <Button text="Save" onAction="#handleSave"/>
