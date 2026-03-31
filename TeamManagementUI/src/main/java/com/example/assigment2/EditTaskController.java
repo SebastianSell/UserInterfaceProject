@@ -8,6 +8,16 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
+/**
+ * course code: cst8412
+ *
+ *
+ * Controller class for the edit-task.fxml file.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class EditTaskController {
 
     @FXML
@@ -32,7 +42,9 @@ public class EditTaskController {
     private TextField notesField;
 
     private Task task;
-
+    /**
+     * Attaches the existing values of the selected task onto the Edit Page input fields
+     */
     public void setTask(Task task){
 
         this.task = task;
@@ -45,7 +57,10 @@ public class EditTaskController {
         //createdDateField.setText(task.getCreatedDate());
         notesField.setText(task.getTaskNotes());
     }
-
+    /**
+     * Saves the new updated task entered in the Edit Task window
+     * and adds it to the main task table.
+     */
     @FXML
     private void handleSave(){
 
@@ -54,13 +69,15 @@ public class EditTaskController {
         task.setMemberAssigned(memberField.getText());
         task.setStatus(statusBox.getValue());
         task.setDueDate(dueDatePicker.getValue().toString());
-        //task.setCreatedDate(createdDateField.getText());
         task.setTaskNotes(notesField.getText());
 
         Stage stage = (Stage) taskNameField.getScene().getWindow();
         stage.close();
     }
-
+    /**
+     * Closes the Edit Task window to return to the View Task page without adding a task.
+     * This is needed if the user changes their mind about updating a task.
+     */
     @FXML
     private void handleCancel(){
         Stage stage = (Stage) taskNameField.getScene().getWindow();

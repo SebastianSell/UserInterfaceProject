@@ -4,13 +4,20 @@ import javafx.beans.property.StringProperty;
 
 
 /**
- * Name: Sebastian Sell, Luca Beumer, Bennet Ireland
- * Student number: 041147547,
  * course code: cst8412
- * assignment name: Assignment2
- * */
+ *
+ *
+ * Represents a task in the Task Manager application.
+ * Each task contains information about the task name,
+ * difficulty, assigned member, status, due date, creation
+ * date, and optional notes.
+ *
+ * This class acts as the model for the Task TableView.
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 
-/** Task class for a record template for the CRUD application*/
 public class Task {
 
     private StringProperty taskName;
@@ -20,7 +27,17 @@ public class Task {
     private StringProperty dueDate;
     private StringProperty createdDate;
     private StringProperty taskNotes;
-    /** constructor for the Task class*/
+    /**
+     * Creates a new Task object.
+     *
+     * @param taskName name of the task
+     * @param taskDifficulty difficulty level of the task
+     * @param memberAssigned person responsible for the task
+     * @param status current status of the task
+     * @param dueDate due date of the task
+     * @param createdDate date the task was created
+     * @param taskNotes additional notes about the task
+     */
     public Task(StringProperty taskName, StringProperty taskDifficulty, StringProperty memberAssigned, StringProperty status, StringProperty dueDate, StringProperty createdDate, StringProperty taskNotes) {
         this.taskName = taskName;
         this.taskDifficulty = taskDifficulty;

@@ -9,6 +9,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+
+/**
+ * course code: cst8412
+ *
+ *
+ * Controller class for the task-view.fxml file.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class TaskController {
 
     @FXML
@@ -43,6 +54,9 @@ public class TaskController {
 
     private ObservableList<Task> data = FXCollections.observableArrayList();
 
+    /**
+     * Iniltialization for the class
+     */
     @FXML
     public void initialize() {
 
@@ -69,6 +83,11 @@ public class TaskController {
         data.add(t);
     }
 
+    /**
+     * Handles the creation of a new task.
+     * Opens the Add Task window where the user can
+     * enter task information.
+     */
     @FXML
     private void handleCreate(){
 
@@ -92,7 +111,11 @@ public class TaskController {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Handles the update of a existing task.
+     * Opens the Edit Task window where the user can
+     * enter task information to update a task.
+     */
     @FXML
     private void handleUpdate(){
 
@@ -122,7 +145,9 @@ public class TaskController {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Handles the deletion of a task
+     */
     @FXML
     private void handleDelete(){
 
@@ -158,12 +183,16 @@ public class TaskController {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Handles the closing of the app
+     */
     @FXML
     private void handleExit(){
         System.exit(0);
     }
-
+    /**
+     * Handles the about pop-up
+     */
     @FXML
     private void handleAbout(){
 
@@ -179,7 +208,9 @@ public class TaskController {
 
         alert.showAndWait();
     }
-
+    /**
+     * Handles viewing the user viewtable page
+     */
     @FXML
     private void handleViewUsers(){
 

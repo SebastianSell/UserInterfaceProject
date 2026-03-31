@@ -1,8 +1,5 @@
 package com.example.assigment2;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -10,7 +7,6 @@ import javafx.beans.property.StringProperty;
  * Name: Sebastian Sell, Luca Beumer, Bennet Ireland
  * Student number: 041147547,
  * course code: cst8412
- * assignment name: Assignment2
  * */
 
 /** Person class for a record template for the CRUD application*/
@@ -22,7 +18,7 @@ public class Person {
     private StringProperty phone;
     private StringProperty address;
 
-    // Constructor
+    /** Constructor for the Person clas*/
     public Person(String name, String dob, String email, String phone, String address) {
         this.name = new SimpleStringProperty(name);
         this.dob = new SimpleStringProperty(dob);

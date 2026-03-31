@@ -10,6 +10,16 @@ import java.time.format.DateTimeFormatter;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 
+/**
+ * course code: cst8412
+ *
+ *
+ * Controller class for the add-task.fxml file.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class AddTaskController {
 
     @FXML
@@ -39,6 +49,9 @@ public class AddTaskController {
         this.mainController = controller;
     }
 
+    /**
+     * Iniltializes the values for the dropdown options of task difficulty and task status
+     */
     @FXML
     public void initialize(){
 
@@ -55,6 +68,10 @@ public class AddTaskController {
         );
     }
 
+    /**
+     * Saves the new task entered in the Add Task window
+     * and adds it to the main task table.
+     */
     @FXML
     private void handleSave(){
 
@@ -79,7 +96,10 @@ public class AddTaskController {
         Stage stage = (Stage) taskNameField.getScene().getWindow();
         stage.close();
     }
-
+    /**
+     * Closes the Add Task window to return to the View Task page without adding a task.
+     * This is needed if the user changes their mind about adding a task.
+     */
     @FXML
     private void handleCancel(){
         Stage stage = (Stage) taskNameField.getScene().getWindow();
