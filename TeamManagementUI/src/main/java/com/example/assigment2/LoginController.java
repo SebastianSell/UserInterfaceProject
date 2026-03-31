@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class LoginController {
@@ -25,32 +26,41 @@ public class LoginController {
 
 
     @FXML
-    private void handleLogin() {
+    private void handleLogin(){
 
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        String sql = "SELECT * FROM users WHERE username=? AND password=?";
+        String hashedInput = PasswordUtil.hashPassword(password);
+
+        String sql = "SELECT id,password FROM users WHERE username=?";
 
         try(Connection conn = DatabaseConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)){
 
             stmt.setString(1, username);
-            stmt.setString(2, password);
 
             ResultSet rs = stmt.executeQuery();
 
-            if(rs.next()) {
+            if(rs.next()){
 
-                Session.currentUserId = rs.getInt("id");
+                String passwordFromDatabase = rs.getString("password");
 
-                openTaskPage();
+                if(hashedInput.equals(passwordFromDatabase)){
+
+                    Session.currentUserId = rs.getInt("id");
+
+                    openTaskPage();
+
+                }else{
+                    showError("Incorrect password");
+                }
+
+            }else{
+                showError("User not found");
             }
-            else {
-                showError("Invalid login.");
-            }
 
-        } catch(Exception e){
+        }catch(SQLException e){
             e.printStackTrace();
         }
     }
