@@ -1,5 +1,6 @@
 package com.example.assigment2;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,6 +9,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+
 
 
 /**
@@ -68,8 +77,6 @@ public class TaskController {
         createdDateColumn.setCellValueFactory(c -> c.getValue().createdDateProperty());
         notesColumn.setCellValueFactory(c -> c.getValue().taskNotesProperty());
 
-
-
         tableView.setItems(data);
 
         updateButton.disableProperty().bind(
@@ -77,10 +84,57 @@ public class TaskController {
 
         deleteButton.disableProperty().bind(
                 tableView.getSelectionModel().selectedItemProperty().isNull());
+
+        data.clear();
+
+        String sql = "SELECT * FROM tasks WHERE user_id=?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            stmt.setInt(1, Session.currentUserId);
+
+            while (rs.next()) {
+
+                Task task = new Task(
+                        new SimpleStringProperty(rs.getString("task_name")),
+                        new SimpleStringProperty(rs.getString("difficulty")),
+                        new SimpleStringProperty(rs.getString("member_assigned")),
+                        new SimpleStringProperty(rs.getString("status")),
+                        new SimpleStringProperty(rs.getString("due_date")),
+                        new SimpleStringProperty(rs.getString("created_date")),
+                        new SimpleStringProperty(rs.getString("notes"))
+                );
+
+                data.add(task);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addTask(Task t){
         data.add(t);
+
+        String sql = """
+        INSERT INTO tasks
+        (task_name,difficulty,member_assigned,status,due_date,created_date,notes,user_id)
+        VALUES(?,?,?,?,?,?,?,?)
+        """;
+
+        Connection conn;
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setString(1, task.getTaskName());
+        stmt.setString(2, task.getTaskDifficulty());
+        stmt.setString(3, task.getMemberAssigned());
+        stmt.setString(4, task.getStatus());
+        stmt.setString(5, task.getDueDate());
+        stmt.setString(6, task.getCreatedDate());
+        stmt.setString(7, task.getTaskNotes());
+        stmt.setInt(8, Session.currentUserId);
     }
 
     /**

@@ -7,6 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+
 public class LoginController {
 
     @FXML
@@ -18,33 +23,99 @@ public class LoginController {
     @FXML
     private Label errorLabel;
 
+
     @FXML
-    private void handleLogin(){
+    private void handleLogin() {
 
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if(username.equals("admin") && password.equals("admin")){
+        String sql = "SELECT * FROM users WHERE username=? AND password=?";
 
-            try{
+        try(Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-                FXMLLoader loader = new FXMLLoader(
-                        HelloApplication.class.getResource("Assigment2-View.fxml")
-                );
+            stmt.setString(1, username);
+            stmt.setString(2, password);
 
-                Parent root = loader.load();
+            ResultSet rs = stmt.executeQuery();
 
-                Stage stage = (Stage) usernameField.getScene().getWindow();
+            if(rs.next()) {
 
-                stage.setScene(new Scene(root));
-                stage.setTitle("Dashboard");
+                Session.currentUserId = rs.getInt("id");
 
-            }catch(Exception e){
-                e.printStackTrace();
+                openTaskPage();
+            }
+            else {
+                showError("Invalid login.");
             }
 
-        }else{
-            errorLabel.setText("Invalid login");
+        } catch(Exception e){
+            e.printStackTrace();
         }
+    }
+
+
+    @FXML
+    private void handleSignup(){
+
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        String sql = "INSERT INTO users(username,password) VALUES(?,?)";
+
+        try(Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+
+            stmt.executeUpdate();
+
+            showMessage("Account created!");
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void openTaskPage() {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(
+                    HelloApplication.class.getResource("task-view.fxml")
+            );
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) usernameField.getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Task Manager");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showError(String message){
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
+    }
+
+    private void showMessage(String message){
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
 }
