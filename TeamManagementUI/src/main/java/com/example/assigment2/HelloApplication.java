@@ -1,20 +1,20 @@
-/**
-* Name: Sebastian Sell
-* Student number: 041147547
-* course code: cst8412
-* assignment name: Assignment2
-* */
-
 package com.example.assigment2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-/**Main class of the program that runs*/
+/**
+ * course code: cst8412
+ *
+ *
+ * Main class of the program that runs
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
