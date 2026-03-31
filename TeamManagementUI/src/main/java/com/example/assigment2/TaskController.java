@@ -144,6 +144,55 @@ public class TaskController {
         }
     }
 
+    public void updateTask(Task t){
+
+        String sql = """
+        UPDATE tasks
+        SET task_name=?, difficulty=?, member_assigned=?, status=?, due_date=?, notes=?
+        WHERE created_date=? AND user_id=?
+        """;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, t.getTaskName());
+            stmt.setString(2, t.getTaskDifficulty());
+            stmt.setString(3, t.getMemberAssigned());
+            stmt.setString(4, t.getStatus());
+            stmt.setString(5, t.getDueDate());
+            stmt.setString(6, t.getTaskNotes());
+            stmt.setString(7, t.getCreatedDate());
+            stmt.setInt(8, Session.currentUserId);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteTask(Task t){
+
+        String sql = """
+        DELETE FROM tasks
+        WHERE created_date=? AND user_id=?
+        """;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, t.getCreatedDate());
+            stmt.setInt(2, Session.currentUserId);
+
+            stmt.executeUpdate();
+
+            data.remove(t);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Handles the creation of a new task.
      * Opens the Add Task window where the user can
