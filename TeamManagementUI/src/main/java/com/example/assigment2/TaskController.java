@@ -116,6 +116,7 @@ public class TaskController {
     }
 
     public void addTask(Task t){
+
         data.add(t);
 
         String sql = """
@@ -124,17 +125,23 @@ public class TaskController {
         VALUES(?,?,?,?,?,?,?,?)
         """;
 
-        Connection conn;
-        PreparedStatement stmt = conn.prepareStatement(sql);
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-        stmt.setString(1, task.getTaskName());
-        stmt.setString(2, task.getTaskDifficulty());
-        stmt.setString(3, task.getMemberAssigned());
-        stmt.setString(4, task.getStatus());
-        stmt.setString(5, task.getDueDate());
-        stmt.setString(6, task.getCreatedDate());
-        stmt.setString(7, task.getTaskNotes());
-        stmt.setInt(8, Session.currentUserId);
+            stmt.setString(1, t.getTaskName());
+            stmt.setString(2, t.getTaskDifficulty());
+            stmt.setString(3, t.getMemberAssigned());
+            stmt.setString(4, t.getStatus());
+            stmt.setString(5, t.getDueDate());
+            stmt.setString(6, t.getCreatedDate());
+            stmt.setString(7, t.getTaskNotes());
+            stmt.setInt(8, Session.currentUserId);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
