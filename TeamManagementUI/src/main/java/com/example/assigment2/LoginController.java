@@ -3,6 +3,7 @@ package com.example.assigment2;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -22,6 +23,8 @@ public class LoginController {
 
     @FXML
     private Button loginButton;
+    @FXML
+    private Label errorLabel;
 
     @FXML
     private void handleLogin(){
@@ -53,10 +56,12 @@ public class LoginController {
 
                 }else{
                     showError("Incorrect password");
+                    errorLabel.setText("Incorrect password");
                 }
 
             }else{
                 showError("User not found");
+                errorLabel.setText("User not found");
             }
 
         }catch(SQLException e){
