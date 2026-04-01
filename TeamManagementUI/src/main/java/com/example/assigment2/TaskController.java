@@ -92,6 +92,7 @@ public class TaskController {
                 tableView.getSelectionModel().selectedItemProperty().isNull());
 
         data.clear();
+        loadTasks();
 
         String sql = "SELECT * FROM tasks WHERE user_id=?";
 
@@ -195,6 +196,39 @@ public class TaskController {
             data.remove(t);
 
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadTasks(){
+
+        data.clear();
+
+        String sql = "SELECT * FROM tasks WHERE user_id=?";
+
+        try(Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, Session.currentUserId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()){
+
+                Task task = new Task(
+                        new SimpleStringProperty(rs.getString("task_name")),
+                        new SimpleStringProperty(rs.getString("difficulty")),
+                        new SimpleStringProperty(rs.getString("member_assigned")),
+                        new SimpleStringProperty(rs.getString("status")),
+                        new SimpleStringProperty(rs.getString("due_date")),
+                        new SimpleStringProperty(rs.getString("created_date")),
+                        new SimpleStringProperty(rs.getString("notes"))
+                );
+
+                data.add(task);
+            }
+
+        }catch(Exception e){
             e.printStackTrace();
         }
     }
