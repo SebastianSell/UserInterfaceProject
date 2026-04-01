@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         DatabaseConnection.initializeDatabase();
         // Loads the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("welcome-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("CRUD Table Example");
         stage.setScene(scene);

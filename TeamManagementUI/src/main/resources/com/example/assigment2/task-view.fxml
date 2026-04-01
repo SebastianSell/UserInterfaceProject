@@ -47,6 +47,10 @@
             <Menu text="Pages">
                 <MenuItem text="View Users" onAction="#handleViewUsers"/>
             </Menu>
+
+            <Menu text="Extra">
+                <MenuItem text="Log out" onAction="#handleLogout"/>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

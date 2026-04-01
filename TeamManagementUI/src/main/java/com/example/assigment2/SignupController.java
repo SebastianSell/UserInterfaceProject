@@ -1,14 +1,12 @@
 package com.example.assigment2;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,23 +17,29 @@ public class SignupController {
     private TextField usernameField;
 
     @FXML
-    private TextField passwordField;
-
+    private PasswordField passwordField;
 
     @FXML
-    private void goToLogin() throws Exception {
+    private PasswordField confirmPasswordField;
 
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+    @FXML
+    private Button backButton;
 
-        Stage stage = (Stage) usernameField.getScene().getWindow();
-        stage.setScene(new Scene(root));
-    }
+    @FXML
+    private Button signupButton;
+
 
     @FXML
     private void handleSignup(){
 
         String username = usernameField.getText();
         String password = passwordField.getText();
+        String confirm = confirmPasswordField.getText();
+
+        if(!password.equals(confirm)){
+            showError("Passwords do not match");
+            return;
+        }
 
         String hashedPassword = PasswordUtil.hashPassword(password);
 
@@ -51,6 +55,9 @@ public class SignupController {
 
             showMessage("Account created!");
 
+            // go back to login page
+            SceneSwitcher.switchScene(signupButton, "login.fxml");
+
         }
         catch(SQLException e){
 
@@ -62,8 +69,17 @@ public class SignupController {
         }
     }
 
-    private void showMessage(String s) {
+
+    private void showMessage(String message){
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
+
 
     private void showError(String message){
 
@@ -75,16 +91,11 @@ public class SignupController {
         alert.showAndWait();
     }
 
+
     @FXML
-    private void goBack() throws IOException {
+    private void goBack(){
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("welcome-view.fxml"));
-        Scene scene = new Scene(loader.load());
+        SceneSwitcher.switchScene(backButton, "welcome-view.fxml");
 
-        Stage stage = (Stage) usernameField.getScene().getWindow();
-        stage.setScene(scene);
     }
 }
-
-
-

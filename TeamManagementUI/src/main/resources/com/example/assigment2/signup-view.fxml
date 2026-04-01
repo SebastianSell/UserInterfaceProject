@@ -33,10 +33,12 @@
 
     <Button text="Create Account"
             prefWidth="200"
+            fx:id="signupButton"
             onAction="#handleSignup"/>
 
     <Button text="Back to Login"
             prefWidth="200"
+            fx:id="backButton"
             onAction="#goBack"/>
 
 </VBox>

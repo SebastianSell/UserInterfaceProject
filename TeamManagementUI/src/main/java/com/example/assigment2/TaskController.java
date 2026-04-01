@@ -56,10 +56,16 @@ public class TaskController {
     private TableColumn<Task,String> notesColumn;
 
     @FXML
+    private Button createButton;
+
+    @FXML
     private Button updateButton;
 
     @FXML
     private Button deleteButton;
+
+    @FXML
+    private Button logoutButton;
 
     private ObservableList<Task> data = FXCollections.observableArrayList();
 
@@ -276,22 +282,9 @@ public class TaskController {
     @FXML
     private void handleLogout(){
 
-        try{
+        Session.currentUserId = 0;
 
-            FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("login.fxml")
-            );
-
-            Parent root = loader.load();
-
-            Stage stage = (Stage) tableView.getScene().getWindow();
-
-            stage.setScene(new Scene(root));
-            stage.setTitle("Login");
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        SceneSwitcher.switchScene(logoutButton, "welcome-view.fxml");
     }
     /**
      * Handles the closing of the app

@@ -132,7 +132,7 @@ public class HelloController {
         try{
 
             FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("login.fxml")
+                    HelloApplication.class.getResource("login-view.fxml")
             );
 
             Parent root = loader.load();

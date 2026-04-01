@@ -19,10 +19,12 @@
            style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
     <Button text="Login"
+            fx:id="loginButton"
             prefWidth="200"
             onAction="#openLogin"/>
 
     <Button text="Sign Up"
+            fx:id="signupButton"
             prefWidth="200"
             onAction="#openSignup"/>
 

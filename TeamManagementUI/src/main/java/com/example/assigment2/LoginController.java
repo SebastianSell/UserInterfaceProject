@@ -1,17 +1,16 @@
 package com.example.assigment2;
 
+
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 public class LoginController {
 
@@ -22,8 +21,7 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    private Label errorLabel;
-
+    private Button loginButton;
 
     @FXML
     private void handleLogin(){
@@ -50,7 +48,8 @@ public class LoginController {
 
                     Session.currentUserId = rs.getInt("id");
 
-                    openTaskPage();
+                    // SCENE SWITCH HERE
+                    SceneSwitcher.switchScene(loginButton, "task-view.fxml");
 
                 }else{
                     showError("Incorrect password");
@@ -65,67 +64,7 @@ public class LoginController {
         }
     }
 
-
-    @FXML
-    private void handleSignup(){
-
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-
-        String sql = "INSERT INTO users(username,password) VALUES(?,?)";
-
-        try(Connection conn = DatabaseConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-
-            stmt.executeUpdate();
-
-            showMessage("Account created!");
-
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    private void openTaskPage() {
-
-        try {
-
-            FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("task-view.fxml")
-            );
-
-            Parent root = loader.load();
-
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-
-            stage.setScene(new Scene(root));
-            stage.setTitle("Task Manager");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     private void showError(String message){
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-
-        alert.showAndWait();
-    }
-
-    private void showMessage(String message){
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-
-        alert.showAndWait();
+        System.out.println(message);
     }
 }
