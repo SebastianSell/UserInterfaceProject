@@ -27,7 +27,7 @@
       </TableView>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuNav" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" onAction="#handleExit" text="File">
             <items>
@@ -49,7 +49,7 @@
             </Menu>
 
             <Menu text="Extra">
-                <MenuItem text="Log out" onAction="#handleLogout"/>
+                <MenuItem fx:id="logoutButton" text="Log out" onAction="#handleLogout"/>
             </Menu>
         </menus>
       </MenuBar>

@@ -65,7 +65,10 @@ public class TaskController {
     private Button deleteButton;
 
     @FXML
-    private Button logoutButton;
+    private MenuBar menuNav;
+
+    @FXML
+    private MenuItem logoutButton;
 
     private ObservableList<Task> data = FXCollections.observableArrayList();
 
@@ -301,7 +304,11 @@ public class TaskController {
     @FXML
     private void handleDelete(){
 
-        Task selected = tableView.getSelectionModel().getSelectedItem();
+        Task selectedTask = tableView.getSelectionModel().getSelectedItem();
+
+        if(selectedTask == null){
+            return;
+        }
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Task");
@@ -309,7 +316,21 @@ public class TaskController {
         alert.setContentText("This record will be permanently deleted.");
 
         if(alert.showAndWait().get() == ButtonType.OK){
-            data.remove(selected);
+
+            String sql = "DELETE FROM tasks WHERE task_name = ?";
+
+            try(Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)){
+
+                stmt.setString(1, selectedTask.getTaskName());
+
+                stmt.executeUpdate();
+
+                data.remove(selectedTask);
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -318,7 +339,7 @@ public class TaskController {
 
         Session.currentUserId = 0;
 
-        SceneSwitcher.switchScene(logoutButton, "welcome-view.fxml");
+        SceneSwitcher.switchScene(menuNav, "welcome-view.fxml");
     }
     /**
      * Handles the closing of the app

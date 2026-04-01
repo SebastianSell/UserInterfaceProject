@@ -42,6 +42,24 @@ public class EditTaskController {
     private TextField notesField;
 
     private Task task;
+
+
+    @FXML
+    public void initialize(){
+
+        difficultyBox.getItems().addAll(
+                "Easy",
+                "Medium",
+                "Hard"
+        );
+
+        statusBox.getItems().addAll(
+                "Not Started",
+                "In Progress",
+                "Completed"
+        );
+    }
+
     /**
      * Attaches the existing values of the selected task onto the Edit Page input fields
      */
