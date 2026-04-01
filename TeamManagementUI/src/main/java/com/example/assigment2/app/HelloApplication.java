@@ -1,5 +1,6 @@
-package com.example.assigment2;
+package com.example.assigment2.app;
 
+import com.example.assigment2.database.DatabaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

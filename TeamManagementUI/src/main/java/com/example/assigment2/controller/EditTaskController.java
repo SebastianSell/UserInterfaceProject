@@ -1,5 +1,7 @@
-package com.example.assigment2;
+package com.example.assigment2.controller;
 
+import com.example.assigment2.database.DatabaseConnection;
+import com.example.assigment2.model.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;

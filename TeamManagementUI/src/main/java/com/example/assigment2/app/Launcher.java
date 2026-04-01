@@ -1,4 +1,4 @@
-package com.example.assigment2;
+package com.example.assigment2.app;
 
 import javafx.application.Application;
 

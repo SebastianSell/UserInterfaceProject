@@ -1,11 +1,11 @@
-package com.example.assigment2;
+package com.example.assigment2.controller;
 
+import com.example.assigment2.model.Task;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

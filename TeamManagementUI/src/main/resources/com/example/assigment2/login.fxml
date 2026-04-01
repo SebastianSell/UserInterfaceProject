@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assigment2.LoginController">
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assigment2.controller.LoginController">
 
-    <Label fx:id="LoginTitleLabel" style="-fx-font-size:22" text="Login" />
+    <Label fx:id="loginTitleLabel" style="-fx-font-size:22" text="Login" />
    <Label fx:id="usernameLabel" text="Username" />
 
     <TextField fx:id="usernameField" promptText="Username" />
@@ -18,6 +18,7 @@
     <Label fx:id="errorLabel" style="-fx-text-fill:red" />
 
     <Button fx:id="loginButton" onAction="#handleLogin" text="Login" />
+   <Button fx:id="backButton" mnemonicParsing="false" text="Button" />
 
 
 

@@ -1,4 +1,4 @@
-package com.example.assigment2;
+package com.example.assigment2.util;
 
 /**
  * Stores information about the currently logged in user.

@@ -1,4 +1,4 @@
-package com.example.assigment2;
+package com.example.assigment2.util;
 
 import java.security.MessageDigest;
 

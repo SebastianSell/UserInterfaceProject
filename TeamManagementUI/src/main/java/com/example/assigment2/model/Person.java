@@ -1,4 +1,4 @@
-package com.example.assigment2;
+package com.example.assigment2.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

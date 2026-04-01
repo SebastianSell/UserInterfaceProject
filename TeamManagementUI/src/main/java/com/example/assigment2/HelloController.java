@@ -1,5 +1,7 @@
 package com.example.assigment2;
 
+import com.example.assigment2.app.HelloApplication;
+import com.example.assigment2.model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.*;

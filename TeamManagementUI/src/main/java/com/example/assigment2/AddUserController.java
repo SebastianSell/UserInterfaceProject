@@ -1,6 +1,7 @@
 package com.example.assigment2;
 
 
+import com.example.assigment2.model.Person;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;

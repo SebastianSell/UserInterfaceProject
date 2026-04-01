@@ -1,9 +1,12 @@
-package com.example.assigment2;
+package com.example.assigment2.controller;
 
 
 
+import com.example.assigment2.database.DatabaseConnection;
+import com.example.assigment2.util.SceneSwitcher;
+import com.example.assigment2.util.PasswordUtil;
+import com.example.assigment2.util.Session;
 import javafx.fxml.FXML;
-import javafx.scene.AccessibleRole;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
