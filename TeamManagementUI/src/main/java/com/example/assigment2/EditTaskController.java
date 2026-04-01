@@ -6,6 +6,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
 
 /**
@@ -88,6 +90,29 @@ public class EditTaskController {
         task.setStatus(statusBox.getValue());
         task.setDueDate(dueDatePicker.getValue().toString());
         task.setTaskNotes(notesField.getText());
+
+        String sql = """
+        UPDATE tasks
+        SET task_name=?, difficulty=?, member_assigned=?, status=?, due_date=?, notes=?
+        WHERE task_name=?
+    """;
+
+        try(Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, task.getTaskName());
+            stmt.setString(2, task.getTaskDifficulty());
+            stmt.setString(3, task.getMemberAssigned());
+            stmt.setString(4, task.getStatus());
+            stmt.setString(5, task.getDueDate());
+            stmt.setString(6, task.getTaskNotes());
+            stmt.setString(7, task.getTaskName()); // used for WHERE
+
+            stmt.executeUpdate();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         Stage stage = (Stage) taskNameField.getScene().getWindow();
         stage.close();
