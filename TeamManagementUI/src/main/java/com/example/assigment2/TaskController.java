@@ -32,6 +32,9 @@ import java.sql.SQLException;
 public class TaskController {
 
     @FXML
+    private Label tableViewLabel;
+
+    @FXML
     private TableView<Task> tableView;
 
     @FXML
@@ -77,6 +80,9 @@ public class TaskController {
      */
     @FXML
     public void initialize() {
+
+        tableView.setAccessibleText("Table listing all tasks for the current user");
+
 
         taskNameColumn.setCellValueFactory(c -> c.getValue().taskNameProperty());
         taskDifficultyColumn.setCellValueFactory(c -> c.getValue().taskDifficultyProperty());

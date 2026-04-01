@@ -1,9 +1,7 @@
 package com.example.assigment2;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -23,16 +21,34 @@ import java.time.LocalDate;
 public class EditTaskController {
 
     @FXML
+    private Label editTitleLabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
     private TextField taskNameField;
+
+    @FXML
+    private Label difficultyLabel;
 
     @FXML
     private ComboBox<String> difficultyBox;
 
     @FXML
+    private Label memberLabel;
+
+    @FXML
     private TextField memberField;
 
     @FXML
+    private Label statusLabel;
+
+    @FXML
     private ComboBox<String> statusBox;
+
+    @FXML
+    private Label dueDateLabel;
 
     @FXML
     private DatePicker dueDatePicker;
@@ -41,13 +57,37 @@ public class EditTaskController {
     private TextField createdDateField;
 
     @FXML
+    private Label notesLabel;
+
+    @FXML
     private TextField notesField;
+
+    @FXML
+    private Button saveTaskButton;
+
+    @FXML
+    private Button cancelButton;
 
     private Task task;
 
 
     @FXML
     public void initialize(){
+        editTitleLabel.setAccessibleRoleDescription("heading of the Edit Page. In this page you will update the exact fields for the existing task you selected");
+        nameLabel.setAccessibleRoleDescription("The name of the task");
+        taskNameField.setAccessibleText("Enter the name of the task");
+        difficultyLabel.setAccessibleRoleDescription("The difficulty of the task");
+        difficultyBox.setAccessibleText("Pick an option for the difficulty of the task");
+        memberLabel.setAccessibleRoleDescription("The name of the member who is assigned to this task");
+        memberField.setAccessibleText("Enter the name of a team member to be assigned for this task");
+        statusLabel.setAccessibleRoleDescription("The current status of the task");
+        statusBox.setAccessibleText("Pick an option for the current status of the task");
+        dueDateLabel.setAccessibleRoleDescription("The due date for the task");
+        dueDatePicker.setAccessibleText("pick the date for the the due date of this task");
+        notesLabel.setAccessibleRoleDescription("Notes for the task");
+        notesField.setAccessibleText("Type here to enter any notes for this task");
+        saveTaskButton.setAccessibleText("Click to update the task");
+        cancelButton.setAccessibleText("Click to cancel editing the task");
 
         difficultyBox.getItems().addAll(
                 "Easy",

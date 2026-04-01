@@ -5,27 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="root"
-      alignment="CENTER"
-      spacing="20"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.assigment2.WelcomeController">
+<VBox fx:id="root" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.example.assigment2.WelcomeController">
 
     <padding>
-        <Insets top="40" right="40" bottom="40" left="40"/>
+        <Insets bottom="40" left="40" right="40" top="40" />
     </padding>
 
-    <Label text="Task Manager"
-           style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <Label fx:id="titleLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Task Manager" />
 
-    <Button text="Login"
-            fx:id="loginButton"
-            prefWidth="200"
-            onAction="#openLogin"/>
+    <Button fx:id="loginButton" onAction="#openLogin" prefWidth="200" text="Login" />
 
-    <Button text="Sign Up"
-            fx:id="signupButton"
-            prefWidth="200"
-            onAction="#openSignup"/>
+    <Button fx:id="signupButton" onAction="#openSignup" prefWidth="200" text="Sign Up" />
 
 </VBox>

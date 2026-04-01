@@ -3,6 +3,7 @@ package com.example.assigment2;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,16 +17,41 @@ import java.sql.SQLException;
 public class LoginController {
 
     @FXML
+    private Label loginTitleLabel;
+
+    @FXML
+    private Label usernameLabel;
+
+    @FXML
     private TextField usernameField;
+
+    @FXML
+    private Label passwordLabel;
 
     @FXML
     private PasswordField passwordField;
 
     @FXML
     private Button loginButton;
+
+    @FXML
+    private Button backButton;
+
     @FXML
     private Label errorLabel;
 
+    /**Initializes the Login page */
+    @FXML
+    private void initialize(){
+        loginTitleLabel.setAccessibleRoleDescription("This is the login page. You will need to verify your account to continue the app with this account.");
+        usernameLabel.setAccessibleRoleDescription("Username");
+        usernameField.setAccessibleText("Enter a username for your account");
+        passwordLabel.setAccessibleRoleDescription("Password");
+        passwordField.setAccessibleText("Enter a password for your account");
+        loginButton.setAccessibleText("Click to login");
+        backButton.setAccessibleText("Click to cancel logging in");
+    }
+    /**Handles the login feature for both the front end and back end*/
     @FXML
     private void handleLogin(){
 

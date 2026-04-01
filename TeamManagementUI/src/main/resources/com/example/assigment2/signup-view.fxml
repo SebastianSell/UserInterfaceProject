@@ -7,38 +7,25 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER"
-      spacing="15"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.assigment2.SignupController">
+<VBox alignment="CENTER" spacing="15" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.example.assigment2.SignupController">
 
     <padding>
-        <Insets top="40" right="40" bottom="40" left="40"/>
+        <Insets bottom="40" left="40" right="40" top="40" />
     </padding>
 
-    <Label text="Create Account"
-           style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label fx:id="signupTitle" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Create Account" />
+   <Label fx:id="usernameLabel" text="Username" />
 
-    <TextField fx:id="usernameField"
-               promptText="Username"
-               maxWidth="250"/>
+    <TextField fx:id="usernameField" maxWidth="250" promptText="Username" />
+   <Label fx:id="passwordLabel" text="Password" />
 
-    <PasswordField fx:id="passwordField"
-                   promptText="Password"
-                   maxWidth="250"/>
+    <PasswordField fx:id="passwordField" maxWidth="250" promptText="Password" />
+   <Label fx:id="confirmPasswordLabel" text="Re-enter Password" />
 
-    <PasswordField fx:id="confirmPasswordField"
-                   promptText="Confirm Password"
-                   maxWidth="250"/>
+    <PasswordField fx:id="confirmPasswordField" maxWidth="250" promptText="Confirm Password" />
 
-    <Button text="Create Account"
-            prefWidth="200"
-            fx:id="signupButton"
-            onAction="#handleSignup"/>
+    <Button fx:id="signupButton" onAction="#handleSignup" prefWidth="200" text="Create Account" />
 
-    <Button text="Back to Login"
-            prefWidth="200"
-            fx:id="backButton"
-            onAction="#goBack"/>
+    <Button fx:id="backButton" onAction="#goBack" prefWidth="200" text="Back to Login" />
 
 </VBox>

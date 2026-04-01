@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 
 public class EditUserController {
 
+
     @FXML
     private TextField nameField;
 

@@ -2,14 +2,12 @@ package com.example.assigment2;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 
 /**
  * course code: cst8412
@@ -22,27 +20,50 @@ import javafx.scene.control.DatePicker;
  * @version 1.0
  */
 public class AddTaskController {
+    @FXML
+    private Label createTitleLabel;
+
+    @FXML
+    private Label NameLabel;
 
     @FXML
     private TextField taskNameField;
 
     @FXML
+    private Label difficultyLabel;
+
+    @FXML
     private ComboBox<String> difficultyBox;
+
+    @FXML
+    private Label memberLabel;
 
     @FXML
     private TextField memberField;
 
     @FXML
+    private Label statusLabel;
+
+    @FXML
     private ComboBox<String> statusBox;
+
+    @FXML
+    private Label dueDateLabel;
 
     @FXML
     private DatePicker dueDatePicker;
 
     @FXML
-    private TextField createdDateField;
+    private Label notesLabel;
 
     @FXML
     private TextField notesField;
+
+    @FXML
+    private Button saveButton;
+
+    @FXML
+    private Button cancelButton;
 
     private TaskController mainController;
 
@@ -55,7 +76,21 @@ public class AddTaskController {
      */
     @FXML
     public void initialize(){
-
+        createTitleLabel.setAccessibleRoleDescription("heading of the Create Page. In this page you will create a task by entering info into these exact fields below");
+        NameLabel.setAccessibleRoleDescription("The name of the task");
+        difficultyBox.setAccessibleRoleDescription("Enter the name of the task");
+        difficultyLabel.setAccessibleRoleDescription("The difficulty of the task");
+        difficultyBox.setAccessibleRoleDescription("Pick an option for the difficulty of the task");
+        memberLabel.setAccessibleRoleDescription("The name of the member who is assigned to this task");
+        memberField.setAccessibleRoleDescription("Enter the name of a team member to be assigned for this task");
+        statusLabel.setAccessibleRoleDescription("The current status of the task");
+        statusBox.setAccessibleRoleDescription("Pick an option for the current status of the task");
+        dueDateLabel.setAccessibleRoleDescription("The due date for the task");
+        dueDatePicker.setAccessibleRoleDescription("pick the date for the the due date of this task");
+        notesLabel.setAccessibleRoleDescription("Notes for the task");
+        notesField.setAccessibleRoleDescription("Type here to enter any notes for this task");
+        saveButton.setAccessibleRoleDescription("Click to create the task");
+        cancelButton.setAccessibleRoleDescription("Click to cancel creating the task");
         difficultyBox.getItems().addAll(
                 "Easy",
                 "Medium",

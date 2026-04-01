@@ -2,10 +2,7 @@ package com.example.assigment2;
 
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,11 +10,24 @@ import java.sql.SQLException;
 
 public class SignupController {
 
+
+    @FXML
+    private Label signupTitle;
+
+    @FXML
+    private Label usernameLabel;
+
     @FXML
     private TextField usernameField;
 
     @FXML
+    private Label passwordLabel;
+
+    @FXML
     private PasswordField passwordField;
+
+    @FXML
+    private Label confirmPasswordLabel;
 
     @FXML
     private PasswordField confirmPasswordField;
@@ -28,6 +38,19 @@ public class SignupController {
     @FXML
     private Button signupButton;
 
+
+    public void initialize(){
+        signupTitle.setAccessibleRoleDescription("This is the sign up page. Here you will need to create an account to use this application.");
+        usernameLabel.setAccessibleRoleDescription("Username");
+        usernameField.setAccessibleText("Enter a username for your account");
+        passwordLabel.setAccessibleRoleDescription("Password");
+        passwordField.setAccessibleText("Enter a password for your account");
+        confirmPasswordLabel.setAccessibleRoleDescription("Confirm password");
+        confirmPasswordField.setAccessibleText("Re enter your password for verification");
+        signupButton.setAccessibleText("Click to create the account");
+        backButton.setAccessibleText("Click to cancel creating a new account");
+
+    }
 
     @FXML
     private void handleSignup(){
