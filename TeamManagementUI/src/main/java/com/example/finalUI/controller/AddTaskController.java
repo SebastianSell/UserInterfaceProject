@@ -67,9 +67,9 @@ public class AddTaskController {
 
     private TaskController mainController;
 
-    /*public void setMainController(TaskController controller){
+    public void setMainController(TaskController controller){
         this.mainController = controller;
-    }*/
+    }
 
     /**
      * Iniltializes the values for the dropdown options of task difficulty and task status

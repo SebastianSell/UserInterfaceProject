@@ -135,7 +135,7 @@ public class TaskController {
             e.printStackTrace();
         }
     }
-
+    /**Adds a task to the database*/
     public void addTask(Task t){
 
         data.add(t);

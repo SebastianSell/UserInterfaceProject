@@ -17,7 +17,7 @@ import java.sql.Statement;
  */
 public class DatabaseConnection {
     private static final String URL = "jdbc:sqlite:taskmanager.db";
-    /**Connects to teh database*/
+    /**Connects to the database*/
     public static Connection getConnection() {
 
         try {
