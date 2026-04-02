@@ -48,6 +48,9 @@ public class Task {
         this.taskNotes = taskNotes;
     }
 
+    public Task(String taskOne, String easy, String mail, String inProgress, String date, String date1, String no) {
+    }
+
     /** Getter for task name property */
     public String getTaskName() {
         return taskName.get();
