@@ -53,35 +53,23 @@ public class SignupController {
     /**Initializes the page*/
     public void initialize(){
         signupTitle.setAccessibleRoleDescription("This is the sign up page. Here you will need to create an account to use this application.");
-        usernameLabel.setAccessibleRoleDescription("Username");
-        usernameField.setAccessibleText("Enter a username for your account");
-        passwordLabel.setAccessibleRoleDescription("Password");
-        passwordField.setAccessibleText("Enter a password for your account");
-        confirmPasswordLabel.setAccessibleRoleDescription("Confirm password");
-        confirmPasswordField.setAccessibleText("Re enter your password for verification");
-        signupButton.setAccessibleText("Click to create the account");
-        backButton.setAccessibleText("Click to cancel creating a new account");
-
-
-        signupTitle.setAccessibleText("Signup page");
-
         usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
         usernameField.setAccessibleHelp("Enter a username for the new account");
-
         passwordLabel.setAccessibleText("Password label");
         passwordField.setAccessibleText("Password input field");
         passwordField.setAccessibleHelp("Enter a password for the account");
-
         confirmPasswordLabel.setAccessibleText("Confirm password label");
         confirmPasswordField.setAccessibleText("Confirm password input field");
         confirmPasswordField.setAccessibleHelp("Re enter the password to confirm");
-
         signupButton.setAccessibleText("Create account button");
         signupButton.setAccessibleHelp("Press to create a new account");
 
         backButton.setAccessibleText("Back button");
         backButton.setAccessibleHelp("Return to the previous page");
+
+
+
     }
 
     @FXML

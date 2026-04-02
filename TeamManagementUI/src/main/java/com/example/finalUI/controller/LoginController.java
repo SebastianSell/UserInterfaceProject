@@ -56,31 +56,25 @@ public class LoginController {
     /**Initializes the Login page */
     @FXML
     private void initialize(){
-        loginTitleLabel.setAccessibleRoleDescription("This is the login page. You will need to verify your account to continue the app with this account.");
-        usernameLabel.setAccessibleRoleDescription("Username");
-        usernameField.setAccessibleText("Enter a username for your account");
-        passwordLabel.setAccessibleRoleDescription("Password");
-        passwordField.setAccessibleText("Enter a password for your account");
-        loginButton.setAccessibleText("Click to login");
-        backButton.setAccessibleText("Click to cancel logging in");
-
-        loginTitleLabel.setAccessibleText("Login page");
-
+        errorLabel.setText("");
+        loginTitleLabel.setAccessibleText("This is the login page. You will need to verify your account to continue the app with this account.");
         usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
         usernameField.setAccessibleHelp("Enter the username for your account");
-
         passwordLabel.setAccessibleText("Password label");
         passwordField.setAccessibleText("Password input field");
         passwordField.setAccessibleHelp("Enter the password for your account");
-
         loginButton.setAccessibleText("Login button");
         loginButton.setAccessibleHelp("Press to log into the application");
-
         backButton.setAccessibleText("Back button");
         backButton.setAccessibleHelp("Return to the previous page");
 
-        errorLabel.setAccessibleText("Login error message");
+        errorLabel.setAccessibleText("Login error message area");
+        errorLabel.setAccessibleHelp("Displays errors such as incorrect password or user not found");
+
+
+
+
     }
     /**Handles the login feature for both the front end and back end*/
     @FXML
@@ -113,12 +107,12 @@ public class LoginController {
 
                 }else{
                     showError("Incorrect password");
-                    errorLabel.setText("Incorrect password");
+                    //errorLabel.setText("Incorrect password");
                 }
 
             }else{
                 showError("User not found");
-                errorLabel.setText("User not found");
+                //errorLabel.setText("User not found");
             }
 
         }catch(SQLException e){
@@ -127,6 +121,12 @@ public class LoginController {
     }
     /**Shows error message*/
     private void showError(String message){
+
+        errorLabel.setText(message);
+
+        // Update accessibility description so screen readers read the new error
+        errorLabel.setAccessibleText("Login error: " + message);
+
         System.out.println(message);
     }
 }

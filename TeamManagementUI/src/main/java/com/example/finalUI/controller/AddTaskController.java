@@ -24,7 +24,7 @@ public class AddTaskController {
     private Label createTitleLabel;
 
     @FXML
-    private Label NameLabel;
+    private Label nameLabel;
 
     @FXML
     private TextField taskNameField;
@@ -76,45 +76,27 @@ public class AddTaskController {
      */
     @FXML
     public void initialize(){
-        createTitleLabel.setAccessibleRoleDescription("heading of the Create Page. In this page you will create a task by entering info into these exact fields below");
-        NameLabel.setAccessibleRoleDescription("The name of the task");
-        difficultyBox.setAccessibleRoleDescription("Enter the name of the task");
-        difficultyLabel.setAccessibleRoleDescription("The difficulty of the task");
-        difficultyBox.setAccessibleRoleDescription("Pick an option for the difficulty of the task");
-        memberLabel.setAccessibleRoleDescription("The name of the member who is assigned to this task");
-        memberField.setAccessibleRoleDescription("Enter the name of a team member to be assigned for this task");
-        statusLabel.setAccessibleRoleDescription("The current status of the task");
-        statusBox.setAccessibleRoleDescription("Pick an option for the current status of the task");
-        dueDateLabel.setAccessibleRoleDescription("The due date for the task");
-        dueDatePicker.setAccessibleRoleDescription("pick the date for the the due date of this task");
-        notesLabel.setAccessibleRoleDescription("Notes for the task");
-        notesField.setAccessibleRoleDescription("Type here to enter any notes for this task");
-        saveButton.setAccessibleRoleDescription("Click to create the task");
-        cancelButton.setAccessibleRoleDescription("Click to cancel creating the task");
+        createTitleLabel.setAccessibleText("heading of the Create Page. In this page you will create a task by entering info into these exact fields below");
+
+        nameLabel.setAccessibleText("The name of the task");
+        taskNameField.setAccessibleText("Enter the name of the task");
+        difficultyLabel.setAccessibleText("The difficulty of the task");
+        difficultyBox.setAccessibleText("Pick an option for the difficulty of the task");
+        memberLabel.setAccessibleText("The name of the member who is assigned to this task");
+        memberField.setAccessibleText("Enter the name of a team member to be assigned for this task");
+        statusLabel.setAccessibleText("The current status of the task");
+        statusBox.setAccessibleText("Pick an option for the current status of the task");
+        dueDateLabel.setAccessibleText("The due date for the task");
+        dueDatePicker.setAccessibleText("pick the date for the the due date of this task");
+        notesLabel.setAccessibleText("Notes for the task");
+        notesField.setAccessibleText("Type here to enter any notes for this task");
+        saveButton.setAccessibleText("Click to create the task");
+        cancelButton.setAccessibleText("Click to cancel creating the task");
 
 
         createTitleLabel.setAccessibleText("Create task page");
 
-        taskNameField.setAccessibleText("Task name field");
-        taskNameField.setAccessibleHelp("Enter the name of the task");
 
-        difficultyBox.setAccessibleText("Task difficulty selector");
-        difficultyBox.setAccessibleHelp("Choose the difficulty level of the task");
-
-        memberField.setAccessibleText("Assigned member field");
-        memberField.setAccessibleHelp("Enter the team member assigned to the task");
-
-        statusBox.setAccessibleText("Task status selector");
-        statusBox.setAccessibleHelp("Select the current status of the task");
-
-        dueDatePicker.setAccessibleText("Task due date picker");
-        dueDatePicker.setAccessibleHelp("Choose the due date for the task");
-
-        notesField.setAccessibleText("Task notes field");
-        notesField.setAccessibleHelp("Enter additional notes for the task");
-
-        saveButton.setAccessibleText("Save task button");
-        saveButton.setAccessibleHelp("Press to save the new task");
 
 
 

@@ -75,18 +75,19 @@ public class EditTaskController {
     /**Initializes the Edit Page*/
     @FXML
     public void initialize(){
-        editTitleLabel.setAccessibleRoleDescription("heading of the Edit Page. In this page you will update the exact fields for the existing task you selected");
-        nameLabel.setAccessibleRoleDescription("The name of the task");
-        taskNameField.setAccessibleText("Enter the name of the task");
-        difficultyLabel.setAccessibleRoleDescription("The difficulty of the task");
+        editTitleLabel.setAccessibleText("heading of the Edit Page. In this page you will update the exact fields for the existing task you selected");
+        nameLabel.setAccessibleText("The name of the task");
+        taskNameField.setAccessibleText("Task name field");
+        taskNameField.setAccessibleHelp("Edit the name of the task");
+        difficultyLabel.setAccessibleText("Task difficulty selector");
         difficultyBox.setAccessibleText("Pick an option for the difficulty of the task");
-        memberLabel.setAccessibleRoleDescription("The name of the member who is assigned to this task");
+        memberLabel.setAccessibleText("The name of the member who is assigned to this task");
         memberField.setAccessibleText("Enter the name of a team member to be assigned for this task");
-        statusLabel.setAccessibleRoleDescription("The current status of the task");
+        statusLabel.setAccessibleText("The current status of the task");
         statusBox.setAccessibleText("Pick an option for the current status of the task");
-        dueDateLabel.setAccessibleRoleDescription("The due date for the task");
+        dueDateLabel.setAccessibleText("The due date for the task");
         dueDatePicker.setAccessibleText("pick the date for the the due date of this task");
-        notesLabel.setAccessibleRoleDescription("Notes for the task");
+        notesLabel.setAccessibleText("Notes for the task");
         notesField.setAccessibleText("Type here to enter any notes for this task");
         saveTaskButton.setAccessibleText("Click to update the task");
         cancelButton.setAccessibleText("Click to cancel editing the task");
