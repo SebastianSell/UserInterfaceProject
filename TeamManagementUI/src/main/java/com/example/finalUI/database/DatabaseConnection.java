@@ -4,9 +4,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+
+/**
+ * course code: cst8412
+ *
+ *
+ * This class establishes the database connection.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class DatabaseConnection {
     private static final String URL = "jdbc:sqlite:taskmanager.db";
-
+    /**Connects to teh database*/
     public static Connection getConnection() {
 
         try {
@@ -17,7 +28,7 @@ public class DatabaseConnection {
             return null;
         }
     }
-
+    /**Creates the database and tables*/
     public static void initializeDatabase() {
 
         String usersTable = """

@@ -2,8 +2,20 @@ package com.example.finalUI.util;
 
 import java.security.MessageDigest;
 
+/**
+ * course code: cst8412
+ *
+ *
+ * This class hashes the password of each account
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class PasswordUtil {
-
+    /**Hashes the passwords
+     * @param password
+     * password of the account*/
     public static String hashPassword(String password) {
 
         try {
