@@ -17,6 +17,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * course code: cst8412
+ *
+ *
+ * Controller class for the login.fxml file.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class LoginController {
 
     @FXML
@@ -97,7 +107,7 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-
+    /**Shows error message*/
     private void showError(String message){
         System.out.println(message);
     }

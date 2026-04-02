@@ -164,7 +164,7 @@ public class TaskController {
             e.printStackTrace();
         }
     }
-
+    /**updates a task in the tableview*/
     public void updateTask(Task t){
 
         String sql = """
@@ -191,7 +191,7 @@ public class TaskController {
             e.printStackTrace();
         }
     }
-
+    /**Deletes a task from the tableview*/
     public void deleteTask(Task t){
 
         String sql = """
@@ -213,7 +213,7 @@ public class TaskController {
             e.printStackTrace();
         }
     }
-
+    /**Loads tasks into the tableview upon running the program and logging in*/
     private void loadTasks(){
 
         data.clear();
@@ -344,7 +344,9 @@ public class TaskController {
             }
         }
     }
-
+    /**
+     * Handles logging out of an account
+     * */
     @FXML
     private void handleLogout(){
 

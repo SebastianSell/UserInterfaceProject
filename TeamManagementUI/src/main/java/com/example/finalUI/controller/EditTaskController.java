@@ -72,7 +72,7 @@ public class EditTaskController {
 
     private Task task;
 
-
+    /**Initializes the Edit Page*/
     @FXML
     public void initialize(){
         editTitleLabel.setAccessibleRoleDescription("heading of the Edit Page. In this page you will update the exact fields for the existing task you selected");

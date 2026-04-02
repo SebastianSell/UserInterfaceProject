@@ -6,6 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+/**
+ * course code: cst8412
+ *
+ *
+ * Controller class for the welcome-view.fxml file.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class WelcomeController {
 
     @FXML
@@ -25,7 +35,7 @@ public class WelcomeController {
 
     @FXML
     private Button signupButton;
-
+    /**Initializes the page*/
     public void initialize(){
         titleLabel.setAccessibleRoleDescription("Welcome to the Task management welcome page. Below are two buttons. Login or sign up. If you are new to app and have not made an account, click sign up. But if you already have created an account, click login");
         loginLabel.setAccessibleRoleDescription("Login");
@@ -34,14 +44,14 @@ public class WelcomeController {
         signupButton.setAccessibleText("Click to sign up");
 
     }
-
+    /**handles the action of going into the login page*/
     @FXML
     private void openLogin() {
 
         SceneSwitcher.switchScene(loginButton, "login.fxml");
 
     }
-
+    /**handles the action of going into the login page*/
     @FXML
     private void openSignup() {
 

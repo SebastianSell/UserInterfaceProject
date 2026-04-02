@@ -11,8 +11,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * course code: cst8412
+ *
+ *
+ * Controller class for the login.fxml file.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ * @version 1.0
+ */
 public class SignupController {
-
 
     @FXML
     private Label signupTitle;
@@ -41,7 +50,7 @@ public class SignupController {
     @FXML
     private Button signupButton;
 
-
+    /**Initializes the page*/
     public void initialize(){
         signupTitle.setAccessibleRoleDescription("This is the sign up page. Here you will need to create an account to use this application.");
         usernameLabel.setAccessibleRoleDescription("Username");

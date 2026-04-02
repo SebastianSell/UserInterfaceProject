@@ -3,8 +3,17 @@ import com.example.finalUI.model.Task;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for the Task class.
+ *
+ * These tests verify that task properties are correctly set
+ * and updated through the constructor and setter methods.
+ */
 public class TaskTest {
 
+    /**
+     * Tests that the Task constructor correctly initializes all fields.
+     */
     @Test
     void testTaskCreation() {
 
@@ -27,6 +36,9 @@ public class TaskTest {
         assertEquals("Create dashboard layout", task.getTaskNotes());
     }
 
+    /**
+     * Tests that the task name can be updated.
+     */
     @Test
     void testSetTaskName() {
 
@@ -36,7 +48,9 @@ public class TaskTest {
 
         assertEquals("Updated Task", task.getTaskName());
     }
-
+    /**
+     * Tests that the task difficulty can be updated.
+     */
     @Test
     void testSetDifficulty() {
 
@@ -46,7 +60,9 @@ public class TaskTest {
 
         assertEquals("Hard", task.getTaskDifficulty());
     }
-
+    /**
+     * Tests that the member assigned field can be updated.
+     */
     @Test
     void testSetMemberAssigned() {
 
@@ -56,7 +72,9 @@ public class TaskTest {
 
         assertEquals("Charlie", task.getMemberAssigned());
     }
-
+    /**
+     * Tests that the task status can be updated.
+     */
     @Test
     void testSetStatus() {
 
@@ -66,7 +84,9 @@ public class TaskTest {
 
         assertEquals("Completed", task.getStatus());
     }
-
+    /**
+     * Tests that the task due date can be updated.
+     */
     @Test
     void testSetDueDate() {
 
@@ -76,7 +96,9 @@ public class TaskTest {
 
         assertEquals("2026-05-01", task.getDueDate());
     }
-
+    /**
+     * Tests that the task notes can be updated.
+     */
     @Test
     void testSetNotes() {
 

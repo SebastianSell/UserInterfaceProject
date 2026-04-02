@@ -1,4 +1,4 @@
-package com.example.assigment2;
+
 
 import com.example.finalUI.util.Session;
 import org.junit.jupiter.api.Test;
@@ -7,20 +7,30 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SessionTest {
 
     @Test
-    void testSetUser() {
+    void testSetUserId() {
 
-        Session.setUser("admin");
+        Session.currentUserId = 5;
 
-        assertEquals("admin", Session.getUser());
+        assertEquals(5, Session.currentUserId);
     }
 
     @Test
-    void testClearSession() {
+    void testUpdateUserId() {
 
-        Session.setUser("admin");
+        Session.currentUserId = 3;
 
-        Session.clear();
+        Session.currentUserId = 7;
 
-        assertNull(Session.getUser());
+        assertEquals(7, Session.currentUserId);
+    }
+
+    @Test
+    void testResetUserId() {
+
+        Session.currentUserId = 10;
+
+        Session.currentUserId = 0;
+
+        assertEquals(0, Session.currentUserId);
     }
 }
