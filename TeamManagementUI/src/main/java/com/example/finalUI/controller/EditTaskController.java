@@ -91,6 +91,30 @@ public class EditTaskController {
         saveTaskButton.setAccessibleText("Click to update the task");
         cancelButton.setAccessibleText("Click to cancel editing the task");
 
+
+
+        editTitleLabel.setAccessibleText("Edit task page");
+
+        taskNameField.setAccessibleText("Task name field");
+        taskNameField.setAccessibleHelp("Edit the name of the task");
+
+        difficultyBox.setAccessibleText("Task difficulty selector");
+
+        memberField.setAccessibleText("Assigned member field");
+
+        statusBox.setAccessibleText("Task status selector");
+
+        dueDatePicker.setAccessibleText("Task due date picker");
+
+        createdDateField.setAccessibleText("Created date field");
+
+        notesField.setAccessibleText("Task notes field");
+
+        saveTaskButton.setAccessibleText("Save changes button");
+
+        cancelButton.setAccessibleText("Cancel button");
+
+
         difficultyBox.getItems().addAll(
                 "Easy",
                 "Medium",

@@ -91,6 +91,34 @@ public class AddTaskController {
         notesField.setAccessibleRoleDescription("Type here to enter any notes for this task");
         saveButton.setAccessibleRoleDescription("Click to create the task");
         cancelButton.setAccessibleRoleDescription("Click to cancel creating the task");
+
+
+        createTitleLabel.setAccessibleText("Create task page");
+
+        taskNameField.setAccessibleText("Task name field");
+        taskNameField.setAccessibleHelp("Enter the name of the task");
+
+        difficultyBox.setAccessibleText("Task difficulty selector");
+        difficultyBox.setAccessibleHelp("Choose the difficulty level of the task");
+
+        memberField.setAccessibleText("Assigned member field");
+        memberField.setAccessibleHelp("Enter the team member assigned to the task");
+
+        statusBox.setAccessibleText("Task status selector");
+        statusBox.setAccessibleHelp("Select the current status of the task");
+
+        dueDatePicker.setAccessibleText("Task due date picker");
+        dueDatePicker.setAccessibleHelp("Choose the due date for the task");
+
+        notesField.setAccessibleText("Task notes field");
+        notesField.setAccessibleHelp("Enter additional notes for the task");
+
+        saveButton.setAccessibleText("Save task button");
+        saveButton.setAccessibleHelp("Press to save the new task");
+
+
+
+
         difficultyBox.getItems().addAll(
                 "Easy",
                 "Medium",

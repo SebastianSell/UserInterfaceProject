@@ -43,6 +43,16 @@ public class WelcomeController {
         signupLabel.setAccessibleRoleDescription("Sign up");
         signupButton.setAccessibleText("Click to sign up");
 
+        titleLabel.setAccessibleText("Welcome page");
+
+        loginLabel.setAccessibleText("Login option");
+        loginButton.setAccessibleText("Login button");
+        loginButton.setAccessibleHelp("Press to go to the login page");
+
+        signupLabel.setAccessibleText("Signup option");
+        signupButton.setAccessibleText("Signup button");
+        signupButton.setAccessibleHelp("Press to go to the signup page");
+
     }
     /**handles the action of going into the login page*/
     @FXML

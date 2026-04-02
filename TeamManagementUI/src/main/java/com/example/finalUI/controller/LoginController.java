@@ -63,6 +63,24 @@ public class LoginController {
         passwordField.setAccessibleText("Enter a password for your account");
         loginButton.setAccessibleText("Click to login");
         backButton.setAccessibleText("Click to cancel logging in");
+
+        loginTitleLabel.setAccessibleText("Login page");
+
+        usernameLabel.setAccessibleText("Username label");
+        usernameField.setAccessibleText("Username input field");
+        usernameField.setAccessibleHelp("Enter the username for your account");
+
+        passwordLabel.setAccessibleText("Password label");
+        passwordField.setAccessibleText("Password input field");
+        passwordField.setAccessibleHelp("Enter the password for your account");
+
+        loginButton.setAccessibleText("Login button");
+        loginButton.setAccessibleHelp("Press to log into the application");
+
+        backButton.setAccessibleText("Back button");
+        backButton.setAccessibleHelp("Return to the previous page");
+
+        errorLabel.setAccessibleText("Login error message");
     }
     /**Handles the login feature for both the front end and back end*/
     @FXML

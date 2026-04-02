@@ -97,6 +97,13 @@ public class TaskController {
         createdDateColumn.setCellValueFactory(c -> c.getValue().createdDateProperty());
         notesColumn.setCellValueFactory(c -> c.getValue().taskNotesProperty());
 
+
+        tableViewLabel.setAccessibleText("Task list");
+
+        tableView.setAccessibleText("Task table");
+        tableView.setAccessibleHelp("Displays all tasks assigned to the team");
+
+
         tableView.setItems(data);
 
         updateButton.disableProperty().bind(
