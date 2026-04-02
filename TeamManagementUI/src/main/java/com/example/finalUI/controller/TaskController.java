@@ -89,14 +89,21 @@ public class TaskController {
         tableView.setAccessibleText("Table listing all tasks for the current user");
 
 
-        taskNameColumn.setCellValueFactory(c -> c.getValue().taskNameProperty());
+        //taskNameColumn.setCellValueFactory(c -> c.getValue().taskNameProperty());
+
+        taskNameColumn.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getTaskName())
+        );
+
         taskDifficultyColumn.setCellValueFactory(c -> c.getValue().taskDifficultyProperty());
         memberAssignedColumn.setCellValueFactory(c -> c.getValue().memberAssignedProperty());
         statusColumn.setCellValueFactory(c -> c.getValue().statusProperty());
         dueDateColumn.setCellValueFactory(c -> c.getValue().dueDateProperty());
         createdDateColumn.setCellValueFactory(c -> c.getValue().createdDateProperty());
         notesColumn.setCellValueFactory(c -> c.getValue().taskNotesProperty());
-
+        createButton.setAccessibleText("Create a new task");
+        updateButton.setAccessibleText("Update selected task");
+        deleteButton.setAccessibleText("Delete selected task");
 
         //tableViewLabel.setAccessibleText("Task list");
 
@@ -139,7 +146,11 @@ public class TaskController {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Something went wrong");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
     /**Adds a task to the database*/
@@ -168,7 +179,11 @@ public class TaskController {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Something went wrong");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
     /**updates a task in the tableview*/
@@ -195,7 +210,11 @@ public class TaskController {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Something went wrong");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
     /**Deletes a task from the tableview*/
@@ -293,6 +312,13 @@ public class TaskController {
         Task selected = tableView.getSelectionModel().getSelectedItem();
 
         if(selected == null){
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Task Selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select a task to update.");
+            alert.showAndWait();
+
             return;
         }
 
