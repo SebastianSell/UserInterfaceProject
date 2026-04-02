@@ -77,7 +77,6 @@ public class AddTaskController {
     @FXML
     public void initialize(){
         createTitleLabel.setAccessibleText("heading of the Create Page. In this page you will create a task by entering info into these exact fields below");
-
         nameLabel.setAccessibleText("The name of the task");
         taskNameField.setAccessibleText("Enter the name of the task");
         difficultyLabel.setAccessibleText("The difficulty of the task");

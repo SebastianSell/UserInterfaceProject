@@ -107,8 +107,6 @@ public class EditTaskController {
 
         dueDatePicker.setAccessibleText("Task due date picker");
 
-        createdDateField.setAccessibleText("Created date field");
-
         notesField.setAccessibleText("Task notes field");
 
         saveTaskButton.setAccessibleText("Save changes button");

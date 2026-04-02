@@ -98,7 +98,7 @@ public class TaskController {
         notesColumn.setCellValueFactory(c -> c.getValue().taskNotesProperty());
 
 
-        tableViewLabel.setAccessibleText("Task list");
+        //tableViewLabel.setAccessibleText("Task list");
 
         tableView.setAccessibleText("Task table");
         tableView.setAccessibleHelp("Displays all tasks assigned to the team");
@@ -265,7 +265,7 @@ public class TaskController {
         try{
 
             FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("add-task.fxml")
+                    HelloApplication.class.getResource("/com/example/finalUI/add-task.fxml")
             );
 
             Parent root = loader.load();
@@ -299,7 +299,7 @@ public class TaskController {
         try{
 
             FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("edit-task.fxml")
+                    HelloApplication.class.getResource("/com/example/finalUI/edit-task.fxml")
             );
 
             Parent root = loader.load();

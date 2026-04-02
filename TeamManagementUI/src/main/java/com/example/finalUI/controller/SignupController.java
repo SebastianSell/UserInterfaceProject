@@ -71,7 +71,9 @@ public class SignupController {
 
 
     }
-
+    /**
+     * Handles creating a new account
+     * */
     @FXML
     private void handleSignup(){
 
@@ -112,7 +114,11 @@ public class SignupController {
         }
     }
 
-
+    /**
+     * Shows a message
+     * @param message
+     * the desired message to show
+     * */
     private void showMessage(String message){
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -123,7 +129,9 @@ public class SignupController {
         alert.showAndWait();
     }
 
-
+    /**Outputs an error message
+     * @param message
+     * the desired error message to output*/
     private void showError(String message){
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -134,7 +142,10 @@ public class SignupController {
         alert.showAndWait();
     }
 
-
+    /**
+     *
+     * Returns to the welcome page
+     * */
     @FXML
     private void goBack(){
 

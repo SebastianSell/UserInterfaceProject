@@ -1,7 +1,5 @@
 package com.example.finalUI.controller;
 
-
-
 import com.example.finalUI.database.DatabaseConnection;
 import com.example.finalUI.util.SceneSwitcher;
 import com.example.finalUI.util.PasswordUtil;
@@ -101,25 +99,24 @@ public class LoginController {
                 if(hashedInput.equals(passwordFromDatabase)){
 
                     Session.currentUserId = rs.getInt("id");
-
-                    // SCENE SWITCH HERE
                     SceneSwitcher.switchScene(loginButton, "task-view.fxml");
 
                 }else{
                     showError("Incorrect password");
-                    //errorLabel.setText("Incorrect password");
                 }
 
             }else{
                 showError("User not found");
-                //errorLabel.setText("User not found");
             }
 
         }catch(SQLException e){
             e.printStackTrace();
         }
     }
-    /**Shows error message*/
+
+    /**Outputs an error message
+     * @param message
+     * the desired error message to output*/
     private void showError(String message){
 
         errorLabel.setText(message);
@@ -128,5 +125,16 @@ public class LoginController {
         errorLabel.setAccessibleText("Login error: " + message);
 
         System.out.println(message);
+    }
+
+    /**
+     *
+     * Returns to the welcome page
+     * */
+    @FXML
+    private void goBack(){
+
+        SceneSwitcher.switchScene(backButton, "welcome-view.fxml");
+
     }
 }
