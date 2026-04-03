@@ -312,22 +312,13 @@ public class TaskController {
      * enter task information.
      */
     @FXML
-    private void handleCreate(){
-        try{
-            FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("/com/example/finalUI/add-task.fxml")
-            );
+    private void handleCreate() {
 
-            Parent root = loader.load();
+        FXMLLoader loader = SceneSwitcher.switchScene(tableView, "add-task.fxml");
+
+        if(loader != null) {
             AddTaskController controller = loader.getController();
             controller.setMainController(this);
-            Stage stage = new Stage();
-            stage.setTitle("Add Task");
-            stage.setScene(new Scene(root));
-            stage.setMaximized(true);
-            stage.show();
-        }catch(Exception e){
-            e.printStackTrace();
         }
     }
     /**
@@ -351,25 +342,11 @@ public class TaskController {
             return;
         }
 
-        try{
+        FXMLLoader loader = SceneSwitcher.switchScene(tableView, "edit-task.fxml");
 
-            FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("/com/example/finalUI/edit-task.fxml")
-            );
-
-            Parent root = loader.load();
-
+        if(loader != null){
             EditTaskController controller = loader.getController();
             controller.setTask(selected);
-
-            Stage stage = new Stage();
-            stage.setTitle("Edit Task");
-            stage.setScene(new Scene(root));
-            stage.setMaximized(true);
-            stage.show();
-
-        }catch(Exception e){
-            e.printStackTrace();
         }
     }
     /**

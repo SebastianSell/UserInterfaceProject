@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="root" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.example.finalUI.controller.WelcomeController">
+<VBox VBox.vgrow="ALWAYS" fx:id="root" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.example.finalUI.controller.WelcomeController">
 
     <padding>
         <Insets bottom="40" left="40" right="40" top="40" />

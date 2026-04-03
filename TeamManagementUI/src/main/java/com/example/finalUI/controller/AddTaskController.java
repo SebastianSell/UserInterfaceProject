@@ -1,6 +1,7 @@
 package com.example.finalUI.controller;
 
 import com.example.finalUI.model.Task;
+import com.example.finalUI.util.SceneSwitcher;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -145,8 +146,7 @@ public class AddTaskController {
 
         mainController.addTask(task);
 
-        Stage stage = (Stage) taskNameField.getScene().getWindow();
-        stage.close();
+        SceneSwitcher.switchScene(taskNameField, "task-view.fxml");
     }
     /**
      * Closes the Add Task window to return to the View Task page without adding a task.
@@ -154,7 +154,6 @@ public class AddTaskController {
      */
     @FXML
     private void handleCancel(){
-        Stage stage = (Stage) taskNameField.getScene().getWindow();
-        stage.close();
+        SceneSwitcher.switchScene(taskNameField, "task-view.fxml");
     }
 }

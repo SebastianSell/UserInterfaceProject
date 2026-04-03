@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.LoginController">
+<VBox VBox.vgrow="ALWAYS" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.LoginController">
 
     <Label fx:id="loginTitleLabel" style="-fx-font-size:22" text="Login" />
    <Label fx:id="usernameLabel" text="Username" />
@@ -19,7 +19,7 @@
     <Label fx:id="errorLabel" style="-fx-text-fill:red" />
    <HBox alignment="CENTER" spacing="10.0">
       <children>
-      
+
           <Button fx:id="loginButton" onAction="#handleLogin" text="Login" />
          <Button fx:id="backButton" onAction="#handleCancel" mnemonicParsing="false" text="Cancel" />
       </children>

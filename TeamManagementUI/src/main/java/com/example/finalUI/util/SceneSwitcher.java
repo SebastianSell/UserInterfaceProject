@@ -1,5 +1,6 @@
 package com.example.finalUI.util;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -22,21 +23,23 @@ public class SceneSwitcher {
      * The Ui elements variable
      * @param fxml
      * name of the fxml file and page destination*/
-    public static void switchScene(Node node, String fxml) {
-
+    public static FXMLLoader switchScene(Node node, String fxml) {
         try {
-
-            Parent root = FXMLLoader.load(
+            FXMLLoader loader = new FXMLLoader(
                     SceneSwitcher.class.getResource("/com/example/finalUI/" + fxml)
             );
-
+            Parent root = loader.load();
             Stage stage = (Stage) node.getScene().getWindow();
-            stage.setMaximized(true);
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
+            stage.sizeToScene();
+            Platform.runLater(root::requestFocus);
+            System.out.println(stage.isMaximized());
+            return loader;
 
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-
     }
 }

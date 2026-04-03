@@ -2,6 +2,7 @@ package com.example.finalUI.controller;
 
 import com.example.finalUI.database.DatabaseConnection;
 import com.example.finalUI.model.Task;
+import com.example.finalUI.util.SceneSwitcher;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -166,8 +167,7 @@ public class EditTaskController {
             e.printStackTrace();
         }
 
-        Stage stage = (Stage) taskNameField.getScene().getWindow();
-        stage.close();
+        SceneSwitcher.switchScene(taskNameField, "task-view.fxml");
     }
     /**
      * Closes the Edit Task window to return to the View Task page without adding a task.
@@ -175,7 +175,6 @@ public class EditTaskController {
      */
     @FXML
     private void handleCancel(){
-        Stage stage = (Stage) taskNameField.getScene().getWindow();
-        stage.close();
+        SceneSwitcher.switchScene(taskNameField, "task-view.fxml");
     }
 }

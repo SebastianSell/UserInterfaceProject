@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.AddTaskController">
+<VBox VBox.vgrow="ALWAYS" alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.AddTaskController">
 
     <Label fx:id="createTitleLabel" style="-fx-font-size:20" text="Add Task" />
    <Label fx:id="nameLabel" text="Task Name" />
