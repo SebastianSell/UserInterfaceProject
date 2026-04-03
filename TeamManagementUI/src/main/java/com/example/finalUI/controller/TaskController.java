@@ -280,23 +280,18 @@ public class TaskController {
      */
     @FXML
     private void handleCreate(){
-
         try{
-
             FXMLLoader loader = new FXMLLoader(
                     HelloApplication.class.getResource("/com/example/finalUI/add-task.fxml")
             );
 
             Parent root = loader.load();
-
             AddTaskController controller = loader.getController();
             controller.setMainController(this);
-
             Stage stage = new Stage();
             stage.setTitle("Add Task");
             stage.setScene(new Scene(root));
             stage.show();
-
         }catch(Exception e){
             e.printStackTrace();
         }
