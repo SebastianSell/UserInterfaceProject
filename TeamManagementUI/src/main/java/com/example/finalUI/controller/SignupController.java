@@ -148,7 +148,7 @@ public class SignupController {
      * Returns to the welcome page
      * */
     @FXML
-    private void goBack(){
+    private void handleCancel(){
 
         SceneSwitcher.switchScene(backButton, "welcome-view.fxml");
 

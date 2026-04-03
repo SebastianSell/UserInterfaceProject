@@ -1,31 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox VBox.vgrow="ALWAYS" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.LoginController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-    <Label fx:id="loginTitleLabel" style="-fx-font-size:22" text="Login" />
-   <Label fx:id="usernameLabel" text="Username" />
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.finalUI.controller.LoginController">
 
-    <TextField fx:id="usernameField" promptText="Username" />
-   <Label fx:id="passwordLabel" text="Password" />
-    <PasswordField fx:id="passwordField" promptText="Password" />
+    <center>
 
-    <Label fx:id="errorLabel" style="-fx-text-fill:red" />
-   <HBox alignment="CENTER" spacing="10.0">
-      <children>
+        <VBox alignment="CENTER" spacing="20">
 
-          <Button fx:id="loginButton" onAction="#handleLogin" text="Login" />
-         <Button fx:id="backButton" onAction="#handleCancel" mnemonicParsing="false" text="Cancel" />
-      </children>
-   </HBox>
+            <Label fx:id="loginTitleLabel"
+                   text="Login"
+                   style="-fx-font-size: 22;" />
 
+            <GridPane alignment="CENTER"
+                      hgap="10"
+                      vgap="10"
+                      maxWidth="300">
 
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
 
+                <Label fx:id="usernameLabel"
+                       text="Username"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
 
-</VBox>
+                <TextField fx:id="usernameField"
+                           promptText="Username"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
+
+                <Label fx:id="passwordLabel"
+                       text="Password"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <PasswordField fx:id="passwordField"
+                               promptText="Password"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="1"/>
+
+                <Label fx:id="errorLabel"
+                       style="-fx-text-fill:red"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"
+                       GridPane.columnSpan="2"/>
+
+            </GridPane>
+
+            <HBox alignment="CENTER" spacing="10">
+
+                <Button fx:id="loginButton"
+                        text="Login"
+                        onAction="#handleLogin"/>
+
+                <Button fx:id="backButton"
+                        text="Cancel"
+                        onAction="#handleCancel"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
