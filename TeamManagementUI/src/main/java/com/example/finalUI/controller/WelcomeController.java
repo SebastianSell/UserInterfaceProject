@@ -31,7 +31,8 @@ public class WelcomeController {
     private Button signupButton;
     /**Initializes the page*/
     public void initialize(){
-        titleLabel.setAccessibleText("Welcome to the Task management welcome page. Below are two buttons. Login or sign up. If you are new to app and have not made an account, click sign up. But if you already have created an account, click login");
+        loginButton.requestFocus();
+        titleLabel.setAccessibleText("Welcome to the Task management welcome page");
         loginButton.setAccessibleText("Login button");
         loginButton.setAccessibleHelp("Press to go to the login page");
         signupButton.setAccessibleText("Signup button");

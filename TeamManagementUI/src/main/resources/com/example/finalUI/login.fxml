@@ -21,7 +21,7 @@
       <children>
       
           <Button fx:id="loginButton" onAction="#handleLogin" text="Login" />
-         <Button fx:id="backButton" mnemonicParsing="false" text="Cancel" />
+         <Button fx:id="backButton" onAction="#handleCancel" mnemonicParsing="false" text="Cancel" />
       </children>
    </HBox>
 

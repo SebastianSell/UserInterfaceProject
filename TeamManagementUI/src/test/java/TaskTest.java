@@ -5,9 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the Task class.
+ * course code: cst8412
  *
  * These tests verify that task properties are correctly set
  * and updated through the constructor and setter methods.
+ *
+ *
+ * @author Sebastian Sell, Luca Beumer, Bennet Ireland
+ *  * @version 1.0
  */
 public class TaskTest {
 
@@ -21,7 +26,7 @@ public class TaskTest {
                 "Build UI",
                 "Medium",
                 "Alice",
-                "Open",
+                "In progress",
                 "2026-04-10",
                 "2026-04-01",
                 "Create dashboard layout"
@@ -30,7 +35,7 @@ public class TaskTest {
         assertEquals("Build UI", task.getTaskName());
         assertEquals("Medium", task.getTaskDifficulty());
         assertEquals("Alice", task.getMemberAssigned());
-        assertEquals("Open", task.getStatus());
+        assertEquals("In progress", task.getStatus());
         assertEquals("2026-04-10", task.getDueDate());
         assertEquals("2026-04-01", task.getCreatedDate());
         assertEquals("Create dashboard layout", task.getTaskNotes());

@@ -5,6 +5,7 @@ import com.example.finalUI.app.HelloApplication;
 import com.example.finalUI.util.SceneSwitcher;
 import com.example.finalUI.model.Task;
 import com.example.finalUI.util.Session;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +36,36 @@ import java.sql.SQLException;
  * @version 1.0
  */
 public class TaskController {
+
+    @FXML
+    private Menu fileMenu;
+
+    @FXML
+    private Menu editMenu;
+
+    @FXML
+    private Menu helpMenu;
+
+    @FXML
+    private Menu pagesMenu;
+
+    @FXML
+    private Menu extraMenu;
+
+    @FXML
+    private MenuItem closeMenuItem;
+
+    @FXML
+    private MenuItem deleteMenuItem;
+
+    @FXML
+    private MenuItem aboutMenuItem;
+
+    @FXML
+    private MenuItem viewUsersMenuItem;
+
+    @FXML
+    private MenuItem logoutMenuItem;
 
     @FXML
     private Label tableViewLabel;
@@ -88,9 +119,8 @@ public class TaskController {
 
         tableView.setAccessibleText("Table listing all tasks for the current user");
 
-
         //taskNameColumn.setCellValueFactory(c -> c.getValue().taskNameProperty());
-
+        /*Columns*/
         taskNameColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getTaskName())
         );
@@ -110,6 +140,8 @@ public class TaskController {
         tableView.setAccessibleText("Task table");
         tableView.setAccessibleHelp("Displays all tasks assigned to the team");
 
+        menuNav.setAccessibleText("Application navigation menu");
+
 
         tableView.setItems(data);
 
@@ -120,6 +152,7 @@ public class TaskController {
                 tableView.getSelectionModel().selectedItemProperty().isNull());
 
         data.clear();
+        Platform.runLater(() -> tableView.requestFocus());
         loadTasks();
 
         String sql = "SELECT * FROM tasks WHERE user_id=?";
@@ -291,6 +324,7 @@ public class TaskController {
             Stage stage = new Stage();
             stage.setTitle("Add Task");
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.show();
         }catch(Exception e){
             e.printStackTrace();
@@ -331,6 +365,7 @@ public class TaskController {
             Stage stage = new Stage();
             stage.setTitle("Edit Task");
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.show();
 
         }catch(Exception e){
@@ -406,29 +441,5 @@ public class TaskController {
         );
 
         alert.showAndWait();
-    }
-    /**
-     * Handles viewing the user viewtable page
-     */
-    @FXML
-    private void handleViewUsers(){
-
-        try{
-
-            FXMLLoader loader = new FXMLLoader(
-                    HelloApplication.class.getResource("Assigment2-View.fxml")
-            );
-
-            Parent root = loader.load();
-
-            Stage stage = (Stage) tableView.getScene().getWindow();
-
-            stage.setScene(new Scene(root));
-            stage.setTitle("User Manager");
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
     }
 }

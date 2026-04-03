@@ -5,8 +5,7 @@ module com.example.finalUI {
     requires javafx.graphics;
 
 
-    opens com.example.finalUI to javafx.fxml;
-    exports com.example.finalUI;
+
     exports com.example.finalUI.model;
     opens com.example.finalUI.model to javafx.fxml;
     exports com.example.finalUI.util;

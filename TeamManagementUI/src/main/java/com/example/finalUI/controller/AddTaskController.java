@@ -76,18 +76,25 @@ public class AddTaskController {
      */
     @FXML
     public void initialize(){
-        createTitleLabel.setAccessibleText("heading of the Create Page. In this page you will create a task by entering info into these exact fields below");
+        taskNameField.requestFocus();
+        createTitleLabel.setAccessibleText("Create Page");
         nameLabel.setAccessibleText("The name of the task");
+        nameLabel.setLabelFor(taskNameField);
         taskNameField.setAccessibleText("Enter the name of the task");
         difficultyLabel.setAccessibleText("The difficulty of the task");
+        difficultyLabel.setLabelFor(difficultyBox);
         difficultyBox.setAccessibleText("Pick an option for the difficulty of the task");
         memberLabel.setAccessibleText("The name of the member who is assigned to this task");
+        memberLabel.setLabelFor(memberField);
         memberField.setAccessibleText("Enter the name of a team member to be assigned for this task");
         statusLabel.setAccessibleText("The current status of the task");
+        statusLabel.setLabelFor(statusBox);
         statusBox.setAccessibleText("Pick an option for the current status of the task");
         dueDateLabel.setAccessibleText("The due date for the task");
+        dueDateLabel.setLabelFor(dueDatePicker);
         dueDatePicker.setAccessibleText("pick the date for the the due date of this task");
         notesLabel.setAccessibleText("Notes for the task");
+        notesLabel.setLabelFor(notesField);
         notesField.setAccessibleText("Type here to enter any notes for this task");
         saveButton.setAccessibleText("Click to create the task");
         cancelButton.setAccessibleText("Click to cancel creating the task");

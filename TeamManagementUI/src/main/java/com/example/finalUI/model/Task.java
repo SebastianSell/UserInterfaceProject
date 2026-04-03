@@ -1,5 +1,6 @@
 package com.example.finalUI.model;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 
@@ -28,7 +29,7 @@ public class Task {
     private StringProperty createdDate;
     private StringProperty taskNotes;
     /**
-     * Creates a new Task object.
+     * Creates a new Task object using the StringProperty type.
      *
      * @param taskName name of the task
      * @param taskDifficulty difficulty level of the task
@@ -48,7 +49,25 @@ public class Task {
         this.taskNotes = taskNotes;
     }
 
-    public Task(String taskOne, String easy, String mail, String inProgress, String date, String date1, String no) {
+    /**
+     * Creates a new Task object using the String type.
+     *
+     * @param taskName name of the task
+     * @param taskDifficulty difficulty level of the task
+     * @param memberAssigned person responsible for the task
+     * @param status current status of the task
+     * @param dueDate due date of the task
+     * @param createdDate date the task was created
+     * @param taskNotes additional notes about the task
+     */
+    public Task(String taskName, String taskDifficulty, String memberAssigned, String status, String dueDate, String createdDate, String taskNotes) {
+        this.taskName = new SimpleStringProperty(taskName);
+        this.taskDifficulty = new SimpleStringProperty(taskDifficulty);
+        this.memberAssigned = new SimpleStringProperty(memberAssigned);
+        this.status = new SimpleStringProperty(status);
+        this.dueDate = new SimpleStringProperty(dueDate);
+        this.createdDate = new SimpleStringProperty(createdDate);
+        this.taskNotes = new SimpleStringProperty(taskNotes);
     }
 
     /** Getter for task name property */

@@ -2,6 +2,7 @@ package com.example.finalUI.controller;
 
 import com.example.finalUI.database.DatabaseConnection;
 import com.example.finalUI.model.Task;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -75,43 +76,30 @@ public class EditTaskController {
     /**Initializes the Edit Page*/
     @FXML
     public void initialize(){
-        editTitleLabel.setAccessibleText("heading of the Edit Page. In this page you will update the exact fields for the existing task you selected");
+        Platform.runLater(() -> taskNameField.requestFocus());
+        editTitleLabel.setAccessibleText("Edit Page");
         nameLabel.setAccessibleText("The name of the task");
+        nameLabel.setLabelFor(taskNameField);
         taskNameField.setAccessibleText("Task name field");
         taskNameField.setAccessibleHelp("Edit the name of the task");
         difficultyLabel.setAccessibleText("Task difficulty selector");
+        difficultyLabel.setLabelFor(difficultyBox);
         difficultyBox.setAccessibleText("Pick an option for the difficulty of the task");
         memberLabel.setAccessibleText("The name of the member who is assigned to this task");
+        memberLabel.setLabelFor(memberField);
         memberField.setAccessibleText("Enter the name of a team member to be assigned for this task");
         statusLabel.setAccessibleText("The current status of the task");
+        statusLabel.setLabelFor(statusBox);
         statusBox.setAccessibleText("Pick an option for the current status of the task");
         dueDateLabel.setAccessibleText("The due date for the task");
+        dueDateLabel.setLabelFor(dueDatePicker);
         dueDatePicker.setAccessibleText("pick the date for the the due date of this task");
         notesLabel.setAccessibleText("Notes for the task");
+        notesLabel.setLabelFor(notesField);
         notesField.setAccessibleText("Type here to enter any notes for this task");
         saveTaskButton.setAccessibleText("Click to update the task");
         cancelButton.setAccessibleText("Click to cancel editing the task");
 
-
-
-        editTitleLabel.setAccessibleText("Edit task page");
-
-        taskNameField.setAccessibleText("Task name field");
-        taskNameField.setAccessibleHelp("Edit the name of the task");
-
-        difficultyBox.setAccessibleText("Task difficulty selector");
-
-        memberField.setAccessibleText("Assigned member field");
-
-        statusBox.setAccessibleText("Task status selector");
-
-        dueDatePicker.setAccessibleText("Task due date picker");
-
-        notesField.setAccessibleText("Task notes field");
-
-        saveTaskButton.setAccessibleText("Save changes button");
-
-        cancelButton.setAccessibleText("Cancel button");
 
 
         difficultyBox.getItems().addAll(
@@ -148,7 +136,6 @@ public class EditTaskController {
      */
     @FXML
     private void handleSave(){
-
         task.setTaskName(taskNameField.getText());
         task.setTaskDifficulty(difficultyBox.getValue());
         task.setMemberAssigned(memberField.getText());

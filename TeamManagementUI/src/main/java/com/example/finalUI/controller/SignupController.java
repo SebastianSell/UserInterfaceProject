@@ -52,7 +52,8 @@ public class SignupController {
 
     /**Initializes the page*/
     public void initialize(){
-        signupTitle.setAccessibleRoleDescription("This is the sign up page. Here you will need to create an account to use this application.");
+        usernameField.requestFocus();
+        signupTitle.setAccessibleRoleDescription("Sign up");
         usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
         usernameField.setAccessibleHelp("Enter a username for the new account");

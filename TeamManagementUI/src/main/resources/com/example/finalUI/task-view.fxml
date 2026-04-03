@@ -29,27 +29,23 @@
    <top>
       <MenuBar fx:id="menuNav" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" onAction="#handleExit" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" onAction="#handleAbout" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-            <Menu text="Pages">
-                <MenuItem text="View Users" onAction="#handleViewUsers"/>
+            <Menu fx:id="fileMenu" text="File">
+                <items>
+                    <MenuItem fx:id="closeMenuItem" text="Close Application" />
+                </items>
             </Menu>
 
-            <Menu text="Extra">
-                <MenuItem fx:id="logoutButton" text="Log out" onAction="#handleLogout"/>
+            <Menu fx:id="helpMenu" text="Help">
+                <items>
+                    <MenuItem fx:id="aboutMenuItem" text="About pop-up" />
+                </items>
+            </Menu>
+
+
+            <Menu fx:id="extraMenu" text="Extra">
+                <items>
+                    <MenuItem fx:id="logoutMenuItem" text="Log out" onAction="#handleLogout" accelerator="Ctrl+L"/>
+                </items>
             </Menu>
         </menus>
       </MenuBar>

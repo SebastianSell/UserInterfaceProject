@@ -31,6 +31,7 @@ public class SceneSwitcher {
             );
 
             Stage stage = (Stage) node.getScene().getWindow();
+            stage.setMaximized(true);
             stage.setScene(new Scene(root));
 
         } catch (Exception e) {

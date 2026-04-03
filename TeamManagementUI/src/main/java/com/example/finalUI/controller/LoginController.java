@@ -54,8 +54,9 @@ public class LoginController {
     /**Initializes the Login page */
     @FXML
     private void initialize(){
+        usernameField.requestFocus();
         errorLabel.setText("");
-        loginTitleLabel.setAccessibleText("This is the login page. You will need to verify your account to continue the app with this account.");
+        loginTitleLabel.setAccessibleText("login page.");
         usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
         usernameField.setAccessibleHelp("Enter the username for your account");
@@ -132,7 +133,7 @@ public class LoginController {
      * Returns to the welcome page
      * */
     @FXML
-    private void goBack(){
+    private void handleCancel(){
 
         SceneSwitcher.switchScene(backButton, "welcome-view.fxml");
 
