@@ -72,6 +72,9 @@ public class EditTaskController {
     @FXML
     private Button cancelButton;
 
+    @FXML
+    private Label errorLabel;
+
     private Task task;
 
     /**Initializes the Edit Page*/
@@ -102,7 +105,7 @@ public class EditTaskController {
         cancelButton.setAccessibleText("Click to cancel editing the task");
 
 
-
+        // options for the status and difficulty dropdowns
         difficultyBox.getItems().addAll(
                 "Easy",
                 "Medium",
@@ -114,6 +117,8 @@ public class EditTaskController {
                 "In Progress",
                 "Completed"
         );
+        //Makes dueDatePicker uneditable
+        dueDatePicker.setEditable(false);
     }
 
     /**
@@ -137,6 +142,12 @@ public class EditTaskController {
      */
     @FXML
     private void handleSave(){
+        if (dueDatePicker.getValue() == null) {
+            errorLabel.setText("Please select a due date.");
+            return;
+        }
+
+        errorLabel.setText("");
         task.setTaskName(taskNameField.getText());
         task.setTaskDifficulty(difficultyBox.getValue());
         task.setMemberAssigned(memberField.getText());

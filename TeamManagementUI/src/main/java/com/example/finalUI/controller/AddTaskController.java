@@ -66,6 +66,9 @@ public class AddTaskController {
     @FXML
     private Button cancelButton;
 
+    @FXML
+    private Label errorLabel;
+
     private TaskController mainController;
 
     public void setMainController(TaskController controller){
@@ -103,11 +106,6 @@ public class AddTaskController {
 
         createTitleLabel.setAccessibleText("Create task page");
 
-
-
-
-
-
         difficultyBox.getItems().addAll(
                 "Easy",
                 "Medium",
@@ -119,6 +117,16 @@ public class AddTaskController {
                 "In Progress",
                 "Completed"
         );
+
+        dueDatePicker.getEditor().textProperty().addListener((obs, oldText, newText) -> {
+
+            if (!newText.matches("\\d{0,2}/\\d{0,2}/\\d{0,4}")) {
+                errorLabel.setText("Please enter a valid date format.");
+            } else {
+                errorLabel.setText("");
+            }
+
+        });
     }
 
     /**
@@ -127,6 +135,12 @@ public class AddTaskController {
      */
     @FXML
     private void handleSave(){
+        if (dueDatePicker.getValue() == null) {
+            errorLabel.setText("Please select a due date.");
+            return;
+        }
+
+        errorLabel.setText("");
 
         DateTimeFormatter formatter =
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

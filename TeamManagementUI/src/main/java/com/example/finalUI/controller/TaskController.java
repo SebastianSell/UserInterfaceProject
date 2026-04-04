@@ -116,10 +116,9 @@ public class TaskController {
      */
     @FXML
     public void initialize() {
-
         tableView.setAccessibleText("Table listing all tasks for the current user");
+        tableView.setAccessibleHelp("Displays all tasks assigned to the team");
 
-        //taskNameColumn.setCellValueFactory(c -> c.getValue().taskNameProperty());
         /*Columns*/
         taskNameColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getTaskName())
@@ -135,13 +134,10 @@ public class TaskController {
         updateButton.setAccessibleText("Update selected task");
         deleteButton.setAccessibleText("Delete selected task");
 
-        //tableViewLabel.setAccessibleText("Task list");
-
         tableView.setAccessibleText("Task table");
         tableView.setAccessibleHelp("Displays all tasks assigned to the team");
 
         menuNav.setAccessibleText("Application navigation menu");
-
 
         tableView.setItems(data);
 
@@ -322,7 +318,7 @@ public class TaskController {
         }
     }
     /**
-     * Handles the update of a existing task.
+     * Handles the update of an existing task.
      * Opens the Edit Task window where the user can
      * enter task information to update a task.
      */

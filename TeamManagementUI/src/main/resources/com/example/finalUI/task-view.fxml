@@ -29,22 +29,22 @@
    <top>
       <MenuBar fx:id="menuNav" BorderPane.alignment="CENTER">
         <menus>
-            <Menu fx:id="fileMenu" text="File">
+            <Menu fx:id="fileMenu" text="_File">
                 <items>
                     <MenuItem fx:id="closeMenuItem" text="Close Application" />
                 </items>
             </Menu>
 
-            <Menu fx:id="helpMenu" text="Help">
+            <Menu fx:id="helpMenu" text="_Help">
                 <items>
                     <MenuItem fx:id="aboutMenuItem" text="About pop-up" />
                 </items>
             </Menu>
 
 
-            <Menu fx:id="extraMenu" text="Extra">
+            <Menu fx:id="extraMenu" text="_Extra">
                 <items>
-                    <MenuItem fx:id="logoutMenuItem" text="Log out" onAction="#handleLogout" accelerator="Ctrl+L"/>
+                    <MenuItem fx:id="logoutMenuItem" text="Log out" onAction="#handleLogout"/>
                 </items>
             </Menu>
         </menus>
