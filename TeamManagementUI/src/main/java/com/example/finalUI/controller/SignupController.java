@@ -4,6 +4,7 @@ package com.example.finalUI.controller;
 import com.example.finalUI.database.DatabaseConnection;
 import com.example.finalUI.util.SceneSwitcher;
 import com.example.finalUI.util.PasswordUtil;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -52,8 +53,9 @@ public class SignupController {
 
     /**Initializes the page*/
     public void initialize(){
-        usernameField.requestFocus();
-        signupTitle.setAccessibleRoleDescription("Sign up");
+        signupTitle.setFocusTraversable(true);
+        signupTitle.setAccessibleText("Sign up page");
+        Platform.runLater(() -> signupTitle.requestFocus());
         usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
         usernameField.setAccessibleHelp("Enter a username for the new account");

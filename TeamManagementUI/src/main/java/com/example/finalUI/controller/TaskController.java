@@ -116,6 +116,8 @@ public class TaskController {
      */
     @FXML
     public void initialize() {
+        tableView.setFocusTraversable(true);
+        Platform.runLater(() -> tableView.requestFocus());
         tableView.setAccessibleText("Table listing all tasks for the current user");
         tableView.setAccessibleHelp("Displays all tasks assigned to the team");
 

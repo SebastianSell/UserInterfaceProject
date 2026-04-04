@@ -26,6 +26,7 @@
                 </padding>
 
                 <Label text="Task Name"
+                       labelFor="$taskNameField"
                        GridPane.rowIndex="0"
                        GridPane.columnIndex="0"/>
 
@@ -35,6 +36,7 @@
                            GridPane.columnIndex="1"/>
 
                 <Label text="Task Difficulty"
+                       labelFor="$difficultyBox"
                        GridPane.rowIndex="1"
                        GridPane.columnIndex="0"/>
 
@@ -44,6 +46,7 @@
                           GridPane.columnIndex="1"/>
 
                 <Label text="Assign Task"
+                       labelFor="$memberField"
                        GridPane.rowIndex="2"
                        GridPane.columnIndex="0"/>
 
@@ -53,6 +56,7 @@
                            GridPane.columnIndex="1"/>
 
                 <Label text="Task Status"
+                       labelFor="$statusBox"
                        GridPane.rowIndex="3"
                        GridPane.columnIndex="0"/>
 
@@ -62,6 +66,7 @@
                           GridPane.columnIndex="1"/>
 
                 <Label text="Due Date"
+                       labelFor="$dueDatePicker"
                        GridPane.rowIndex="4"
                        GridPane.columnIndex="0"/>
 
@@ -77,6 +82,7 @@
                        GridPane.columnSpan="2"/>
 
                 <Label text="Additional Notes"
+                       labelFor="$notesField"
                        GridPane.rowIndex="6"
                        GridPane.columnIndex="0"/>
 

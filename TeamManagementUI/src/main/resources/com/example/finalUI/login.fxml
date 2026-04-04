@@ -27,6 +27,7 @@
                 </padding>
 
                 <Label fx:id="usernameLabel"
+                       labelFor="$usernameField"
                        text="Username"
                        GridPane.rowIndex="0"
                        GridPane.columnIndex="0"/>
@@ -37,6 +38,7 @@
                            GridPane.columnIndex="1"/>
 
                 <Label fx:id="passwordLabel"
+                       labelFor="$passwordField"
                        text="Password"
                        GridPane.rowIndex="1"
                        GridPane.columnIndex="0"/>

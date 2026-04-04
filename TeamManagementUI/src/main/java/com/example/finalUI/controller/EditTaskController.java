@@ -80,8 +80,9 @@ public class EditTaskController {
     /**Initializes the Edit Page*/
     @FXML
     public void initialize(){
-        Platform.runLater(() -> taskNameField.requestFocus());
-        editTitleLabel.setAccessibleText("Edit Page");
+        editTitleLabel.setFocusTraversable(true);
+        editTitleLabel.setAccessibleText("Edit Task Page");
+        Platform.runLater(() -> editTitleLabel.requestFocus());
         nameLabel.setAccessibleText("The name of the task");
         nameLabel.setLabelFor(taskNameField);
         taskNameField.setAccessibleText("Task name field");

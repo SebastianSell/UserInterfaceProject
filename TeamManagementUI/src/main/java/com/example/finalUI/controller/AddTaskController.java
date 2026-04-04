@@ -2,6 +2,7 @@ package com.example.finalUI.controller;
 
 import com.example.finalUI.model.Task;
 import com.example.finalUI.util.SceneSwitcher;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -80,7 +81,9 @@ public class AddTaskController {
      */
     @FXML
     public void initialize(){
-        taskNameField.requestFocus();
+        createTitleLabel.setFocusTraversable(true);
+        createTitleLabel.setAccessibleText("Edit Task Page");
+        Platform.runLater(() -> createTitleLabel.requestFocus());
         createTitleLabel.setAccessibleText("Create Page");
         nameLabel.setAccessibleText("The name of the task");
         nameLabel.setLabelFor(taskNameField);

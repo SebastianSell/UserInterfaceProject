@@ -1,6 +1,7 @@
 package com.example.finalUI.controller;
 
 import com.example.finalUI.util.SceneSwitcher;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -31,7 +32,9 @@ public class WelcomeController {
     private Button signupButton;
     /**Initializes the page*/
     public void initialize(){
-        loginButton.requestFocus();
+        titleLabel.setFocusTraversable(true);
+        titleLabel.setAccessibleText("Login page");
+        Platform.runLater(() -> titleLabel.requestFocus());
         titleLabel.setAccessibleText("Welcome to the Task management welcome page");
         loginButton.setAccessibleText("Login button");
         loginButton.setAccessibleHelp("Press to go to the login page");

@@ -26,15 +26,15 @@
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </padding>
 
-                <Label fx:id="usernameLabel" text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="usernameLabel" labelFor="$usernameField" text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
                 <TextField fx:id="usernameField" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label fx:id="passwordLabel" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label fx:id="passwordLabel" labelFor="$passwordField" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
                 <PasswordField fx:id="passwordField" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label fx:id="confirmPasswordLabel" text="Confirm Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label fx:id="confirmPasswordLabel" labelFor="$confirmPasswordField" text="Confirm Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
                 <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 

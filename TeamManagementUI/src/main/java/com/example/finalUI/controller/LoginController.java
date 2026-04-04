@@ -4,6 +4,7 @@ import com.example.finalUI.database.DatabaseConnection;
 import com.example.finalUI.util.SceneSwitcher;
 import com.example.finalUI.util.PasswordUtil;
 import com.example.finalUI.util.Session;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -54,13 +55,12 @@ public class LoginController {
     /**Initializes the Login page */
     @FXML
     private void initialize(){
-        usernameField.requestFocus();
+        loginTitleLabel.setFocusTraversable(true);
+        loginTitleLabel.setAccessibleText("Login page");
+        Platform.runLater(() -> loginTitleLabel.requestFocus());
         errorLabel.setText("");
-        loginTitleLabel.setAccessibleText("login page.");
-        usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
         usernameField.setAccessibleHelp("Enter the username for your account");
-        passwordLabel.setAccessibleText("Password label");
         passwordField.setAccessibleText("Password input field");
         passwordField.setAccessibleHelp("Enter the password for your account");
         loginButton.setAccessibleText("Login button");
@@ -70,6 +70,8 @@ public class LoginController {
 
         errorLabel.setAccessibleText("Login error message area");
         errorLabel.setAccessibleHelp("Displays errors such as incorrect password or user not found");
+        errorLabel.setAccessibleText("Error: Invalid username or password");
+        errorLabel.requestFocus();
 
 
 
