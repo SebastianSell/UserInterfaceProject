@@ -18,7 +18,7 @@
 
         <VBox alignment="CENTER" spacing="20">
 
-            <Label fx:id="signupTitle" style="-fx-font-size: 22;" text="Sign Up" />
+            <Label fx:id="signupTitle" style="-fx-font-size: 22;" text="%signup.title" />
 
             <GridPane alignment="CENTER" hgap="10" maxWidth="350" vgap="10">
 
@@ -26,17 +26,17 @@
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </padding>
 
-                <Label fx:id="usernameLabel" labelFor="$usernameField" text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="usernameLabel" labelFor="$usernameField" text="%signup.username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
-                <TextField fx:id="usernameField" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField fx:id="usernameField" promptText="%signup.username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label fx:id="passwordLabel" labelFor="$passwordField" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label fx:id="passwordLabel" labelFor="$passwordField" text="%signup.password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-                <PasswordField fx:id="passwordField" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <PasswordField fx:id="passwordField" promptText="%signup.password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label fx:id="confirmPasswordLabel" labelFor="$confirmPasswordField" text="Confirm Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label fx:id="confirmPasswordLabel" labelFor="$confirmPasswordField" text="%signup.confirmPassword" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
-                <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <PasswordField fx:id="confirmPasswordField" promptText="%signup.confirmPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <Label fx:id="errorLabel" style="-fx-text-fill:red" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
             <columnConstraints>
@@ -54,9 +54,9 @@
 
             <HBox alignment="CENTER" spacing="10">
 
-                <Button fx:id="signupButton" onAction="#handleSignup" text="Create Account" />
+                <Button fx:id="signupButton" onAction="#handleSignup" text="%signup.create" />
 
-                <Button fx:id="backButton" onAction="#handleCancel" text="Cancel" />
+                <Button fx:id="backButton" onAction="#handleCancel" text="%common.cancel" />
 
             </HBox>
 
