@@ -13,7 +13,7 @@
    <center>
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn fx:id="taskNameColumn" prefWidth="75.0" text="%name" />
+            <TableColumn fx:id="taskNameColumn" prefWidth="75.0" text="%taskName" />
             <TableColumn fx:id="taskDifficultyColumn" prefWidth="75.0" text="%taskDifficulty" />
             <TableColumn fx:id="memberAssignedColumn" prefWidth="75.0" text="%assignedTo" />
             <TableColumn fx:id="statusColumn" prefWidth="75.0" text="%taskStatus" />
@@ -45,6 +45,12 @@
             <Menu fx:id="extraMenu" text="%extra">
                 <items>
                     <MenuItem fx:id="logoutMenuItem" text="%logout" onAction="#handleLogout"/>
+                </items>
+            </Menu>
+            <Menu text="%Language">
+                <items>
+                    <MenuItem text="English" onAction="#setEnglish"/>
+                    <MenuItem text="Français" onAction="#setFrench"/>
                 </items>
             </Menu>
         </menus>

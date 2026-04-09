@@ -19,6 +19,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import java.util.Locale;
+import com.example.finalUI.util.LanguageManager;
+
 
 /**
  * course code: cst8412
@@ -424,5 +427,17 @@ public class TaskController {
         );
 
         alert.showAndWait();
+    }
+
+    @FXML
+    private void setEnglish() {
+        LanguageManager.setLocale(Locale.ENGLISH);
+        SceneSwitcher.switchScene(menuNav, "task-view.fxml");
+    }
+
+    @FXML
+    private void setFrench() {
+        LanguageManager.setLocale(Locale.FRENCH);
+        SceneSwitcher.switchScene(menuNav, "task-view.fxml");
     }
 }

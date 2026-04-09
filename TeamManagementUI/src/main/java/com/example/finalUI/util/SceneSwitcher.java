@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import javafx.stage.Screen;
 import javafx.geometry.Rectangle2D;
 
+import java.util.ResourceBundle;
+
 /**
  * course code: cst8412
  *
@@ -27,8 +29,12 @@ public class SceneSwitcher {
      * name of the fxml file and page destination*/
     public static FXMLLoader switchScene(Node node, String fxml) {
         try {
+
+            ResourceBundle bundle =
+                    ResourceBundle.getBundle("messages", LanguageManager.getLocale());
+
             FXMLLoader loader = new FXMLLoader(
-                    SceneSwitcher.class.getResource("/com/example/finalUI/" + fxml)
+                    SceneSwitcher.class.getResource("/com/example/finalUI/" + fxml),bundle
             );
             Parent root = loader.load();
             Stage stage = (Stage) node.getScene().getWindow();
