@@ -19,7 +19,7 @@ import javafx.beans.property.StringProperty;
  * @version 1.0
  */
 
-public class Task {
+public class TaskModel {
 
     private StringProperty taskName;
     private StringProperty taskDifficulty;
@@ -39,7 +39,7 @@ public class Task {
      * @param createdDate date the task was created
      * @param taskNotes additional notes about the task
      */
-    public Task(StringProperty taskName, StringProperty taskDifficulty, StringProperty memberAssigned, StringProperty status, StringProperty dueDate, StringProperty createdDate, StringProperty taskNotes) {
+    public TaskModel(StringProperty taskName, StringProperty taskDifficulty, StringProperty memberAssigned, StringProperty status, StringProperty dueDate, StringProperty createdDate, StringProperty taskNotes) {
         this.taskName = taskName;
         this.taskDifficulty = taskDifficulty;
         this.memberAssigned = memberAssigned;
@@ -60,7 +60,7 @@ public class Task {
      * @param createdDate date the task was created
      * @param taskNotes additional notes about the task
      */
-    public Task(String taskName, String taskDifficulty, String memberAssigned, String status, String dueDate, String createdDate, String taskNotes) {
+    public TaskModel(String taskName, String taskDifficulty, String memberAssigned, String status, String dueDate, String createdDate, String taskNotes) {
         this.taskName = new SimpleStringProperty(taskName);
         this.taskDifficulty = new SimpleStringProperty(taskDifficulty);
         this.memberAssigned = new SimpleStringProperty(memberAssigned);

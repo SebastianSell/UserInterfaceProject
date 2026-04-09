@@ -1,5 +1,5 @@
 
-import com.example.finalUI.model.Task;
+import com.example.finalUI.model.TaskModel;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +22,7 @@ public class TaskTest {
     @Test
     void testTaskCreation() {
 
-        Task task = new Task(
+        TaskModel task = new TaskModel(
                 "Build UI",
                 "Medium",
                 "Alice",
@@ -47,7 +47,7 @@ public class TaskTest {
     @Test
     void testSetTaskName() {
 
-        Task task = new Task("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
+        TaskModel task = new TaskModel("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
 
         task.setTaskName("Updated Task");
 
@@ -59,7 +59,7 @@ public class TaskTest {
     @Test
     void testSetDifficulty() {
 
-        Task task = new Task("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
+        TaskModel task = new TaskModel("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
 
         task.setTaskDifficulty("Hard");
 
@@ -71,7 +71,7 @@ public class TaskTest {
     @Test
     void testSetMemberAssigned() {
 
-        Task task = new Task("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
+        TaskModel task = new TaskModel("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
 
         task.setMemberAssigned("Charlie");
 
@@ -83,7 +83,7 @@ public class TaskTest {
     @Test
     void testSetStatus() {
 
-        Task task = new Task("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
+        TaskModel task = new TaskModel("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
 
         task.setStatus("Completed");
 
@@ -95,7 +95,7 @@ public class TaskTest {
     @Test
     void testSetDueDate() {
 
-        Task task = new Task("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
+        TaskModel task = new TaskModel("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
 
         task.setDueDate("2026-05-01");
 
@@ -107,7 +107,7 @@ public class TaskTest {
     @Test
     void testSetNotes() {
 
-        Task task = new Task("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
+        TaskModel task = new TaskModel("Task1","Easy","Bob","Open","2026-04-10","2026-04-01","Notes");
 
         task.setTaskNotes("Updated notes");
 

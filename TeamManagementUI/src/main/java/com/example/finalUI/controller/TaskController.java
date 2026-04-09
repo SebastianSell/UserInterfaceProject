@@ -1,28 +1,23 @@
 package com.example.finalUI.controller;
 
 import com.example.finalUI.database.DatabaseConnection;
-import com.example.finalUI.app.HelloApplication;
 import com.example.finalUI.util.SceneSwitcher;
-import com.example.finalUI.model.Task;
+import com.example.finalUI.model.TaskModel;
 import com.example.finalUI.util.Session;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-
-
+import java.util.List;
 
 
 /**
@@ -71,28 +66,28 @@ public class TaskController {
     private Label tableViewLabel;
 
     @FXML
-    private TableView<Task> tableView;
+    private TableView<TaskModel> tableView;
 
     @FXML
-    private TableColumn<Task,String> taskNameColumn;
+    private TableColumn<TaskModel,String> taskNameColumn;
 
     @FXML
-    private TableColumn<Task,String> taskDifficultyColumn;
+    private TableColumn<TaskModel,String> taskDifficultyColumn;
 
     @FXML
-    private TableColumn<Task,String> memberAssignedColumn;
+    private TableColumn<TaskModel,String> memberAssignedColumn;
 
     @FXML
-    private TableColumn<Task,String> statusColumn;
+    private TableColumn<TaskModel,String> statusColumn;
 
     @FXML
-    private TableColumn<Task,String> dueDateColumn;
+    private TableColumn<TaskModel,String> dueDateColumn;
 
     @FXML
-    private TableColumn<Task,String> createdDateColumn;
+    private TableColumn<TaskModel,String> createdDateColumn;
 
     @FXML
-    private TableColumn<Task,String> notesColumn;
+    private TableColumn<TaskModel,String> notesColumn;
 
     @FXML
     private Button createButton;
@@ -109,7 +104,7 @@ public class TaskController {
     @FXML
     private MenuItem logoutButton;
 
-    private ObservableList<Task> data = FXCollections.observableArrayList();
+    private ObservableList<TaskModel> data = FXCollections.observableArrayList();
 
     /**
      * Iniltialization for the class
@@ -163,7 +158,7 @@ public class TaskController {
 
             while (rs.next()) {
 
-                Task task = new Task(
+                TaskModel task = new TaskModel(
                         new SimpleStringProperty(rs.getString("task_name")),
                         new SimpleStringProperty(rs.getString("difficulty")),
                         new SimpleStringProperty(rs.getString("member_assigned")),
@@ -185,7 +180,7 @@ public class TaskController {
         }
     }
     /**Adds a task to the database*/
-    public void addTask(Task t){
+    public void addTask(TaskModel t){
 
         data.add(t);
 
@@ -218,7 +213,7 @@ public class TaskController {
         }
     }
     /**updates a task in the tableview*/
-    public void updateTask(Task t){
+    public void updateTask(TaskModel t){
 
         String sql = """
         UPDATE tasks
@@ -249,7 +244,7 @@ public class TaskController {
         }
     }
     /**Deletes a task from the tableview*/
-    public void deleteTask(Task t){
+    public void deleteTask(TaskModel t){
 
         String sql = """
         DELETE FROM tasks
@@ -271,37 +266,50 @@ public class TaskController {
         }
     }
     /**Loads tasks into the tableview upon running the program and logging in*/
+    @FXML
     private void loadTasks(){
 
-        data.clear();
+        Task<List<TaskModel>> loadTask = new Task<>() {
+            @Override
+            protected java.util.List<TaskModel> call() throws Exception {
+                java.util.List<TaskModel> loadedTasks = new java.util.ArrayList<>();
+                String sql = "SELECT * FROM tasks WHERE user_id=?";
+                try(Connection conn = DatabaseConnection.getConnection();
+                    PreparedStatement stmt = conn.prepareStatement(sql)){
+                    stmt.setInt(1, Session.currentUserId);
+                    ResultSet rs = stmt.executeQuery();
+                    while(rs.next()){
+                        TaskModel task = new TaskModel(
+                                new SimpleStringProperty(rs.getString("task_name")),
+                                new SimpleStringProperty(rs.getString("difficulty")),
+                                new SimpleStringProperty(rs.getString("member_assigned")),
+                                new SimpleStringProperty(rs.getString("status")),
+                                new SimpleStringProperty(rs.getString("due_date")),
+                                new SimpleStringProperty(rs.getString("created_date")),
+                                new SimpleStringProperty(rs.getString("notes"))
+                        );
 
-        String sql = "SELECT * FROM tasks WHERE user_id=?";
+                        loadedTasks.add(task);
+                    }
 
-        try(Connection conn = DatabaseConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
+                }
 
-            stmt.setInt(1, Session.currentUserId);
-
-            ResultSet rs = stmt.executeQuery();
-
-            while(rs.next()){
-
-                Task task = new Task(
-                        new SimpleStringProperty(rs.getString("task_name")),
-                        new SimpleStringProperty(rs.getString("difficulty")),
-                        new SimpleStringProperty(rs.getString("member_assigned")),
-                        new SimpleStringProperty(rs.getString("status")),
-                        new SimpleStringProperty(rs.getString("due_date")),
-                        new SimpleStringProperty(rs.getString("created_date")),
-                        new SimpleStringProperty(rs.getString("notes"))
-                );
-
-                data.add(task);
+                return loadedTasks;
             }
+        };
 
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        loadTask.setOnSucceeded(event -> {
+            data.clear();
+            data.addAll(loadTask.getValue());
+        });
+
+        loadTask.setOnFailed(event -> {
+            loadTask.getException().printStackTrace();
+        });
+
+        Thread thread = new Thread(loadTask);
+        thread.setDaemon(true);
+        thread.start();
     }
 
     /**
@@ -327,7 +335,7 @@ public class TaskController {
     @FXML
     private void handleUpdate(){
 
-        Task selected = tableView.getSelectionModel().getSelectedItem();
+        TaskModel selected = tableView.getSelectionModel().getSelectedItem();
 
         if(selected == null){
 
@@ -353,7 +361,7 @@ public class TaskController {
     @FXML
     private void handleDelete(){
 
-        Task selectedTask = tableView.getSelectionModel().getSelectedItem();
+        TaskModel selectedTask = tableView.getSelectionModel().getSelectedItem();
 
         if(selectedTask == null){
             return;

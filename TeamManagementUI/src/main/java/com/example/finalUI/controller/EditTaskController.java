@@ -1,12 +1,11 @@
 package com.example.finalUI.controller;
 
 import com.example.finalUI.database.DatabaseConnection;
-import com.example.finalUI.model.Task;
+import com.example.finalUI.model.TaskModel;
 import com.example.finalUI.util.SceneSwitcher;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -75,7 +74,7 @@ public class EditTaskController {
     @FXML
     private Label errorLabel;
 
-    private Task task;
+    private TaskModel task;
 
     /**Initializes the Edit Page*/
     @FXML
@@ -125,7 +124,7 @@ public class EditTaskController {
     /**
      * Attaches the existing values of the selected task onto the Edit Page input fields
      */
-    public void setTask(Task task){
+    public void setTask(TaskModel task){
 
         this.task = task;
 

@@ -1,12 +1,11 @@
 package com.example.finalUI.controller;
 
-import com.example.finalUI.model.Task;
+import com.example.finalUI.model.TaskModel;
 import com.example.finalUI.util.SceneSwitcher;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -151,7 +150,7 @@ public class AddTaskController {
         String createdDate =
                 LocalDateTime.now().format(formatter);
 
-        Task task = new Task(
+        TaskModel task = new TaskModel(
                 new SimpleStringProperty(taskNameField.getText()),
                 new SimpleStringProperty(difficultyBox.getValue()),
                 new SimpleStringProperty(memberField.getText()),
