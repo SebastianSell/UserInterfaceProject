@@ -13,13 +13,13 @@
    <center>
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn fx:id="taskNameColumn" prefWidth="75.0" text="%task.name" />
-            <TableColumn fx:id="taskDifficultyColumn" prefWidth="75.0" text="%task.difficulty" />
-            <TableColumn fx:id="memberAssignedColumn" prefWidth="75.0" text="%task.assigned" />
-            <TableColumn fx:id="statusColumn" prefWidth="75.0" text="%task.status" />
-            <TableColumn fx:id="dueDateColumn" prefWidth="75.0" text="%task.dueDate" />
-            <TableColumn fx:id="createdDateColumn" prefWidth="75.0" text="%task.createdDate" />
-            <TableColumn fx:id="notesColumn" prefWidth="75.0" text="%task.notes" />
+            <TableColumn fx:id="taskNameColumn" prefWidth="75.0" text="%name" />
+            <TableColumn fx:id="taskDifficultyColumn" prefWidth="75.0" text="%taskDifficulty" />
+            <TableColumn fx:id="memberAssignedColumn" prefWidth="75.0" text="%assignedTo" />
+            <TableColumn fx:id="statusColumn" prefWidth="75.0" text="%taskStatus" />
+            <TableColumn fx:id="dueDateColumn" prefWidth="75.0" text="%dueDate" />
+            <TableColumn fx:id="createdDateColumn" prefWidth="75.0" text="%createdDate" />
+            <TableColumn fx:id="notesColumn" prefWidth="75.0" text="%notes" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -29,22 +29,22 @@
    <top>
       <MenuBar fx:id="menuNav" BorderPane.alignment="CENTER">
         <menus>
-            <Menu fx:id="fileMenu" text="%menu.file">
+            <Menu fx:id="fileMenu" text="%file">
                 <items>
-                    <MenuItem fx:id="closeMenuItem" text="%menu.close"/>
+                    <MenuItem fx:id="closeMenuItem" text="%closeApplication"/>
                 </items>
             </Menu>
 
-            <Menu fx:id="helpMenu" text="%menu.help">
+            <Menu fx:id="helpMenu" text="%help">
                 <items>
-                    <MenuItem fx:id="aboutMenuItem" text="%menu.about"/>
+                    <MenuItem fx:id="aboutMenuItem" text="%about"/>
                 </items>
             </Menu>
 
 
-            <Menu fx:id="extraMenu" text="%menu.extra">
+            <Menu fx:id="extraMenu" text="%extra">
                 <items>
-                    <MenuItem fx:id="logoutMenuItem" text="%menu.logout" onAction="#handleLogout"/>
+                    <MenuItem fx:id="logoutMenuItem" text="%logout" onAction="#handleLogout"/>
                 </items>
             </Menu>
         </menus>
@@ -53,9 +53,9 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-             <Button fx:id="createButton" text="%task.create" onAction="#handleCreate"/>
-             <Button fx:id="updateButton" text="%task.update" onAction="#handleUpdate"/>
-             <Button fx:id="deleteButton" text="%task.delete" onAction="#handleDelete"/>
+             <Button fx:id="createButton" text="%create" onAction="#handleCreate"/>
+             <Button fx:id="updateButton" text="%update" onAction="#handleUpdate"/>
+             <Button fx:id="deleteButton" text="%delete" onAction="#handleDelete"/>
          </children>
       </HBox>
    </bottom>

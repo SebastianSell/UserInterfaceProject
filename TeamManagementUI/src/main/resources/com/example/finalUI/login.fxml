@@ -14,7 +14,7 @@
         <VBox alignment="CENTER" spacing="20">
 
             <Label fx:id="loginTitleLabel"
-                   text="%login.title"
+                   text="%title.login"
                    style="-fx-font-size: 22;" />
 
             <GridPane alignment="CENTER"
@@ -28,23 +28,23 @@
 
                 <Label fx:id="usernameLabel"
                        labelFor="$usernameField"
-                       text="%login.username"
+                       text="%username"
                        GridPane.rowIndex="0"
                        GridPane.columnIndex="0"/>
 
                 <TextField fx:id="usernameField"
-                           promptText="%login.username"
+                           promptText="%username"
                            GridPane.rowIndex="0"
                            GridPane.columnIndex="1"/>
 
                 <Label fx:id="passwordLabel"
                        labelFor="$passwordField"
-                       text="%login.password"
+                       text="%password"
                        GridPane.rowIndex="1"
                        GridPane.columnIndex="0"/>
 
                 <PasswordField fx:id="passwordField"
-                               promptText="%login.password"
+                               promptText="%password"
                                GridPane.rowIndex="1"
                                GridPane.columnIndex="1"/>
 
@@ -59,11 +59,11 @@
             <HBox alignment="CENTER" spacing="10">
 
                 <Button fx:id="loginButton"
-                        text="%login.login"
+                        text="%login"
                         onAction="#handleLogin"/>
 
                 <Button fx:id="backButton"
-                        text="%common.cancel"
+                        text="%cancel"
                         onAction="#handleCancel"/>
 
             </HBox>
