@@ -44,6 +44,7 @@
                        GridPane.columnIndex="0"/>
 
                 <ComboBox fx:id="difficultyBox"
+                          promptText="%difficulty.prompt"
                           prefWidth="250"
                           GridPane.rowIndex="1"
                           GridPane.columnIndex="1"/>
@@ -67,6 +68,7 @@
                        GridPane.columnIndex="0"/>
 
                 <ComboBox fx:id="statusBox"
+                          promptText="%status.prompt"
                           prefWidth="250"
                           GridPane.rowIndex="3"
                           GridPane.columnIndex="1"/>

@@ -33,7 +33,7 @@
 
                 <Label fx:id="difficultyLabel" text="%taskDifficulty" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-                <ComboBox fx:id="difficultyBox" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <ComboBox fx:id="difficultyBox" prefWidth="250" promptText="%difficulty.prompt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label fx:id="memberLabel" text="%assignTask" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
@@ -41,7 +41,7 @@
 
                 <Label fx:id="statusLabel" text="%taskStatus" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-                <ComboBox fx:id="statusBox" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <ComboBox fx:id="statusBox" prefWidth="250" promptText="%status.prompt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                 <Label fx:id="dueDateLabel" text="%dueDate" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 

@@ -1,14 +1,17 @@
 package com.example.finalUI.controller;
 
 import com.example.finalUI.model.TaskModel;
+import com.example.finalUI.util.LanguageManager;
 import com.example.finalUI.util.SceneSwitcher;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
 /**
  * course code: cst8412
@@ -108,7 +111,7 @@ public class AddTaskController {
 
         createTitleLabel.setAccessibleText("Create task page");
 
-        difficultyBox.getItems().addAll(
+        /*difficultyBox.getItems().addAll(
                 "Easy",
                 "Medium",
                 "Hard"
@@ -118,16 +121,83 @@ public class AddTaskController {
                 "Not Started",
                 "In Progress",
                 "Completed"
-        );
+        );*/
 
         dueDatePicker.getEditor().textProperty().addListener((obs, oldText, newText) -> {
 
-            if (!newText.matches("\\d{0,2}/\\d{0,2}/\\d{0,4}")) {
+            if (!newText.matches("\\d{0,4}/\\d{0,2}/\\d{0,2}")) {
                 errorLabel.setText("Please enter a valid date format.");
             } else {
                 errorLabel.setText("");
             }
 
+        });
+
+
+
+
+
+
+        ResourceBundle bundle =
+                ResourceBundle.getBundle("messages", LanguageManager.getLocale());
+
+        // Store keys internally
+        difficultyBox.setItems(FXCollections.observableArrayList(
+                "easy", "medium", "hard"
+        ));
+
+        statusBox.setItems(FXCollections.observableArrayList(
+                "notStarted", "inProgress", "completed"
+        ));
+
+        // Display translated values
+        difficultyBox.setCellFactory(cb -> new ListCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(bundle.getString("difficulty." + item));
+                }
+            }
+        });
+
+        difficultyBox.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(bundle.getString("difficulty." + item));
+                }
+            }
+        });
+
+        // Same for status
+        statusBox.setCellFactory(cb -> new ListCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(bundle.getString("status." + item));
+                }
+            }
+        });
+
+        statusBox.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(bundle.getString("status." + item));
+                }
+            }
         });
     }
 
