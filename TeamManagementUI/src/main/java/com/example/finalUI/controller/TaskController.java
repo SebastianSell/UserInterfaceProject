@@ -428,13 +428,13 @@ public class TaskController {
 
         alert.showAndWait();
     }
-
+    /**Sets the UI text to English*/
     @FXML
     private void setEnglish() {
         LanguageManager.setLocale(Locale.ENGLISH);
         SceneSwitcher.switchScene(menuNav, "task-view.fxml");
     }
-
+    /**Sets the UI text to French*/
     @FXML
     private void setFrench() {
         LanguageManager.setLocale(Locale.FRENCH);

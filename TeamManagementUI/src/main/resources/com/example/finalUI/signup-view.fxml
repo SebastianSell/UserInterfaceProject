@@ -18,7 +18,7 @@
 
         <VBox alignment="CENTER" spacing="20">
 
-            <Label fx:id="signupTitle" style="-fx-font-size: 22;" styleClass="title" text="%title.signup" />
+            <Label fx:id="signupTitle" style="-fx-font-size: 4em;" styleClass="title" text="%title.signup" />
 
             <GridPane alignment="CENTER" hgap="10" maxWidth="350" vgap="10">
 
@@ -26,15 +26,15 @@
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </padding>
 
-                <Label fx:id="usernameLabel" text="%username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="usernameLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
                 <TextField fx:id="usernameField" promptText="%username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label fx:id="passwordLabel" text="%password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label fx:id="passwordLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
                 <PasswordField fx:id="passwordField" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label fx:id="confirmPasswordLabel" text="%confirmPassword" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label fx:id="confirmPasswordLabel" prefHeight="23.0" prefWidth="166.0" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%confirmPassword" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
                 <PasswordField fx:id="confirmPasswordField" promptText="%confirmPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 

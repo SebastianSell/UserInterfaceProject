@@ -136,8 +136,6 @@ public class LoginController {
      * */
     @FXML
     private void handleCancel(){
-
         SceneSwitcher.switchScene(backButton, "welcome-view.fxml");
-
     }
 }
