@@ -224,15 +224,12 @@ public class AddTaskController {
             errorLabel.setText("Please select a due date.");
             return;
         }
-
         errorLabel.setText("");
 
         DateTimeFormatter formatter =
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
         String createdDate =
                 LocalDateTime.now().format(formatter);
-
         TaskModel task = new TaskModel(
                 new SimpleStringProperty(taskNameField.getText()),
                 new SimpleStringProperty(difficultyBox.getValue()),
@@ -242,9 +239,7 @@ public class AddTaskController {
                 new SimpleStringProperty(createdDate),
                 new SimpleStringProperty(notesField.getText())
         );
-
         mainController.addTask(task);
-
         SceneSwitcher.switchScene(taskNameField, "task-view.fxml");
     }
     /**

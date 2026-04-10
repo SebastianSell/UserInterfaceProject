@@ -64,38 +64,25 @@ public class LoginController {
         Platform.runLater(() -> loginTitleLabel.requestFocus());
         usernameLabel.setLabelFor(usernameField);
         passwordLabel.setLabelFor(passwordField);
-        formInstructionLabel.setAccessibleText(
-                "Instructions for logging in");
-        formInstructionLabel.setAccessibleHelp(
-                "Enter your username and password to log into the system");
-
-
-
+        formInstructionLabel.setAccessibleText("Instructions for logging in");
+        formInstructionLabel.setAccessibleHelp("Enter your username and password to log into the system");
         usernameField.setAccessibleText("Username input field");
-        usernameField.setAccessibleHelp(
-                "Enter your account username. This field is required.");
+        usernameField.setAccessibleHelp("Enter your account username. This field is required.");
 
         passwordField.setAccessibleText("Password input field");
-        passwordField.setAccessibleHelp(
-                "Enter your account password. This field is required.");
+        passwordField.setAccessibleHelp("Enter your account password. This field is required.");
 
         loginButton.setAccessibleText("Login button");
-        loginButton.setAccessibleHelp(
-                "Press to log into the application");
+        loginButton.setAccessibleHelp("Press to log into the application");
 
         backButton.setAccessibleText("Back button");
-        backButton.setAccessibleHelp(
-                "Return to the welcome page");
+        backButton.setAccessibleHelp("Return to the welcome page");
 
         errorLabel.setAccessibleText("Login error message area");
-        errorLabel.setAccessibleHelp(
-                "Displays login errors such as incorrect username or password");
+        errorLabel.setAccessibleHelp("Displays login errors such as incorrect username or password");
 
         errorLabel.setText("");
         errorLabel.requestFocus();
-
-
-
 
     }
     /**Handles the login feature for both the front end and back end*/

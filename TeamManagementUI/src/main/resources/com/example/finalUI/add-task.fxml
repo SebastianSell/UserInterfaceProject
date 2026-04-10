@@ -20,35 +20,45 @@
 
             <Label fx:id="createTitleLabel" style="-fx-font-size: 4em;" styleClass="title" text="%title.addTask" />
 
-            <Label fx:id="formInstructionLabel" styleClass="form-label"
-                   text="Fill in the form below to create a new task. Fields marked with * are required."
-                   wrapText="true" />
+            <Label fx:id="formInstructionLabel" styleClass="form-label" text="%addInfo" wrapText="true" />
 
             <GridPane alignment="CENTER" hgap="10" maxWidth="450" vgap="10">
                 <padding>
                     <Insets bottom="10" left="20" right="20" top="20" />
                 </padding>
 
-                <Label fx:id="nameLabel" styleClass="form-label" text="%taskName" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="taskNameField" prefWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label fx:id="nameLabel" styleClass="form-label" text="%taskName" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="taskNameField" prefWidth="250" promptText="e.g. john" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label fx:id="difficultyLabel" styleClass="form-label" text="%taskDifficulty" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="difficultyBox" prefWidth="250" promptText="%difficulty.prompt" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label fx:id="difficultyLabel" styleClass="form-label" text="%taskDifficulty" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <ComboBox fx:id="difficultyBox" prefWidth="250" promptText="%difficulty.prompt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label fx:id="memberLabel" styleClass="form-label" text="%assignTask" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="memberField" prefWidth="250" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="memberLabel" styleClass="form-label" text="%assignTask" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="memberField" prefWidth="250" promptText="e.g. john" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label fx:id="statusLabel" styleClass="form-label" text="%taskStatus" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="statusBox" prefWidth="250" promptText="%status.prompt" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label fx:id="statusLabel" styleClass="form-label" text="%taskStatus" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <ComboBox fx:id="statusBox" prefWidth="250" promptText="%status.prompt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label fx:id="dueDateLabel" styleClass="form-label" text="%dueDate" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                <DatePicker fx:id="dueDatePicker" prefWidth="250" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label fx:id="dueDateLabel" styleClass="form-label" text="%dueDate" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <DatePicker fx:id="dueDatePicker" prefWidth="250" promptText="YYYY-MM-DD" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-                <Label fx:id="notesLabel" styleClass="form-label" text="%notes" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                <TextField fx:id="notesField" prefWidth="250" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                <Label fx:id="notesLabel" styleClass="form-label" text="%notes" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <TextField fx:id="notesField" prefWidth="250" promptText="%notesPrompt" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                <Label fx:id="errorLabel" style="-fx-text-fill:red"
-                       GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+                <Label fx:id="errorLabel" style="-fx-text-fill:red" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
 
             </GridPane>
 

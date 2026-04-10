@@ -213,9 +213,7 @@ public class TaskController {
     }
     /**Adds a task to the database*/
     public void addTask(TaskModel t){
-
         data.add(t);
-
         String sql = """
         INSERT INTO tasks
         (task_name,difficulty,member_assigned,status,due_date,created_date,notes,user_id)
@@ -329,7 +327,6 @@ public class TaskController {
                 return loadedTasks;
             }
         };
-
         loadTask.setOnSucceeded(event -> {
             data.clear();
             data.addAll(loadTask.getValue());
