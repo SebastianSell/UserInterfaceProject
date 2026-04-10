@@ -6,10 +6,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.LoginController">
@@ -18,61 +16,60 @@
 
         <VBox alignment="CENTER" spacing="20">
 
-            <Label fx:id="loginTitleLabel" style="-fx-font-size: 4em;" styleClass="title" text="%title.login" />
+            <Label fx:id="loginTitleLabel"
+                   styleClass="title"
+                   text="%title.login" />
 
             <Label fx:id="formInstructionLabel"
-                   wrapText="true"
                    styleClass="form-label"
-                   text="Enter your username and password to log into the task manager." />
+                   text="Enter your username and password to sign in."
+                   wrapText="true" />
 
-
-            <GridPane alignment="CENTER" hgap="10" maxWidth="300" vgap="10">
+            <GridPane alignment="CENTER" hgap="10" vgap="10" maxWidth="300">
 
                 <padding>
-                    <Insets bottom="20" left="20" right="20" top="20" />
+                    <Insets top="20" right="20" bottom="20" left="20"/>
                 </padding>
 
-                <Label fx:id="usernameLabel" prefHeight="23.0" prefWidth="108.0" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="usernameLabel"
+                       text="%username"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
 
-                <TextField fx:id="usernameField" promptText="%username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField fx:id="usernameField"
+                           promptText="%username"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
 
-                <Label fx:id="usernameHelpLabel"
-                       styleClass="form-label"
-                       wrapText="true"
-                       text="Enter the username associated with your account"
-                       GridPane.columnIndex="1"
-                       GridPane.rowIndex="1" />
 
-                <Label fx:id="passwordLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label fx:id="passwordLabel"
+                       text="%password"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
 
-                <PasswordField fx:id="passwordField" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <PasswordField fx:id="passwordField"
+                               promptText="%password"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="1"/>
 
-                <Label fx:id="passwordHelpLabel"
-                       styleClass="form-label"
-                       wrapText="true"
-                       text="Enter your account password"
-                       GridPane.columnIndex="1"
-                       GridPane.rowIndex="3" />
-
-                <Label fx:id="errorLabel" style="-fx-text-fill:red" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-            </rowConstraints>
+                <Label fx:id="errorLabel"
+                       style="-fx-text-fill: red;"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"
+                       GridPane.columnSpan="2"/>
 
             </GridPane>
 
             <HBox alignment="CENTER" spacing="10">
+                <Button fx:id="loginButton"
+                        onAction="#handleLogin"
+                        styleClass="primary-button"
+                        text="%login"/>
 
-                <Button fx:id="loginButton" onAction="#handleLogin" styleClass="primary-button" text="%login" />
-
-                <Button fx:id="backButton" onAction="#handleCancel" styleClass="secondary-button" text="%cancel" />
-
+                <Button fx:id="backButton"
+                        onAction="#handleCancel"
+                        styleClass="secondary-button"
+                        text="%cancel"/>
             </HBox>
 
         </VBox>

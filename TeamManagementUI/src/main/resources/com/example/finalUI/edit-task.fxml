@@ -16,89 +16,47 @@
 <BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.EditTaskController">
 
     <center>
-
         <VBox alignment="CENTER" spacing="20">
 
             <Label fx:id="editTitleLabel" style="-fx-font-size: 4em;" styleClass="title" text="%title.editTask" />
 
             <Label fx:id="formInstructionLabel"
-                   wrapText="true"
-                   text="Update the selected task. Fields marked with * are required."/>
+                   text="Update the selected task. Fields marked with * are required."
+                   wrapText="true" />
 
             <GridPane alignment="CENTER" hgap="10" maxWidth="450" vgap="10">
-
                 <padding>
                     <Insets bottom="10" left="20" right="20" top="20" />
                 </padding>
 
-                <Label fx:id="nameLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%taskName" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="nameLabel" text="%taskName" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="taskNameField" prefWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                <TextField fx:id="taskNameField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label fx:id="difficultyLabel" text="%taskDifficulty" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="difficultyBox" prefWidth="250" promptText="%difficulty.prompt" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                <Label fx:id="taskNameHelpLabel"
-                       text="Edit the name of the task"
-                       GridPane.columnIndex="1"
-                       GridPane.rowIndex="1"/>
+                <Label fx:id="memberLabel" text="%assignTask" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="memberField" prefWidth="250" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                <Label fx:id="difficultyLabel" prefHeight="23.0" prefWidth="167.0" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%taskDifficulty" GridPane.columnIndex="2"/>
+                <Label fx:id="statusLabel" text="%taskStatus" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="statusBox" prefWidth="250" promptText="%status.prompt" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
-                <ComboBox fx:id="difficultyBox" prefWidth="250" promptText="%difficulty.prompt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="dueDateLabel" text="%dueDate" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dueDatePicker" prefWidth="250" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
-                <Label fx:id="memberLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%assignTask" GridPane.rowIndex="3"/>
+                <Label fx:id="notesLabel" text="%notes" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="notesField" prefWidth="250" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
-                <TextField fx:id="memberField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-
-                <Label fx:id="memberHelpLabel"
-                       text="Edit assigned team member"
-                       GridPane.columnIndex="1"
-                       GridPane.rowIndex="4"/>
-
-                <Label fx:id="statusLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%taskStatus" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-                <ComboBox fx:id="statusBox" prefWidth="250" promptText="%status.prompt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-                <Label fx:id="dueDateLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%dueDate" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-
-
-
-                <DatePicker fx:id="dueDatePicker" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-
-                <Label fx:id="errorLabel" style="-fx-text-fill:red" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-
-                <Label fx:id="notesLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%notes" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-
-                <TextField fx:id="notesField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-
-                <Label fx:id="notesHelpLabel"
-                       text="Optional notes for the task"
-                       GridPane.columnIndex="1"
-                       GridPane.rowIndex="8"/>
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-            </rowConstraints>
+                <Label fx:id="errorLabel" style="-fx-text-fill:red"
+                       GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 
             </GridPane>
 
             <HBox alignment="CENTER" spacing="10">
-
                 <Button fx:id="saveTaskButton" onAction="#handleSave" text="%save" />
-
                 <Button fx:id="cancelButton" onAction="#handleCancel" styleClass="secondary-button" text="%cancel" />
-
             </HBox>
 
         </VBox>
-
     </center>
-
 </BorderPane>

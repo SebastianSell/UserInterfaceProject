@@ -26,35 +26,42 @@ public class WelcomeController {
     private Label titleLabel;
 
     @FXML
+    private Label instructionLabel;
+
+    @FXML
     private Button loginButton;
 
     @FXML
+    private Label loginHelpLabel;
+
+    @FXML
     private Button signupButton;
+
+    @FXML
+    private Label signupHelpLabel;
+
+
     /**Initializes the page*/
     public void initialize(){
         titleLabel.setFocusTraversable(true);
-        titleLabel.setAccessibleText("Login page");
+        titleLabel.setAccessibleText("Welcome page title");
         Platform.runLater(() -> titleLabel.requestFocus());
-        titleLabel.setAccessibleText("Welcome to the Task management welcome page");
-        loginButton.setAccessibleText("Login button");
-        loginButton.setAccessibleHelp("Press to go to the login page");
+        instructionLabel.setAccessibleText("Welcome page instructions");
+        instructionLabel.setAccessibleHelp("Choose login if you already have an account or signup to create one");
         signupButton.setAccessibleText("Signup button");
         signupButton.setAccessibleHelp("Press to go to the signup page");
-
+        signupHelpLabel.setAccessibleText("Signup button help description");
+        signupHelpLabel.setAccessibleHelp("Explains that signup creates a new account");
 
     }
-    /**handles the action of going into the login page*/
+    /**Handles the action of going into the login page*/
     @FXML
     private void openLogin() {
-
         SceneSwitcher.switchScene(loginButton, "login.fxml");
-
     }
-    /**handles the action of going into the login page*/
+    /**Handles the action of going into the login page*/
     @FXML
     private void openSignup() {
-
         SceneSwitcher.switchScene(signupButton, "signup-view.fxml");
-
     }
 }

@@ -46,16 +46,10 @@ public class SignupController {
     private PasswordField passwordField;
 
     @FXML
-    private Label passwordHelpLabel;
-
-    @FXML
     private Label confirmPasswordLabel;
 
     @FXML
     private PasswordField confirmPasswordField;
-
-    @FXML
-    private Label confirmPasswordHelpLabel;
 
     @FXML
     private Button backButton;
@@ -95,11 +89,6 @@ public class SignupController {
         passwordField.setAccessibleHelp(
                 "Enter a secure password");
 
-        passwordHelpLabel.setAccessibleText(
-                "Password help description");
-
-        passwordHelpLabel.setAccessibleHelp(
-                "Explains password requirements");
         confirmPasswordLabel.setAccessibleText("Confirm password label");
         confirmPasswordField.setAccessibleText(
                 "Confirm password input field");
@@ -107,11 +96,6 @@ public class SignupController {
         confirmPasswordField.setAccessibleHelp(
                 "Re enter the password to confirm");
 
-        confirmPasswordHelpLabel.setAccessibleText(
-                "Confirm password help");
-
-        confirmPasswordHelpLabel.setAccessibleHelp(
-                "Explains confirm password field");
         signupButton.setAccessibleText("Create account button");
         signupButton.setAccessibleHelp("Press to create a new account");
 

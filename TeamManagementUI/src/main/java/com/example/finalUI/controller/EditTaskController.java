@@ -35,8 +35,6 @@ public class EditTaskController {
     @FXML
     private TextField taskNameField;
 
-    @FXML private Label taskNameHelpLabel;
-
     @FXML
     private Label difficultyLabel;
 
@@ -49,8 +47,6 @@ public class EditTaskController {
     @FXML
     private TextField memberField;
 
-    @FXML
-    private Label memberHelpLabel;
 
     @FXML
     private Label statusLabel;
@@ -72,9 +68,6 @@ public class EditTaskController {
 
     @FXML
     private TextField notesField;
-
-    @FXML
-    private Label notesHelpLabel;
 
     @FXML
     private Button saveTaskButton;

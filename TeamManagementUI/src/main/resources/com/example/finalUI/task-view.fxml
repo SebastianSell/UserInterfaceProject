@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.TaskController">
    <center>
@@ -21,15 +29,11 @@
       </TableView>
    </center>
    <top>
-       <VBox spacing="5">
-           <Label fx:id="tableTitleLabel"
-                  styleClass="title"
-                  text="Task List"/>
+       <VBox alignment="CENTER" spacing="5">
+           <Label fx:id="tableTitleLabel" alignment="CENTER" style="-fx-font-size: 4em;" styleClass="title" text="Task List" />
 
            <!-- WCAG NEW -->
-           <Label fx:id="tableHelpLabel"
-                  wrapText="true"
-                  text="This table displays all tasks. Use arrow keys to navigate and buttons below to manage tasks."/>
+           <Label fx:id="tableHelpLabel" style="-fx-text-fill: white;" text="This table displays all tasks. Use arrow keys to navigate and buttons below to manage tasks." textFill="WHITE" wrapText="true" />
           <MenuBar fx:id="menuNav" BorderPane.alignment="CENTER">
             <menus>
                 <Menu fx:id="fileMenu" text="%file">

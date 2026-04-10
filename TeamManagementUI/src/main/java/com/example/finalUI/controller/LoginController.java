@@ -42,16 +42,10 @@ public class LoginController {
     private TextField usernameField;
 
     @FXML
-    private Label usernameHelpLabel;
-
-    @FXML
     private Label passwordLabel;
 
     @FXML
     private PasswordField passwordField;
-
-    @FXML
-    private Label passwordHelpLabel;
 
     @FXML
     private Button loginButton;
@@ -81,18 +75,10 @@ public class LoginController {
         usernameField.setAccessibleHelp(
                 "Enter your account username. This field is required.");
 
-        usernameHelpLabel.setAccessibleText(
-                "Username help text");
-        usernameHelpLabel.setAccessibleHelp(
-                "Explains what to enter in the username field");
         passwordField.setAccessibleText("Password input field");
         passwordField.setAccessibleHelp(
                 "Enter your account password. This field is required.");
 
-        passwordHelpLabel.setAccessibleText(
-                "Password help text");
-        passwordHelpLabel.setAccessibleHelp(
-                "Explains what to enter in the password field");
         loginButton.setAccessibleText("Login button");
         loginButton.setAccessibleHelp(
                 "Press to log into the application");

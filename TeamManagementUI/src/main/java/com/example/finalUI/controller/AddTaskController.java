@@ -36,9 +36,6 @@ public class AddTaskController {
     private TextField taskNameField;
 
     @FXML
-    private Label taskNameHelpLabel;
-
-    @FXML
     private Label difficultyLabel;
 
     @FXML
@@ -136,19 +133,6 @@ public class AddTaskController {
 
         formInstructionLabel.setAccessibleHelp(
                 "Fill in task information and press create");
-
-
-        /*difficultyBox.getItems().addAll(
-                "Easy",
-                "Medium",
-                "Hard"
-        );
-
-        statusBox.getItems().addAll(
-                "Not Started",
-                "In Progress",
-                "Completed"
-        );*/
 
         dueDatePicker.getEditor().textProperty().addListener((obs, oldText, newText) -> {
 

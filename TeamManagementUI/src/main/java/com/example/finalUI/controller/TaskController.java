@@ -108,10 +108,8 @@ public class TaskController {
     private MenuItem logoutButton;
 
     @FXML
-    private Label tableTitleLabel; // WCAG NEW
+    private Label tableTitleLabel;
 
-    @FXML
-    private Label tableHelpLabel;
 
     private ObservableList<TaskModel> data = FXCollections.observableArrayList();
 
