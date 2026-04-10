@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.TaskController">
+<BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.TaskController">
    <center>
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
@@ -31,26 +31,26 @@
         <menus>
             <Menu fx:id="fileMenu" text="%file">
                 <items>
-                    <MenuItem fx:id="closeMenuItem" text="%closeApplication"/>
+                    <MenuItem fx:id="closeMenuItem" text="%closeApplication" />
                 </items>
             </Menu>
 
             <Menu fx:id="helpMenu" text="%help">
                 <items>
-                    <MenuItem fx:id="aboutMenuItem" text="%about"/>
+                    <MenuItem fx:id="aboutMenuItem" text="%about" />
                 </items>
             </Menu>
 
 
             <Menu fx:id="extraMenu" text="%extra">
                 <items>
-                    <MenuItem fx:id="logoutMenuItem" text="%logout" onAction="#handleLogout"/>
+                    <MenuItem fx:id="logoutMenuItem" onAction="#handleLogout" text="%logout" />
                 </items>
             </Menu>
             <Menu text="%Language">
                 <items>
-                    <MenuItem text="English" onAction="#setEnglish"/>
-                    <MenuItem text="Français" onAction="#setFrench"/>
+                    <MenuItem onAction="#setEnglish" text="English" />
+                    <MenuItem onAction="#setFrench" text="Français" />
                 </items>
             </Menu>
         </menus>
@@ -59,9 +59,9 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-             <Button fx:id="createButton" text="%create" onAction="#handleCreate"/>
-             <Button fx:id="updateButton" text="%update" onAction="#handleUpdate"/>
-             <Button fx:id="deleteButton" text="%delete" onAction="#handleDelete"/>
+             <Button fx:id="createButton" onAction="#handleCreate" text="%create" />
+             <Button fx:id="updateButton" onAction="#handleUpdate" text="%update" />
+             <Button fx:id="deleteButton" onAction="#handleDelete" text="%delete" />
          </children>
       </HBox>
    </bottom>

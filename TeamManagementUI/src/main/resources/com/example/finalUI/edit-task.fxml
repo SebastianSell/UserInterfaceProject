@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.EditTaskController">
+<BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.EditTaskController">
 
     <center>
 
         <VBox alignment="CENTER" spacing="20">
 
-            <Label fx:id="editTitleLabel" style="-fx-font-size:20" text="%title.editTask" />
+            <Label fx:id="editTitleLabel" style="-fx-font-size:20" styleClass="title" text="%title.editTask" />
 
             <GridPane alignment="CENTER" hgap="10" maxWidth="400" vgap="10">
 
@@ -72,7 +72,7 @@
 
                 <Button fx:id="saveTaskButton" onAction="#handleSave" text="%save" />
 
-                <Button fx:id="cancelButton" onAction="#handleCancel" text="%cancel" />
+                <Button fx:id="cancelButton" onAction="#handleCancel" styleClass="secondary-button" text="%cancel" />
 
             </HBox>
 

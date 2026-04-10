@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.SignupController">
+<BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.SignupController">
 
     <center>
 
         <VBox alignment="CENTER" spacing="20">
 
-            <Label fx:id="signupTitle" style="-fx-font-size: 22;" text="%title.signup" />
+            <Label fx:id="signupTitle" style="-fx-font-size: 22;" styleClass="title" text="%title.signup" />
 
             <GridPane alignment="CENTER" hgap="10" maxWidth="350" vgap="10">
 
@@ -26,15 +26,15 @@
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </padding>
 
-                <Label fx:id="usernameLabel" labelFor="$usernameField" text="%username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="usernameLabel" text="%username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
                 <TextField fx:id="usernameField" promptText="%username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label fx:id="passwordLabel" labelFor="$passwordField" text="%password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label fx:id="passwordLabel" text="%password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
                 <PasswordField fx:id="passwordField" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label fx:id="confirmPasswordLabel" labelFor="$confirmPasswordField" text="%confirmPassword" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label fx:id="confirmPasswordLabel" text="%confirmPassword" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
                 <PasswordField fx:id="confirmPasswordField" promptText="%confirmPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
@@ -56,7 +56,7 @@
 
                 <Button fx:id="signupButton" onAction="#handleSignup" text="%create" />
 
-                <Button fx:id="backButton" onAction="#handleCancel" text="%cancel" />
+                <Button fx:id="backButton" onAction="#handleCancel" styleClass="secondary-button" text="%cancel" />
 
             </HBox>
 
