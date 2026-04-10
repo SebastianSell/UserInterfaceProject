@@ -5,23 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20" stylesheets="@style.css"
-      xmlns="http://javafx.com/javafx/25"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.finalUI.controller.WelcomeController">
+<VBox alignment="CENTER" spacing="20" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalUI.controller.WelcomeController">
 
     <padding>
         <Insets bottom="40" left="40" right="40" top="40" />
     </padding>
 
-    <Label fx:id="titleLabel"
-           style="-fx-font-size: 4em; -fx-font-weight: bold;"
-           styleClass="title"
-           text="%title.welcome" />
+    <Label fx:id="titleLabel" style="-fx-font-size: 4em; -fx-font-weight: bold;" styleClass="title" text="%title.welcome" />
 
-    <Label fx:id="instructionLabel"
-           text="%welcome.instructions"
-           wrapText="true" />
+    <Label fx:id="instructionLabel" style="-fx-text-fill: White;" text="%title.info" wrapText="true" />
+   <Label fx:id="instructionLabel1" layoutX="142.0" layoutY="128.0" style="-fx-text-fill: White;" text="%welcome.instructions" wrapText="true" />
 
     <Button fx:id="loginButton" onAction="#openLogin" prefWidth="200" text="%login" />
 

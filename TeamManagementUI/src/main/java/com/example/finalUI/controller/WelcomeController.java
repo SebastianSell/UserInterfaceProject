@@ -50,8 +50,6 @@ public class WelcomeController {
         instructionLabel.setAccessibleHelp("Choose login if you already have an account or signup to create one");
         signupButton.setAccessibleText("Signup button");
         signupButton.setAccessibleHelp("Press to go to the signup page");
-        signupHelpLabel.setAccessibleText("Signup button help description");
-        signupHelpLabel.setAccessibleHelp("Explains that signup creates a new account");
 
     }
     /**Handles the action of going into the login page*/

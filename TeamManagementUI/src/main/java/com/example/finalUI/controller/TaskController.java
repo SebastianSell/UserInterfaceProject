@@ -404,6 +404,10 @@ public class TaskController {
         alert.setHeaderText("Are you sure?");
         alert.setContentText("This record will be permanently deleted.");
 
+        alert.getDialogPane().getStylesheets().add(
+                getClass().getResource("/com/example/finalUI/style.css").toExternalForm()
+        );
+
         if(alert.showAndWait().get() == ButtonType.OK){
 
             String sql = "DELETE FROM tasks WHERE task_name = ?";

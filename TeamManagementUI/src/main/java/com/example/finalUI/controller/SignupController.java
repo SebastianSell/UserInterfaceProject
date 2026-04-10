@@ -37,9 +37,6 @@ public class SignupController {
     private TextField usernameField;
 
     @FXML
-    private Label usernameHelpLabel;
-
-    @FXML
     private Label passwordLabel;
 
     @FXML
@@ -79,11 +76,7 @@ public class SignupController {
         usernameField.setAccessibleText("Username input field");
         usernameField.setAccessibleHelp(
                 "Enter a unique username for the new account");
-        usernameHelpLabel.setAccessibleText(
-                "Username help description");
 
-        usernameHelpLabel.setAccessibleHelp(
-                "Explains the username requirements");
         passwordLabel.setAccessibleText("Password label");
         passwordField.setAccessibleText("Password input field");
         passwordField.setAccessibleHelp(
