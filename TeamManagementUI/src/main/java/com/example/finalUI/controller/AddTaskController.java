@@ -27,11 +27,16 @@ public class AddTaskController {
     @FXML
     private Label createTitleLabel;
 
+    @FXML private Label formInstructionLabel;
+
     @FXML
     private Label nameLabel;
 
     @FXML
     private TextField taskNameField;
+
+    @FXML
+    private Label taskNameHelpLabel;
 
     @FXML
     private Label difficultyLabel;
@@ -84,32 +89,54 @@ public class AddTaskController {
     @FXML
     public void initialize(){
         createTitleLabel.setFocusTraversable(true);
-        createTitleLabel.setAccessibleText("Edit Task Page");
-        Platform.runLater(() -> createTitleLabel.requestFocus());
         createTitleLabel.setAccessibleText("Create Page");
+        Platform.runLater(() -> createTitleLabel.requestFocus());
         nameLabel.setAccessibleText("The name of the task");
         nameLabel.setLabelFor(taskNameField);
-        taskNameField.setAccessibleText("Enter the name of the task");
+        taskNameField.setAccessibleText("Task name input field");
+        taskNameField.setAccessibleHelp(
+                "Enter a short descriptive name for the task. This field is required.");
         difficultyLabel.setAccessibleText("The difficulty of the task");
         difficultyLabel.setLabelFor(difficultyBox);
-        difficultyBox.setAccessibleText("Pick an option for the difficulty of the task");
+        difficultyBox.setAccessibleText("Task difficulty selection");
+        difficultyBox.setAccessibleHelp(
+                "Select how difficult the task is");
         memberLabel.setAccessibleText("The name of the member who is assigned to this task");
         memberLabel.setLabelFor(memberField);
-        memberField.setAccessibleText("Enter the name of a team member to be assigned for this task");
+        memberField.setAccessibleText("Assigned team member");
+        memberField.setAccessibleHelp(
+                "Enter the name of the team member responsible for the task");
         statusLabel.setAccessibleText("The current status of the task");
         statusLabel.setLabelFor(statusBox);
-        statusBox.setAccessibleText("Pick an option for the current status of the task");
+        statusBox.setAccessibleText("Task status selection");
+        statusBox.setAccessibleHelp(
+                "Select the current progress status of the task");
         dueDateLabel.setAccessibleText("The due date for the task");
         dueDateLabel.setLabelFor(dueDatePicker);
-        dueDatePicker.setAccessibleText("pick the date for the the due date of this task");
+        dueDatePicker.setAccessibleText("Due date selection");
+        dueDatePicker.setAccessibleHelp(
+                "Select the due date for the task. This field is required");
         notesLabel.setAccessibleText("Notes for the task");
         notesLabel.setLabelFor(notesField);
-        notesField.setAccessibleText("Type here to enter any notes for this task");
-        saveButton.setAccessibleText("Click to create the task");
-        cancelButton.setAccessibleText("Click to cancel creating the task");
+        notesField.setAccessibleText("Task notes");
+        notesField.setAccessibleHelp(
+                "Optional notes for the task");
+        saveButton.setAccessibleText("Create task button");
+        saveButton.setAccessibleHelp(
+                "Press to create the new task");
+        cancelButton.setAccessibleText("Cancel button");
+        cancelButton.setAccessibleHelp(
+                "Return to task list without creating a task");
 
+        errorLabel.setAccessibleText("Form error messages");
+        errorLabel.setAccessibleHelp(
+                "Displays validation errors when form input is incorrect");
+        formInstructionLabel.setAccessibleText(
+                "Task creation instructions");
 
-        createTitleLabel.setAccessibleText("Create task page");
+        formInstructionLabel.setAccessibleHelp(
+                "Fill in task information and press create");
+
 
         /*difficultyBox.getItems().addAll(
                 "Easy",
@@ -127,6 +154,9 @@ public class AddTaskController {
 
             if (!newText.matches("\\d{0,4}/\\d{0,2}/\\d{0,2}")) {
                 errorLabel.setText("Please enter a valid date format.");
+
+                // WCAG: announce error
+                errorLabel.setAccessibleText("Error: invalid date format");
             } else {
                 errorLabel.setText("");
             }
@@ -175,7 +205,6 @@ public class AddTaskController {
             }
         });
 
-        // Same for status
         statusBox.setCellFactory(cb -> new ListCell<>() {
             @Override
             protected void updateItem(String item, boolean empty) {

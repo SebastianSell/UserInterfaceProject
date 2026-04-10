@@ -32,16 +32,26 @@ public class LoginController {
     private Label loginTitleLabel;
 
     @FXML
+    private Label formInstructionLabel;
+
+    @FXML
     private Label usernameLabel;
+
 
     @FXML
     private TextField usernameField;
+
+    @FXML
+    private Label usernameHelpLabel;
 
     @FXML
     private Label passwordLabel;
 
     @FXML
     private PasswordField passwordField;
+
+    @FXML
+    private Label passwordHelpLabel;
 
     @FXML
     private Button loginButton;
@@ -58,19 +68,44 @@ public class LoginController {
         loginTitleLabel.setFocusTraversable(true);
         loginTitleLabel.setAccessibleText("Login page");
         Platform.runLater(() -> loginTitleLabel.requestFocus());
-        errorLabel.setText("");
+        usernameLabel.setLabelFor(usernameField);
+        passwordLabel.setLabelFor(passwordField);
+        formInstructionLabel.setAccessibleText(
+                "Instructions for logging in");
+        formInstructionLabel.setAccessibleHelp(
+                "Enter your username and password to log into the system");
+
+
+
         usernameField.setAccessibleText("Username input field");
-        usernameField.setAccessibleHelp("Enter the username for your account");
+        usernameField.setAccessibleHelp(
+                "Enter your account username. This field is required.");
+
+        usernameHelpLabel.setAccessibleText(
+                "Username help text");
+        usernameHelpLabel.setAccessibleHelp(
+                "Explains what to enter in the username field");
         passwordField.setAccessibleText("Password input field");
-        passwordField.setAccessibleHelp("Enter the password for your account");
+        passwordField.setAccessibleHelp(
+                "Enter your account password. This field is required.");
+
+        passwordHelpLabel.setAccessibleText(
+                "Password help text");
+        passwordHelpLabel.setAccessibleHelp(
+                "Explains what to enter in the password field");
         loginButton.setAccessibleText("Login button");
-        loginButton.setAccessibleHelp("Press to log into the application");
+        loginButton.setAccessibleHelp(
+                "Press to log into the application");
+
         backButton.setAccessibleText("Back button");
-        backButton.setAccessibleHelp("Return to the previous page");
+        backButton.setAccessibleHelp(
+                "Return to the welcome page");
 
         errorLabel.setAccessibleText("Login error message area");
-        errorLabel.setAccessibleHelp("Displays errors such as incorrect password or user not found");
-        errorLabel.setAccessibleText("Error: Invalid username or password");
+        errorLabel.setAccessibleHelp(
+                "Displays login errors such as incorrect username or password");
+
+        errorLabel.setText("");
         errorLabel.requestFocus();
 
 
@@ -127,6 +162,7 @@ public class LoginController {
         // Update accessibility description so screen readers read the new error
         errorLabel.setAccessibleText("Login error: " + message);
 
+        Platform.runLater(() -> errorLabel.requestFocus());
         System.out.println(message);
     }
 

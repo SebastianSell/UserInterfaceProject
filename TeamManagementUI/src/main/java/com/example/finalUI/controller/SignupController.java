@@ -28,10 +28,16 @@ public class SignupController {
     private Label signupTitle;
 
     @FXML
+    private Label formInstructionLabel;
+
+    @FXML
     private Label usernameLabel;
 
     @FXML
     private TextField usernameField;
+
+    @FXML
+    private Label usernameHelpLabel;
 
     @FXML
     private Label passwordLabel;
@@ -40,10 +46,16 @@ public class SignupController {
     private PasswordField passwordField;
 
     @FXML
+    private Label passwordHelpLabel;
+
+    @FXML
     private Label confirmPasswordLabel;
 
     @FXML
     private PasswordField confirmPasswordField;
+
+    @FXML
+    private Label confirmPasswordHelpLabel;
 
     @FXML
     private Button backButton;
@@ -51,27 +63,66 @@ public class SignupController {
     @FXML
     private Button signupButton;
 
+    @FXML
+    private Label errorLabel;
+
     /**Initializes the page*/
     public void initialize(){
         signupTitle.setFocusTraversable(true);
         signupTitle.setAccessibleText("Sign up page");
         Platform.runLater(() -> signupTitle.requestFocus());
+        usernameLabel.setLabelFor(usernameField);
+        passwordLabel.setLabelFor(passwordField);
+        confirmPasswordLabel.setLabelFor(confirmPasswordField);
+
+        formInstructionLabel.setAccessibleText(
+                "Account creation instructions");
+
+        formInstructionLabel.setAccessibleHelp(
+                "Enter username password and confirm password to create account");
+
         usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
-        usernameField.setAccessibleHelp("Enter a username for the new account");
+        usernameField.setAccessibleHelp(
+                "Enter a unique username for the new account");
+        usernameHelpLabel.setAccessibleText(
+                "Username help description");
+
+        usernameHelpLabel.setAccessibleHelp(
+                "Explains the username requirements");
         passwordLabel.setAccessibleText("Password label");
         passwordField.setAccessibleText("Password input field");
-        passwordField.setAccessibleHelp("Enter a password for the account");
+        passwordField.setAccessibleHelp(
+                "Enter a secure password");
+
+        passwordHelpLabel.setAccessibleText(
+                "Password help description");
+
+        passwordHelpLabel.setAccessibleHelp(
+                "Explains password requirements");
         confirmPasswordLabel.setAccessibleText("Confirm password label");
-        confirmPasswordField.setAccessibleText("Confirm password input field");
-        confirmPasswordField.setAccessibleHelp("Re enter the password to confirm");
+        confirmPasswordField.setAccessibleText(
+                "Confirm password input field");
+
+        confirmPasswordField.setAccessibleHelp(
+                "Re enter the password to confirm");
+
+        confirmPasswordHelpLabel.setAccessibleText(
+                "Confirm password help");
+
+        confirmPasswordHelpLabel.setAccessibleHelp(
+                "Explains confirm password field");
         signupButton.setAccessibleText("Create account button");
         signupButton.setAccessibleHelp("Press to create a new account");
 
         backButton.setAccessibleText("Back button");
         backButton.setAccessibleHelp("Return to the previous page");
 
+        errorLabel.setAccessibleText(
+                "Signup error message area");
 
+        errorLabel.setAccessibleHelp(
+                "Displays signup errors");
 
     }
     /**
@@ -137,12 +188,12 @@ public class SignupController {
      * the desired error message to output*/
     private void showError(String message){
 
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
+        errorLabel.setText(message);
 
-        alert.showAndWait();
+        errorLabel.setAccessibleText(
+                "Signup error: " + message);
+
+        Platform.runLater(() -> errorLabel.requestFocus());
     }
 
     /**

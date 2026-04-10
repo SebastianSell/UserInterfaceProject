@@ -107,6 +107,12 @@ public class TaskController {
     @FXML
     private MenuItem logoutButton;
 
+    @FXML
+    private Label tableTitleLabel; // WCAG NEW
+
+    @FXML
+    private Label tableHelpLabel;
+
     private ObservableList<TaskModel> data = FXCollections.observableArrayList();
 
     /**
@@ -114,8 +120,9 @@ public class TaskController {
      */
     @FXML
     public void initialize() {
-        tableView.setFocusTraversable(true);
-        Platform.runLater(() -> tableView.requestFocus());
+        tableTitleLabel.setFocusTraversable(true);
+        tableTitleLabel.setAccessibleText("Task list page");
+        Platform.runLater(() -> tableTitleLabel.requestFocus());
         tableView.setAccessibleText("Table listing all tasks for the current user");
         tableView.setAccessibleHelp("Displays all tasks assigned to the team");
 
@@ -134,12 +141,35 @@ public class TaskController {
         updateButton.setAccessibleText("Update selected task");
         deleteButton.setAccessibleText("Delete selected task");
 
-        tableView.setAccessibleText("Task table");
-        tableView.setAccessibleHelp("Displays all tasks assigned to the team");
+        taskNameColumn.setText("Task name column");
+        taskDifficultyColumn.setText("Difficulty column");
+        memberAssignedColumn.setText("Assigned member column");
+        statusColumn.setText("Status column");
+        dueDateColumn.setText("Due date column");
+        createdDateColumn.setText("Created date column");
+        notesColumn.setText("Notes column");
 
-        menuNav.setAccessibleText("Application navigation menu");
+        tableView.setAccessibleText(
+                "Task table listing all tasks");
 
-        tableView.setItems(data);
+        tableView.setAccessibleHelp(
+                "Each row represents a task. Use arrow keys to move between rows");
+
+
+        menuNav.setAccessibleText("Application menu");
+        menuNav.setAccessibleHelp(
+                "Use this menu to access application options");
+
+
+        tableView.getSelectionModel().selectedItemProperty()
+                .addListener((obs, oldVal, newVal) -> {
+
+                    if(newVal != null){
+                        tableView.setAccessibleText(
+                                "Selected task " + newVal.getTaskName());
+                    }
+
+                });
 
         updateButton.disableProperty().bind(
                 tableView.getSelectionModel().selectedItemProperty().isNull());
@@ -149,6 +179,7 @@ public class TaskController {
 
         data.clear();
         Platform.runLater(() -> tableView.requestFocus());
+        tableView.setItems(data);
         loadTasks();
 
         String sql = "SELECT * FROM tasks WHERE user_id=?";

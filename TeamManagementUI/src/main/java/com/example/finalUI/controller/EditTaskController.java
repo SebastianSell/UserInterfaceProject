@@ -27,10 +27,15 @@ public class EditTaskController {
     private Label editTitleLabel;
 
     @FXML
+    private Label formInstructionLabel;
+
+    @FXML
     private Label nameLabel;
 
     @FXML
     private TextField taskNameField;
+
+    @FXML private Label taskNameHelpLabel;
 
     @FXML
     private Label difficultyLabel;
@@ -43,6 +48,9 @@ public class EditTaskController {
 
     @FXML
     private TextField memberField;
+
+    @FXML
+    private Label memberHelpLabel;
 
     @FXML
     private Label statusLabel;
@@ -66,6 +74,9 @@ public class EditTaskController {
     private TextField notesField;
 
     @FXML
+    private Label notesHelpLabel;
+
+    @FXML
     private Button saveTaskButton;
 
     @FXML
@@ -84,25 +95,34 @@ public class EditTaskController {
         Platform.runLater(() -> editTitleLabel.requestFocus());
         nameLabel.setAccessibleText("The name of the task");
         nameLabel.setLabelFor(taskNameField);
-        taskNameField.setAccessibleText("Task name field");
-        taskNameField.setAccessibleHelp("Edit the name of the task");
+        taskNameField.setAccessibleText("Task name");
+        taskNameField.setAccessibleHelp("Edit the task name");
         difficultyLabel.setAccessibleText("Task difficulty selector");
         difficultyLabel.setLabelFor(difficultyBox);
-        difficultyBox.setAccessibleText("Pick an option for the difficulty of the task");
+        difficultyBox.setAccessibleText("Task difficulty");
+        difficultyBox.setAccessibleHelp("Select difficulty level");
         memberLabel.setAccessibleText("The name of the member who is assigned to this task");
         memberLabel.setLabelFor(memberField);
-        memberField.setAccessibleText("Enter the name of a team member to be assigned for this task");
+        memberField.setAccessibleText("Assigned member");
+        memberField.setAccessibleHelp("Edit assigned team member");
         statusLabel.setAccessibleText("The current status of the task");
         statusLabel.setLabelFor(statusBox);
-        statusBox.setAccessibleText("Pick an option for the current status of the task");
+        statusBox.setAccessibleText("Task status");
+        statusBox.setAccessibleHelp("Select task status");
         dueDateLabel.setAccessibleText("The due date for the task");
         dueDateLabel.setLabelFor(dueDatePicker);
-        dueDatePicker.setAccessibleText("pick the date for the the due date of this task");
+        dueDatePicker.setAccessibleText("Due date");
+        dueDatePicker.setAccessibleHelp("Select due date");
         notesLabel.setAccessibleText("Notes for the task");
         notesLabel.setLabelFor(notesField);
-        notesField.setAccessibleText("Type here to enter any notes for this task");
-        saveTaskButton.setAccessibleText("Click to update the task");
-        cancelButton.setAccessibleText("Click to cancel editing the task");
+        notesField.setAccessibleText("Task notes");
+        notesField.setAccessibleHelp("Optional notes");
+        saveTaskButton.setAccessibleText("Save task button");
+        saveTaskButton.setAccessibleHelp("Save changes to task");
+        cancelButton.setAccessibleText("Cancel button");
+        cancelButton.setAccessibleHelp("Return without saving");
+        errorLabel.setAccessibleText("Edit task error area");
+        errorLabel.setAccessibleHelp("Displays form validation errors");
 
 
         // options for the status and difficulty dropdowns

@@ -20,6 +20,12 @@
 
             <Label fx:id="signupTitle" style="-fx-font-size: 4em;" styleClass="title" text="%title.signup" />
 
+            <Label fx:id="formInstructionLabel"
+                   wrapText="true"
+                   styleClass="form-label"
+                   text="Create an account by entering a username and password. Fields marked with * are required." />
+
+
             <GridPane alignment="CENTER" hgap="10" maxWidth="350" vgap="10">
 
                 <padding>
@@ -30,9 +36,30 @@
 
                 <TextField fx:id="usernameField" promptText="%username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
+                <Label fx:id="usernameHelpLabel"
+                       styleClass="form-label"
+                       wrapText="true"
+                       text="Choose a unique username for your account"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="1" />
+
                 <Label fx:id="passwordLabel" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%password" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
                 <PasswordField fx:id="passwordField" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label fx:id="confirmPasswordHelpLabel"
+                       styleClass="form-label"
+                       wrapText="true"
+                       text="Re-enter the password to confirm"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="5" />
+
+                <Label fx:id="passwordHelpLabel"
+                       styleClass="form-label"
+                       wrapText="true"
+                       text="Enter a secure password"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="3" />
 
                 <Label fx:id="confirmPasswordLabel" prefHeight="23.0" prefWidth="166.0" style="-fx-font-size: 1.5em;" styleClass="form-label" text="%confirmPassword" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
