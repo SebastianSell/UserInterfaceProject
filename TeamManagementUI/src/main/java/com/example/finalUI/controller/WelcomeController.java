@@ -47,10 +47,12 @@ public class WelcomeController {
         titleLabel.setFocusTraversable(true);
         titleLabel.setAccessibleText("Welcome page title");
         Platform.runLater(() -> titleLabel.requestFocus());
+        instructionLabel.setFocusTraversable(true);
         instructionLabel.setAccessibleText("Welcome page instructions");
         instructionLabel.setAccessibleHelp("Choose login if you already have an account or signup to create one");
         signupButton.setAccessibleText("Signup button");
         signupButton.setAccessibleHelp("Press to go to the signup page");
+
 
     }
     /**Handles the action of going into the login page*/

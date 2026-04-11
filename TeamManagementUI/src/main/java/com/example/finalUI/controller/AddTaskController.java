@@ -125,7 +125,7 @@ public class AddTaskController {
         cancelButton.setAccessibleText("Cancel button");
         cancelButton.setAccessibleHelp(
                 "Return to task list without creating a task");
-
+        errorLabel.setFocusTraversable(true);
         errorLabel.setAccessibleText("Form error messages");
         errorLabel.setAccessibleHelp(
                 "Displays validation errors when form input is incorrect");
@@ -135,12 +135,17 @@ public class AddTaskController {
         formInstructionLabel.setAccessibleHelp(
                 "Fill in task information and press create");
 
-        dueDatePicker.getEditor().textProperty().addListener((obs, oldDate, newDate) -> {
-            if (newDate == null) {
+
+
+
+        dueDatePicker.getEditor().textProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal == null) {
                 errorLabel.setText("Please enter a valid date format.");
 
-                // WCAG: announce error
+
                 errorLabel.setAccessibleText("Error: invalid date format");
+                errorLabel.setFocusTraversable(true);
+                errorLabel.requestFocus();
             } else {
                 errorLabel.setText("");
             }

@@ -66,22 +66,18 @@ public class SignupController {
         usernameLabel.setLabelFor(usernameField);
         passwordLabel.setLabelFor(passwordField);
         confirmPasswordLabel.setLabelFor(confirmPasswordField);
+        formInstructionLabel.setFocusTraversable(true);
+        formInstructionLabel.setAccessibleText("Account creation instructions");
 
-        formInstructionLabel.setAccessibleText(
-                "Account creation instructions");
-
-        formInstructionLabel.setAccessibleHelp(
-                "Enter username password and confirm password to create account");
+        formInstructionLabel.setAccessibleHelp("Enter username password and confirm password to create account");
 
         usernameLabel.setAccessibleText("Username label");
         usernameField.setAccessibleText("Username input field");
-        usernameField.setAccessibleHelp(
-                "Enter a unique username for the new account");
+        usernameField.setAccessibleHelp("Enter a unique username for the new account");
 
         passwordLabel.setAccessibleText("Password label");
         passwordField.setAccessibleText("Password input field");
-        passwordField.setAccessibleHelp(
-                "Enter a secure password");
+        passwordField.setAccessibleHelp("Enter a secure password");
 
         confirmPasswordLabel.setAccessibleText("Confirm password label");
         confirmPasswordField.setAccessibleText(

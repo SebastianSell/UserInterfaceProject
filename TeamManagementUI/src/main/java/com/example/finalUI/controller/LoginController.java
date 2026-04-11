@@ -65,6 +65,7 @@ public class LoginController {
         Platform.runLater(() -> loginTitleLabel.requestFocus());
         usernameLabel.setLabelFor(usernameField);
         passwordLabel.setLabelFor(passwordField);
+        errorLabel.setFocusTraversable(true);
         formInstructionLabel.setAccessibleText("Instructions for logging in");
         formInstructionLabel.setAccessibleHelp("Enter your username and password to log into the system");
         usernameField.setAccessibleText("Username input field");
