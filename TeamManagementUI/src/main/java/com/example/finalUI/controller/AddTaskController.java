@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 
 import java.time.LocalDateTime;
@@ -134,9 +135,8 @@ public class AddTaskController {
         formInstructionLabel.setAccessibleHelp(
                 "Fill in task information and press create");
 
-        dueDatePicker.getEditor().textProperty().addListener((obs, oldText, newText) -> {
-
-            if (!newText.matches("\\d{0,4}/\\d{0,2}/\\d{0,2}")) {
+        dueDatePicker.getEditor().textProperty().addListener((obs, oldDate, newDate) -> {
+            if (newDate == null) {
                 errorLabel.setText("Please enter a valid date format.");
 
                 // WCAG: announce error
@@ -153,7 +153,7 @@ public class AddTaskController {
 
 
         ResourceBundle bundle =
-                ResourceBundle.getBundle("messages", LanguageManager.getLocale());
+                ResourceBundle.getBundle("com.example.finalUI/messages", LanguageManager.getLocale());
 
         // Store keys internally
         difficultyBox.setItems(FXCollections.observableArrayList(
@@ -249,5 +249,12 @@ public class AddTaskController {
     @FXML
     private void handleCancel(){
         SceneSwitcher.switchScene(taskNameField, "task-view.fxml");
+    }
+
+    /**
+     * Returns the Node that should receive initial focus when the page loads.
+     */
+    public Node getFirstFocusNode() {
+        return createTitleLabel; // or the main label/button of the page
     }
 }

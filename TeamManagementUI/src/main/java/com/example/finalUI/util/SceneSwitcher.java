@@ -39,6 +39,17 @@ public class SceneSwitcher {
             Parent root = loader.load();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.setScene(new Scene(root));
+
+            Platform.runLater(() -> {
+                Object controller = loader.getController();
+                if (controller instanceof FocusablePage) {
+                    Node firstNode = ((FocusablePage) controller).getFirstFocusNode();
+                    if (firstNode != null) {
+                        firstNode.requestFocus();
+                    }
+                }
+            });
+
             stage.setMaximized(true);
 
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();

@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 
 import java.sql.Connection;
@@ -480,6 +481,11 @@ public class TaskController {
         SceneSwitcher.switchScene(menuNav, "task-view.fxml");
     }
 
+    /**
+     * Switches all UI text to the given locale.
+     *
+     * @param locale the locale to switch the UI to
+     */
     public void switchLanguage(Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", locale);
 
@@ -501,5 +507,12 @@ public class TaskController {
         logoutMenuItem.setText(bundle.getString("logout"));
         closeMenuItem.setText(bundle.getString("closeApplication"));
         aboutMenuItem.setText(bundle.getString("about"));
+    }
+
+    /**
+     * Returns the Node that should receive initial focus when the page loads.
+     */
+    public Node getFirstFocusNode() {
+        return tableTitleLabel; // or the main label/button of the page
     }
 }

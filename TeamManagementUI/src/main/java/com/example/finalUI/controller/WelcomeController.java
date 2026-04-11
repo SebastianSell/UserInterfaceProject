@@ -3,6 +3,7 @@ package com.example.finalUI.controller;
 import com.example.finalUI.util.SceneSwitcher;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -61,5 +62,12 @@ public class WelcomeController {
     @FXML
     private void openSignup() {
         SceneSwitcher.switchScene(signupButton, "signup-view.fxml");
+    }
+
+    /**
+     * Returns the Node that should receive initial focus when the page loads.
+     */
+    public Node getFirstFocusNode() {
+        return titleLabel; // or the main label/button of the page
     }
 }

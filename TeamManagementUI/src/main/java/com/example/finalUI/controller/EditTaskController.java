@@ -5,6 +5,7 @@ import com.example.finalUI.model.TaskModel;
 import com.example.finalUI.util.SceneSwitcher;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 
 import java.sql.Connection;
@@ -204,5 +205,12 @@ public class EditTaskController {
     @FXML
     private void handleCancel(){
         SceneSwitcher.switchScene(taskNameField, "task-view.fxml");
+    }
+
+    /**
+     * Returns the Node that should receive initial focus when the page loads.
+     */
+    public Node getFirstFocusNode() {
+        return editTitleLabel; // or the main label/button of the page
     }
 }

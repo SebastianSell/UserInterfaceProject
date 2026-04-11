@@ -6,6 +6,7 @@ import com.example.finalUI.util.SceneSwitcher;
 import com.example.finalUI.util.PasswordUtil;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 
 import java.sql.Connection;
@@ -182,5 +183,12 @@ public class SignupController {
 
         SceneSwitcher.switchScene(backButton, "welcome-view.fxml");
 
+    }
+
+    /**
+     * Returns the Node that should receive initial focus when the page loads.
+     */
+    public Node getFirstFocusNode() {
+        return signupTitle; // or the main label/button of the page
     }
 }

@@ -6,6 +6,7 @@ import com.example.finalUI.util.PasswordUtil;
 import com.example.finalUI.util.Session;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -146,5 +147,12 @@ public class LoginController {
     @FXML
     private void handleCancel(){
         SceneSwitcher.switchScene(backButton, "welcome-view.fxml");
+    }
+
+    /**
+     * Returns the Node that should receive initial focus when the page loads.
+     */
+    public Node getFirstFocusNode() {
+        return loginTitleLabel; // or the main label/button of the page
     }
 }
