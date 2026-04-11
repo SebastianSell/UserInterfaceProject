@@ -31,7 +31,7 @@ public class SceneSwitcher {
         try {
 
             ResourceBundle bundle =
-                    ResourceBundle.getBundle("messages", LanguageManager.getLocale());
+                    ResourceBundle.getBundle("com.example.finalUI/messages", LanguageManager.getLocale());
 
             FXMLLoader loader = new FXMLLoader(
                     SceneSwitcher.class.getResource("/com/example/finalUI/" + fxml),bundle

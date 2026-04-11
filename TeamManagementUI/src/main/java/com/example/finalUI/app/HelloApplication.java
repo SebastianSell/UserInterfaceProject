@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import java.util.Locale;
 import java.util.ResourceBundle;
 import com.example.finalUI.util.LanguageManager;
 
@@ -24,8 +25,9 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         DatabaseConnection.initializeDatabase();
         // Loads the FXML file
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/finalUI/welcome-view.fxml")
-        ,ResourceBundle.getBundle("messages", LanguageManager.getLocale())
+        ,ResourceBundle.getBundle("com.example.finalUI/messages", LanguageManager.getLocale())
         );
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("CRUD Table Example");

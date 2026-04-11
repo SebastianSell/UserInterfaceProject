@@ -20,6 +20,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
+
 import com.example.finalUI.util.LanguageManager;
 
 
@@ -92,6 +94,7 @@ public class TaskController {
     @FXML
     private TableColumn<TaskModel,String> notesColumn;
 
+
     @FXML
     private Button createButton;
 
@@ -113,6 +116,8 @@ public class TaskController {
 
     private ObservableList<TaskModel> data = FXCollections.observableArrayList();
 
+    private ResourceBundle bundle;
+
     /**
      * Iniltialization for the class
      */
@@ -124,7 +129,9 @@ public class TaskController {
         tableView.setAccessibleText("Table listing all tasks for the current user");
         tableView.setAccessibleHelp("Displays all tasks assigned to the team");
 
-        /*Columns*/
+
+
+
         taskNameColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getTaskName())
         );
@@ -139,13 +146,15 @@ public class TaskController {
         updateButton.setAccessibleText("Update selected task");
         deleteButton.setAccessibleText("Delete selected task");
 
-        taskNameColumn.setText("Task name column");
-        taskDifficultyColumn.setText("Difficulty column");
-        memberAssignedColumn.setText("Assigned member column");
-        statusColumn.setText("Status column");
-        dueDateColumn.setText("Due date column");
-        createdDateColumn.setText("Created date column");
-        notesColumn.setText("Notes column");
+        ResourceBundle bundle = ResourceBundle.getBundle("com.example.finalUI.messages", LanguageManager.getLocale());
+
+        taskNameColumn.setText(bundle.getString("taskName"));
+        taskDifficultyColumn.setText(bundle.getString("taskDifficulty"));
+        memberAssignedColumn.setText(bundle.getString("assignedTo"));
+        statusColumn.setText(bundle.getString("taskStatus"));
+        dueDateColumn.setText(bundle.getString("dueDate"));
+        createdDateColumn.setText(bundle.getString("createdDate"));
+        notesColumn.setText(bundle.getString("notes"));
 
         tableView.setAccessibleText(
                 "Task table listing all tasks");
@@ -469,5 +478,28 @@ public class TaskController {
     private void setFrench() {
         LanguageManager.setLocale(Locale.FRENCH);
         SceneSwitcher.switchScene(menuNav, "task-view.fxml");
+    }
+
+    public void switchLanguage(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", locale);
+
+        taskNameColumn.setText(bundle.getString("taskName"));
+        taskDifficultyColumn.setText(bundle.getString("taskDifficulty"));
+        memberAssignedColumn.setText(bundle.getString("assignedTo"));
+        statusColumn.setText(bundle.getString("taskStatus"));
+        dueDateColumn.setText(bundle.getString("dueDate"));
+        createdDateColumn.setText(bundle.getString("createdDate"));
+        notesColumn.setText(bundle.getString("notes"));
+
+        tableTitleLabel.setText(bundle.getString("task"));
+        createButton.setText(bundle.getString("create"));
+        updateButton.setText(bundle.getString("update"));
+        deleteButton.setText(bundle.getString("delete"));
+        fileMenu.setText(bundle.getString("file"));
+        helpMenu.setText(bundle.getString("help"));
+        extraMenu.setText(bundle.getString("extra"));
+        logoutMenuItem.setText(bundle.getString("logout"));
+        closeMenuItem.setText(bundle.getString("closeApplication"));
+        aboutMenuItem.setText(bundle.getString("about"));
     }
 }
