@@ -25,7 +25,6 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         DatabaseConnection.initializeDatabase();
         // Loads the FXML file
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/finalUI/welcome-view.fxml")
         ,ResourceBundle.getBundle("com.example.finalUI/messages", LanguageManager.getLocale())
         );
